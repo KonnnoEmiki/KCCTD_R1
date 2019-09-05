@@ -1,0 +1,11 @@
+
+Temp
+*.csproj
+*.sln
+.vs
+*.suo
+Debug
+/unity/Library
+/unity/Build
+/unity/obj
+/unity/Logs
