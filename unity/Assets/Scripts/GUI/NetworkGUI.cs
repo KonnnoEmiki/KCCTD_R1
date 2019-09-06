@@ -231,13 +231,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
 	// ゲーム終了時,ゲーム中にホストが抜けた場合などに使用
 	public void OnOutGameScene()
-	{
-		m_IsInGameScene = false;
-	}
-
-    public void OnInGameScene()
     {
         LoadInGameScene();
-    }
-
+        m_IsInGameScene = false;
+	}
 }
