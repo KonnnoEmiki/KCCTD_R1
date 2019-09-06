@@ -15700,6 +15700,9 @@ GameObject:
   - component: {fileID: 1719991404761767981}
   - component: {fileID: 1719991404761767982}
   - component: {fileID: 1719991404761767983}
+  - component: {fileID: 7125389672099315660}
+  - component: {fileID: 8729481886716907815}
+  - component: {fileID: 3871500906360221276}
   m_Layer: 0
   m_Name: Stage
   m_TagString: SpawnArea
@@ -18161,6 +18164,45 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!65 &7125389672099315660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719991404761767976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 11.892186, y: 2.0298395, z: 19.938625}
+  m_Center: {x: 3.0148683, y: -0.9851804, z: -5.0028934}
+--- !u!65 &8729481886716907815
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719991404761767976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 19.940603, y: 2.0298395, z: 11.893587}
+  m_Center: {x: 3.014865, y: -0.9851804, z: -4.941949}
+--- !u!65 &3871500906360221276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719991404761767976}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 11.892186, y: 2.0298395, z: 19.938625}
+  m_Center: {x: 3.0148683, y: -0.9851804, z: -5.0028934}
 --- !u!1 &1719991404862159375
 GameObject:
   m_ObjectHideFlags: 0
