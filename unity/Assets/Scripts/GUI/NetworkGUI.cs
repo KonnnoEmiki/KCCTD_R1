@@ -120,6 +120,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// ルーム作成用GUI
 	private void OnGui_CreateRoom()
 	{
+        gs = false;
 		GUILayout.Label("Create Room", new GUIStyle { fontStyle = FontStyle.Bold });
 		GUILayout.BeginHorizontal();
 		GUILayout.Label("Room Name");
