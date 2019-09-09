@@ -40,7 +40,8 @@ public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<Netw
     {
 		if (m_InGameUITexts == null) return;
 		UpdateSurvivingPlayersTextUI();
-		PlayerManager.Instance.AddObserver(this);
+        starttext = true;
+        PlayerManager.Instance.AddObserver(this);
 	}
 
     static async void Delay()
