@@ -103,7 +103,19 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 		Init();
     }
 
-	void Update()
+    void OnTriggerEnter(Collider hit)
+    {
+        // 接触対象はkillerタグですか？
+        if (hit.CompareTag("killer"))
+        {
+
+            // Unityちゃん is 死
+            OnDown();
+        }
+    }
+
+
+void Update()
 	{
 		if (GameManager.IsGameSet) return;
 		if (monobitView.isMine == false) return;
