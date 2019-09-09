@@ -7,11 +7,16 @@ public class Shooting : MonoBehaviour
 
     public GameObject bulletPrefab;
     public float shotSpeed;
-    public int shotCount = 30;
+    public int shotCount = 6;
+    public float starttime;
+    public float now;
     private float shotInterval;
 
     void Update()
     {
+        Transform myTransform = this.transform.parent;
+        Vector3 pos = myTransform.position;
+        now = Time.time;
         if (Input.GetKey(KeyCode.Mouse0))
         {
 
@@ -31,10 +36,10 @@ public class Shooting : MonoBehaviour
             }
 
         }
-        else if (Input.GetKeyDown(KeyCode.R))
+        else if (pos.x>=-1&&pos.x<=1&&pos.z>=-1&&pos.z<=1&&starttime<=now-5)
         {
-            shotCount = 30;
-
+            starttime = Time.time;
+            shotCount = 6;
         }
 
     }
