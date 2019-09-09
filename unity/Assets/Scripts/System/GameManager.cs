@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour<GameManager>,IObserver<PlayerEvent>,IOb
 		StartCoroutine(DelayFinishGame(m_FinishGameOffsetTime));
 		m_IsOnNetworkError = true;
 		return false;
+
 	}
 
 	// 指定時間待ってゲーム終了

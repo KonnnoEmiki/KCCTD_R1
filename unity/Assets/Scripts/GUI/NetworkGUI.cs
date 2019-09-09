@@ -19,6 +19,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool gs = false;
 
+    private bool gsf=true;
+
     private void Start()
 	{
 		NetworkManager.Instance.AddNetworkEventObserver(this);
@@ -202,7 +204,15 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
 	}
 
-    void Update() { var roomData = MonobitEngine.MonobitNetwork.room; if (roomData.visible == false) gs = true; }
+    void Update()
+    {
+        var roomData = MonobitEngine.MonobitNetwork.room;
+        if (roomData.visible == false && gsf == true)
+        {
+            gs = true;
+            gsf = false;
+        }
+    }
 
 	// InGameSceneロード
 	[MunRPC]
