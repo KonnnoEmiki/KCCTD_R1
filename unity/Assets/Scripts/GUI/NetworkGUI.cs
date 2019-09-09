@@ -100,9 +100,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
 
 		if (GUILayout.Button("Game Start", GUILayout.Width(BaseGUIWidth * 2)))
-		{
-            gs = true;
-			monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
+        {
+            monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
 			roomData.visible = false; // ゲーム開始後はルームが他プレイヤーから見えないように
 			LoadInGameScene();
 		}
@@ -113,7 +112,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	{
 		if (GUILayout.Button("Leave from Room", GUILayout.Width(BaseGUIWidth * 2)))
 		{
-			m_OnPushLeftOrDisconnectButton = true;
+			m_OnPushLeftOrDisconnectButton = false;
 			NetworkManager.Instance.LeaveRoom();
 		}
 	}
@@ -202,13 +201,14 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
 	}
 
+    void Update() { var roomData = MonobitEngine.MonobitNetwork.room; if (roomData.visible == false) gs = true; }
+
 	// InGameSceneロード
 	[MunRPC]
 	private void LoadInGameScene()
 	{
 		if (m_IsInGameScene) return;
-		
-		ApplicationManager.SceneMgr.FadeToLoadScene(InGameSceneName);
+        ApplicationManager.SceneMgr.FadeToLoadScene(InGameSceneName);
 		m_IsInGameScene = true;
 	}
 
@@ -243,6 +243,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
     public void OnInGameScene()
     {
         LoadInGameScene();
+        m_IsInGameScene = false;
+        gs = false;
     }
 
 }
