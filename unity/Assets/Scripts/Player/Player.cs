@@ -23,7 +23,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 	private bool m_IsDown = false;
 	public bool IsDown { get { return m_IsDown; } }
 
-	public Vector3 Velocity
+    public Vector3 Velocity
 	{
 		get
 		{
@@ -110,6 +110,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         {
 
             // Unityちゃん is 死
+            if(NetworkGUI.gs==true)
             OnDown();
         }
     }
@@ -123,7 +124,7 @@ void Update()
 		if (Input.GetKeyDown(KeyCode.Escape))
 			ApplicationManager.CursorMgr.ToggleSettings();
 
-		SetGroundedFlag();
+        SetGroundedFlag();
 	}
 
 	void FixedUpdate()
@@ -152,10 +153,10 @@ void Update()
 
 		var ballSpeed = rb.velocity.magnitude;
 		if (ballSpeed > m_DurableValue) // ボールの速度が耐久値を上回っていたら
-			OnDown();
+            if (NetworkGUI.gs == true) OnDown();
 	}
-	
-	void Init()
+
+    void Init()
 	{
 		// 各種アニメーション関連のイベント通知受け取り用
 		m_AnimController.AddObserver(this);
@@ -202,6 +203,7 @@ void Update()
 		PlayerManager.Instance.OnSpawnPlayer(this);
 		CheckIsGrounding();
 		SetGroundedFlag(); // 地面判定(一応)
+
 		if (m_RigidBody != null) m_RigidBody.useGravity = true;
 	}
 
