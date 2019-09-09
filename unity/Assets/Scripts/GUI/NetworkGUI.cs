@@ -239,4 +239,10 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         m_IsInGameScene = false;
         gs = false;
 	}
+
+    public void OnInGameScene()
+    {
+        LoadInGameScene();
+    }
+
 }

@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour<GameManager>,IObserver<PlayerEvent>,IOb
 		ApplicationManager.CursorMgr.SetDefaultSettings();
 		ApplicationManager.SceneMgr.FadeToLoadScene(m_OutGameSceneName);
 		NetworkManager.Instance.LeaveRoom();
-		NetworkGUI.Instance.OnOutGameScene(); // OutGameへ遷移
+		NetworkGUI.Instance.OnInGameScene(); // OutGameへ遷移
 	}
 
 	// 全プレイヤーがスポーンした
