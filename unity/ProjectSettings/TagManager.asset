@@ -7,6 +7,7 @@ TagManager:
   - Ball
   - Area
   - SpawnArea
+  - killer
   layers:
   - Default
   - TransparentFX
