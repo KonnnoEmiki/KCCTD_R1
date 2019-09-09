@@ -44,7 +44,7 @@ public class Shooting : MonoBehaviour
             }
 
         }
-        else if (pos.x>=-1&&pos.x<=1&&pos.z>=-1&&pos.z<=1&&starttime<=now-5)
+        else if (pos.x>=-1&&pos.x<=1&&pos.z>=-1&&pos.z<=1&&starttime<=now-5&&shotCount<6)
         {
             starttime = Time.time;
             shotCount = 6;
