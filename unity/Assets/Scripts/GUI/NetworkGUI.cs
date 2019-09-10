@@ -250,6 +250,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         LoadInGameScene();
         m_IsInGameScene = false;
         gs = false;
+        gsf = true;
 	}
 
     public void OnInGameScene()
@@ -257,6 +258,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         LoadInGameScene();
         m_IsInGameScene = false;
         gs = false;
+        gsf = true;
     }
 
 }
