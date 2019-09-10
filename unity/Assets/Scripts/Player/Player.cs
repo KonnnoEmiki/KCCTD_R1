@@ -104,7 +104,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 		m_PlayerController = GetComponent<PlayerController>();
 		m_AnimController = GetComponent<PlayerAnimationController>();
 
-        Life = 3;
+        LifeCount = 3;
 
 		Init();
     }
@@ -177,8 +177,8 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 		var ballSpeed = rb.velocity.magnitude;
 		if (ballSpeed > m_DurableValue) // ボールの速度が耐久値を上回っていたら
             if (NetworkGUI.gs == true)
-                Life--;
-            if (Life == 0)
+                LifeCount--;
+            if (LifeCount == 0)
                 OnDown();
 	}
 
