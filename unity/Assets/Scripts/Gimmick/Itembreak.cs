@@ -8,7 +8,7 @@ public class Itembreak : MonoBehaviour
     void OnTriggerEnter(Collider hit)
     {
         // 接触対象はPlayerタグですか？
-        if (hit.CompareTag("Player"))
+        if (hit.CompareTag("Player") && NetworkGUI.gs == true )
         {
             // このコンポーネントを持つGameObjectを破棄する
             Destroy(gameObject);
