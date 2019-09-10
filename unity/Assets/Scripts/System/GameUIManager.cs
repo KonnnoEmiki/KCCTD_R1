@@ -29,6 +29,9 @@ public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<Netw
     [SerializeField]
     private Text m_GameStartText = null;
 
+    [SerializeField]
+    private Text m_LifeText = null;
+
     private static bool starttext = true;
 
     void Awake()
@@ -58,7 +61,13 @@ public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<Netw
             m_GameStartText.text = m_InGameUITexts.m_GameStartText;
             Delay();
         }
-        if(starttext==false)m_GameStartText.gameObject.SetActive(false);
+        if (NetworkGUI.gs == true)
+        {
+            m_LifeText.gameObject.SetActive(true);
+            m_LifeText.text = m_InGameUITexts.m_LifeText + Player.LifeCount;
+        }
+        if(starttext==false)
+            m_GameStartText.gameObject.SetActive(false);
     }
 
     // プレイヤー関連のイベント受信用
