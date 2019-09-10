@@ -35,6 +35,8 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     private float shotInterval;
     public Text shellLabel;
 
+    Vector3 lookAheadPosition;
+
     private float m_JumpStartTimeMoveKeyValue = 0;
 
 	void Start()
@@ -122,6 +124,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         void Shooting()
         {
+            monobitView.RPC("UpdateLookAhead", MonobitEngine.MonobitTargets.All, lookAheadPosition);
+            lookAheadPosition = this.gameObject.transform.position + this.gameObject.transform.forward / 2;
+            lookAheadPosition.y += 1;
             Transform myTransform = this.transform;
             Vector3 pos = myTransform.position;
             now = Time.time;
@@ -163,10 +168,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     [MunRPC]
     void enemyshooting()
     {
-        Transform myTransform = this.transform;
-        Vector3 pos1 = myTransform.position + this.gameObject.transform.forward / 2;
-        pos1.y += 1;
-        GameObject bullet = (GameObject)Instantiate(bulletPrefab, pos1, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
+        GameObject bullet = (GameObject)Instantiate(bulletPrefab, lookAheadPosition, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         bulletRb.AddForce(transform.forward * shotSpeed);
         //射撃されてから3秒後に弾のオブジェクトを破壊する.
@@ -175,8 +177,15 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
     }
 
-// アニメーションイベント受け取り用
-public void OnNotify(Observable<PlayerAnimationEvent> observer, PlayerAnimationEvent e)
+    [MunRPC]
+    void UpdateLookAhead(Vector3 position)
+    {
+        lookAheadPosition = position;
+    }
+
+
+    // アニメーションイベント受け取り用
+    public void OnNotify(Observable<PlayerAnimationEvent> observer, PlayerAnimationEvent e)
 	{
 		EventDispatcher dispatcher = new EventDispatcher(e);
 		dispatcher.Dispatch<OnJumpEvent>(OnJump);
