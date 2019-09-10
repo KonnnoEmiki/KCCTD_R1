@@ -10,12 +10,15 @@ public class BallLauncherSpawner : MonoBehaviour<BallLauncherSpawner>
 
 	public void SpawnLauncher()
 	{
-		Vector3 spherePos = Random.onUnitSphere;
-		var areaRadius = GameManager.Instance.AreaCollider.bounds.size.x * 0.5f * 0.9f;
-		spherePos *= areaRadius;
-		spherePos.y = Mathf.Abs(spherePos.y);
-		Quaternion rotation = Quaternion.LookRotation(-spherePos);
+        if (NetworkGUI.gs == true)
+        {
+            Vector3 spherePos = Random.onUnitSphere;
+            var areaRadius = GameManager.Instance.AreaCollider.bounds.size.x * 0.5f * 0.9f;
+            spherePos *= areaRadius;
+            spherePos.y = Mathf.Abs(spherePos.y);
+            Quaternion rotation = Quaternion.LookRotation(-spherePos);
 
-		MonobitEngine.MonobitNetwork.Instantiate(m_LauncherPrefabPath,spherePos,rotation,0);
+            MonobitEngine.MonobitNetwork.Instantiate(m_LauncherPrefabPath, spherePos, rotation, 0);
+        }
 	}
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Threading.Tasks;
 
 // InGameのUI管理用クラス
 public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<NetworkEvent>
@@ -23,8 +25,13 @@ public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<Netw
 
 	[SerializeField]
 	private Text m_NetworkErrorText = null;
-	
-	void Awake()
+
+    [SerializeField]
+    private Text m_GameStartText = null;
+
+    private static bool starttext = true;
+
+    void Awake()
 	{
 		NetworkManager.Instance.AddNetworkEventObserver(this);
 	}
@@ -33,11 +40,29 @@ public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<Netw
     {
 		if (m_InGameUITexts == null) return;
 		UpdateSurvivingPlayersTextUI();
-		PlayerManager.Instance.AddObserver(this);
+        starttext = true;
+        PlayerManager.Instance.AddObserver(this);
 	}
 
-	// プレイヤー関連のイベント受信用
-	public void OnNotify(Observable<PlayerEvent> observer, PlayerEvent e)
+    static async void Delay()
+    {
+            await Task.Delay(3000);
+            starttext = false;
+    }
+
+    private void Update()
+    {
+        if (starttext == true && NetworkGUI.gs == true)
+        {
+            m_GameStartText.gameObject.SetActive(true);
+            m_GameStartText.text = m_InGameUITexts.m_GameStartText;
+            Delay();
+        }
+        if(starttext==false)m_GameStartText.gameObject.SetActive(false);
+    }
+
+    // プレイヤー関連のイベント受信用
+    public void OnNotify(Observable<PlayerEvent> observer, PlayerEvent e)
 	{
 		EventDispatcher dispatcher = new EventDispatcher(e);
 		dispatcher.Dispatch<OnSpawnPlayerEvent>(UpdateSurvivingPlayersTextUI);

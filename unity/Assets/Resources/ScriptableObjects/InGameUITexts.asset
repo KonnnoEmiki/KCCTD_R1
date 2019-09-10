@@ -16,3 +16,5 @@ MonoBehaviour:
   m_GameSetText: GameSet
   m_WinText: You Win
   m_LoseText: You Lose
+  m_NetworkErrorText: 
+  m_GameStartText: GameStart!
