@@ -81,6 +81,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
         Move();     // 移動
         Shooting();
 
+
         // カメラの向いている方向に回転 & カメラから見て左右方向に回転
         void Rotation()
         {
@@ -133,16 +134,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 {
                     shotCount -= 1;
                     shellLabel.text = "玉：" + shotCount;
-                    Vector3 pos1 = myTransform.position+ this.gameObject.transform.forward/2;
-                    pos1.y += 1;
-
-                    GameObject bullet = (GameObject)Instantiate(bulletPrefab, pos1, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
-                    Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-                    bulletRb.AddForce(transform.forward * shotSpeed);
-
-                    //射撃されてから3秒後に弾のオブジェクトを破壊する.
-
-                    Destroy(bullet, 3.0f);
+                    monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
 
             }
@@ -167,9 +159,24 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 			monobitView.RPC("PlayJumpAnim", MonobitEngine.MonobitTargets.Others);
 		m_AnimController.SetAnimationParameter(m_JumpParam);
 	}
+    
+    [MunRPC]
+    void enemyshooting()
+    {
+        Transform myTransform = this.transform;
+        Vector3 pos1 = myTransform.position + this.gameObject.transform.forward / 2;
+        pos1.y += 1;
+        GameObject bullet = (GameObject)Instantiate(bulletPrefab, pos1, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+        bulletRb.AddForce(transform.forward * shotSpeed);
+        //射撃されてから3秒後に弾のオブジェクトを破壊する.
 
-	// アニメーションイベント受け取り用
-	public void OnNotify(Observable<PlayerAnimationEvent> observer, PlayerAnimationEvent e)
+        Destroy(bullet, 3.0f);
+
+    }
+
+// アニメーションイベント受け取り用
+public void OnNotify(Observable<PlayerAnimationEvent> observer, PlayerAnimationEvent e)
 	{
 		EventDispatcher dispatcher = new EventDispatcher(e);
 		dispatcher.Dispatch<OnJumpEvent>(OnJump);
