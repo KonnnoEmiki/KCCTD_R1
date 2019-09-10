@@ -183,7 +183,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// 既存ルームへの入室用GUI
 	private void OnGui_ChooseRoom()
 	{
-		var roomDataList = MonobitEngine.MonobitNetwork.GetRoomData();
+        gsf = true;
+        var roomDataList = MonobitEngine.MonobitNetwork.GetRoomData();
 		if (roomDataList.Length < 1)
 			return; // 他にルームが見つからなかった
 
