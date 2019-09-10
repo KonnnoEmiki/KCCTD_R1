@@ -18,7 +18,13 @@ public class GM : MonobitEngine.MonoBehaviour
         string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
         GUILayout.Label("Num Players : " + roomData.name + playerInfo, GUILayout.Width(BaseGUIWidth * 3));
         monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
-        roomData.visible = false; // ゲーム開始後はルームが他プレイヤーから見えないように
+        roomData.visible = false; // ルームが他プレイヤーから見えないように
+    }
+
+    private void Update()
+    {
+        if (NetworkGUI.gs == true)
+            Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider hit)
@@ -28,8 +34,6 @@ public class GM : MonobitEngine.MonoBehaviour
             if (RoomManager.IsHost == true)
                 if (monobitView.isMine == true)
                 {
-                    Select.gameObject.SetActive(false);
-                    Destroy(gameObject);
                     var roomData = MonobitEngine.MonobitNetwork.room;
                     string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
                     GUILayout.Label("Num Players : " + roomData.name + playerInfo, GUILayout.Width(BaseGUIWidth * 3));
