@@ -115,7 +115,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		if (GUILayout.Button("Leave from Room", GUILayout.Width(BaseGUIWidth * 2)))
 		{
 			m_OnPushLeftOrDisconnectButton = false;
-			NetworkManager.Instance.LeaveRoom();
+            OnInGameScene();
+            NetworkManager.Instance.LeaveRoom();
 		}
 	}
 
