@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoForest : MonoBehaviour
+public class modeRun : MonoBehaviour
 {
     [SerializeField]
-    private GameObject ForestStage = null;
-    [SerializeField]
-    private GameObject Stage = null;
-    [SerializeField]
-    private GameObject Plane = null;
+    private GameObject BallLuncher = null;
+
     // トリガーとの接触時に呼ばれるコールバック
     void OnTriggerEnter(Collider hit)
     {
@@ -17,10 +14,8 @@ public class GoForest : MonoBehaviour
         if (hit.CompareTag("Player"))
             if (RoomManager.IsHost == true)
             {
-            GM.stageselect = 2;
-            ForestStage.gameObject.SetActive(true);
-            Plane.gameObject.SetActive(false);
-            Stage.gameObject.SetActive(false);
+            GM.gamemode = 1;
+            BallLuncher.gameObject.SetActive(true);
             }
     }
 }
