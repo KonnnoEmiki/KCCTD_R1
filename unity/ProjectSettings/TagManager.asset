@@ -8,7 +8,11 @@ TagManager:
   - Area
   - SpawnArea
   - killer
+<<<<<<< HEAD
   - Stage2
+=======
+  - muscle
+>>>>>>> origin/valac
   layers:
   - Default
   - TransparentFX

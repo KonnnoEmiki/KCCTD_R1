@@ -113,7 +113,8 @@ public class RoomManager : MonobitEngine.MonoBehaviour
 		if (MonobitEngine.MonobitNetwork.inRoom == false)
 			return;
 		MonobitEngine.MonobitNetwork.LeaveRoom();
-	}
+
+    }
 
 	// エラーログ出力 無ければ出力無し
 	public void LogError()

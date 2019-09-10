@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Threading.Tasks;
 
 [RequireComponent(typeof(Rigidbody),typeof(CapsuleCollider))]
 [RequireComponent(typeof(PlayerController), typeof(PlayerAnimationController))]
@@ -93,12 +95,18 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 
 	private Vector3 m_CastOffset;
 
+    public static int Stamina = 3;
+
+    public static int LifeCount = Stamina;
+
 	void Start()
     {
 		m_RigidBody = GetComponent<Rigidbody>();
 		m_Collider = GetComponent<CapsuleCollider>();
 		m_PlayerController = GetComponent<PlayerController>();
 		m_AnimController = GetComponent<PlayerAnimationController>();
+
+        LifeCount = 3;
 
 		Init();
     }
@@ -108,15 +116,33 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         // 接触対象はkillerタグですか？
         if (hit.CompareTag("killer"))
         {
-
             // Unityちゃん is 死
-            if(NetworkGUI.gs==true)
-            OnDown();
+            if (NetworkGUI.gs == true)
+                if (monobitView.isMine == false) return;    // 所有権が無ければ
+                else LifeCount--;
+            if(LifeCount==0)
+                OnDown();
+        }
+
+        // 接触対象はmuscleタグですか？
+        if (hit.CompareTag("muscle"))
+        {
+            // Unityちゃん is 不死
+            if (NetworkGUI.gs == true)
+            {
+                NetworkGUI.gs = false;
+                Delay();
+            }
         }
     }
 
+    static async void Delay()
+    {
+        await Task.Delay(3000);
+        NetworkGUI.gs = true;
+    }
 
-void Update()
+    void Update()
 	{
 		if (GameManager.IsGameSet) return;
 		if (monobitView.isMine == false) return;
@@ -152,8 +178,12 @@ void Update()
 		if (rb == null) return;
 
 		var ballSpeed = rb.velocity.magnitude;
-		if (ballSpeed > m_DurableValue) // ボールの速度が耐久値を上回っていたら
-            if (NetworkGUI.gs == true) OnDown();
+		if (ballSpeed*100 > m_DurableValue) // ボールの速度が耐久値を上回っていたら
+            if (NetworkGUI.gs == true)
+                if (monobitView.isMine == false) return;    // 所有権が無ければ
+                else LifeCount--;
+            if (LifeCount == 0)
+                OnDown();
 	}
 
     void Init()

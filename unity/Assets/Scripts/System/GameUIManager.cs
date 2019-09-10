@@ -29,7 +29,17 @@ public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<Netw
     [SerializeField]
     private Text m_GameStartText = null;
 
+    [SerializeField]
+    private Text m_LifeText = null;
+
+    [SerializeField]
+    private Text m_DamageEffect = null;
+
+    private int Life=-1;
+
     private static bool starttext = true;
+
+    private static bool damageflag = true;
 
     void Awake()
 	{
@@ -41,24 +51,50 @@ public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<Netw
 		if (m_InGameUITexts == null) return;
 		UpdateSurvivingPlayersTextUI();
         starttext = true;
+        damageflag = true;
         PlayerManager.Instance.AddObserver(this);
 	}
 
-    static async void Delay()
+    static async void DelayStart()
     {
             await Task.Delay(3000);
             starttext = false;
     }
 
+    static async void DelayDamage()
+    {
+        await Task.Delay(50);
+        damageflag = false;
+    }
+
     private void Update()
     {
-        if (starttext == true && NetworkGUI.gs == true)
+        if (NetworkGUI.gs == true)
         {
-            m_GameStartText.gameObject.SetActive(true);
-            m_GameStartText.text = m_InGameUITexts.m_GameStartText;
-            Delay();
+            if (starttext == true)
+            {
+                m_GameStartText.gameObject.SetActive(true);
+                m_GameStartText.text = m_InGameUITexts.m_GameStartText;
+                DelayStart();
+            }
+            if (Life != Player.LifeCount)
+            {
+                m_LifeText.gameObject.SetActive(true);
+                Life = Player.LifeCount;
+                m_LifeText.text = m_InGameUITexts.m_LifeText + Player.LifeCount;
+                if (Life != Player.Stamina)
+                {
+                    m_DamageEffect.gameObject.SetActive(true);
+                    m_DamageEffect.text = m_InGameUITexts.m_DamageEffect;
+                    DelayDamage();
+                }
+            }
+            if (damageflag == false)
+                m_DamageEffect.gameObject.SetActive(false);
+            damageflag = true;
+            if (starttext == false)
+                m_GameStartText.gameObject.SetActive(false);
         }
-        if(starttext==false)m_GameStartText.gameObject.SetActive(false);
     }
 
     // プレイヤー関連のイベント受信用

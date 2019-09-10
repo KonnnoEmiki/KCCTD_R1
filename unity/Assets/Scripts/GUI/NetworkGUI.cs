@@ -19,6 +19,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool gs = false;
 
+    private bool gsf=true;
+
     private void Start()
 	{
 		NetworkManager.Instance.AddNetworkEventObserver(this);
@@ -113,7 +115,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		if (GUILayout.Button("Leave from Room", GUILayout.Width(BaseGUIWidth * 2)))
 		{
 			m_OnPushLeftOrDisconnectButton = false;
-			NetworkManager.Instance.LeaveRoom();
+            OnInGameScene();
+            NetworkManager.Instance.LeaveRoom();
 		}
 	}
 
@@ -180,7 +183,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// 既存ルームへの入室用GUI
 	private void OnGui_ChooseRoom()
 	{
-		var roomDataList = MonobitEngine.MonobitNetwork.GetRoomData();
+        gsf = true;
+        var roomDataList = MonobitEngine.MonobitNetwork.GetRoomData();
 		if (roomDataList.Length < 1)
 			return; // 他にルームが見つからなかった
 
@@ -202,7 +206,15 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
 	}
 
-    void Update() { var roomData = MonobitEngine.MonobitNetwork.room; if (roomData.visible == false) gs = true; }
+    void Update()
+    {
+        var roomData = MonobitEngine.MonobitNetwork.room;
+        if (roomData.visible == false && gsf == true)
+        {
+            gs = true;
+            gsf = false;
+        }
+    }
 
 	// InGameSceneロード
 	[MunRPC]
@@ -239,6 +251,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         LoadInGameScene();
         m_IsInGameScene = false;
         gs = false;
+        gsf = true;
 	}
 
     public void OnInGameScene()
@@ -246,6 +259,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         LoadInGameScene();
         m_IsInGameScene = false;
         gs = false;
+        gsf = true;
     }
 
 }

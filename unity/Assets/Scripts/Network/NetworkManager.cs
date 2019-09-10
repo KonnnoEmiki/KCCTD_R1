@@ -73,13 +73,17 @@ public class NetworkManager : MonoBehaviour<NetworkManager>
 	{
 		if (m_RoomManager == null) return;
 
-		m_RoomManager.CreateRoom(roomName);
+        Player.LifeCount = Player.Stamina;
+
+        m_RoomManager.CreateRoom(roomName);
 	}
 
 	// ルームへ入室
 	public void JoinRoom(string roomName)
 	{
 		if (m_RoomManager == null) return;
+
+        Player.LifeCount = Player.Stamina;
 
 		m_RoomManager.JoinRoom(roomName);
 	}
