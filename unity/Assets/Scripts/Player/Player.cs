@@ -82,7 +82,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 	private float m_CastDistance;
 
 	[SerializeField]
-	private float m_DurableValue = 1; // 耐久値(どれくらいのスビードのボールまで当たっても耐えるか)
+	private float m_DurableValue = 10; // 耐久値(どれくらいのスビードのボールまで当たっても耐えるか)
 
 	private Rigidbody m_RigidBody = null;
 	private CapsuleCollider m_Collider = null;
