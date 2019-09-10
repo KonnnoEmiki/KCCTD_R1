@@ -58,7 +58,7 @@ MonoBehaviour:
   m_IsEncrypt: 1
   InternalObservedComponents: []
   ObservedComponents:
-  - {fileID: 7292611819624721267}
+  - {fileID: 5466437474452894664}
   ownerId: 0
   group: 0
   prefixBackup: -1
@@ -106,7 +106,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7292611819624721263}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 2
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -190,5 +190,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61bedffe36286bd45a11d73934c2371e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinDestroyTime: 0
-  m_MaxDestroyTime: 0
+  m_MinDestroyTime: 5
+  m_MaxDestroyTime: 7
