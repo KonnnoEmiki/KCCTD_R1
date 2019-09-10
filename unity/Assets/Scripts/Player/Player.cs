@@ -95,12 +95,18 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 
 	private Vector3 m_CastOffset;
 
+    public static int Stamina = 3;
+
+    public static int LifeCount = Stamina;
+
 	void Start()
     {
 		m_RigidBody = GetComponent<Rigidbody>();
 		m_Collider = GetComponent<CapsuleCollider>();
 		m_PlayerController = GetComponent<PlayerController>();
 		m_AnimController = GetComponent<PlayerAnimationController>();
+
+        LifeCount = 3;
 
 		Init();
     }
@@ -112,6 +118,8 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         {
             // Unityちゃん is 死
             if (NetworkGUI.gs == true)
+                LifeCount--;
+            if(LifeCount==0)
                 OnDown();
         }
 
@@ -170,7 +178,10 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 
 		var ballSpeed = rb.velocity.magnitude;
 		if (ballSpeed > m_DurableValue) // ボールの速度が耐久値を上回っていたら
-            if (NetworkGUI.gs == true) OnDown();
+            if (NetworkGUI.gs == true)
+                LifeCount--;
+            if (LifeCount == 0)
+                OnDown();
 	}
 
     void Init()
