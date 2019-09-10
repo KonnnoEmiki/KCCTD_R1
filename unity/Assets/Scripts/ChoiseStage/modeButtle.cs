@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class modeButtle : MonoBehaviour
+public class modeButtle : MonobitEngine.MonoBehaviour
 {
     [SerializeField]
     private GameObject BallLuncher = null;
@@ -13,6 +13,7 @@ public class modeButtle : MonoBehaviour
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player"))
             if (RoomManager.IsHost == true)
+                if(monobitView.isMine==true)
             {
             GM.gamemode = 2;
             BallLuncher.gameObject.SetActive(false);

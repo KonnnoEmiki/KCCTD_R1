@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoPlane : MonoBehaviour
+public class GoPlane : MonobitEngine.MonoBehaviour
 {
     [SerializeField]
     private GameObject Stage = null;
@@ -16,7 +16,8 @@ public class GoPlane : MonoBehaviour
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player"))
             if (RoomManager.IsHost == true)
-            {
+                if (monobitView.isMine == true)
+                {
             GM.stageselect = 1;
             Stage.gameObject.SetActive(true);
             Plane.gameObject.SetActive(false);

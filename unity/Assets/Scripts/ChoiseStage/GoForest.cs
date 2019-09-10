@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoForest : MonoBehaviour
+public class GoForest : MonobitEngine.MonoBehaviour
 {
     [SerializeField]
     private GameObject ForestStage = null;
@@ -16,7 +16,8 @@ public class GoForest : MonoBehaviour
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player"))
             if (RoomManager.IsHost == true)
-            {
+                if (monobitView.isMine == true)
+                {
             GM.stageselect = 2;
             ForestStage.gameObject.SetActive(true);
             Plane.gameObject.SetActive(false);
