@@ -8,6 +8,7 @@ public class modeButtle : MonobitEngine.MonoBehaviour
     private GameObject BallLuncher = null;
 
     // トリガーとの接触時に呼ばれるコールバック
+    [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
         // 接触対象はPlayerタグですか？
