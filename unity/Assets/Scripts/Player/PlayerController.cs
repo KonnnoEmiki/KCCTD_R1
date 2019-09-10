@@ -125,7 +125,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
         void Shooting()
         {
             monobitView.RPC("UpdateLookAhead", MonobitEngine.MonobitTargets.All, lookAheadPosition);
-            lookAheadPosition = this.gameObject.transform.position + this.gameObject.transform.forward / 2;
+            lookAheadPosition = this.gameObject.transform.position + this.gameObject.transform.forward;
             lookAheadPosition.y += 1;
             Transform myTransform = this.transform;
             Vector3 pos = myTransform.position;
