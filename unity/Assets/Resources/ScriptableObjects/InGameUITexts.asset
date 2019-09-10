@@ -19,3 +19,4 @@ MonoBehaviour:
   m_NetworkErrorText: 
   m_GameStartText: GameStart!
   m_LifeText: 'Life:'
+  m_DamageEffect: "\u25A0"

@@ -12,4 +12,5 @@ public class InGameUITexts : ScriptableObject
 	public string m_NetworkErrorText;
     public string m_GameStartText;
     public string m_LifeText;
+    public string m_DamageEffect;
 }

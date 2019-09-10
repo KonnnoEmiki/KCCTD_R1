@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour<GameManager>,IObserver<PlayerEvent>,IOb
 
 		yield return new WaitForSeconds(m_FinishGameOffsetTime);
 		FinishGame();
-		NetworkGUI.Instance.OnOutGameScene();
+		NetworkGUI.Instance.OnInGameScene();
 	}
 
 	protected override void OnDestroy()

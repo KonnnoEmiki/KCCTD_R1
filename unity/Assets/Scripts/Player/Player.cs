@@ -95,7 +95,9 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 
 	private Vector3 m_CastOffset;
 
-    public static int LifeCount=3;
+    public static int Stamina = 3;
+
+    public static int LifeCount = Stamina;
 
 	void Start()
     {
