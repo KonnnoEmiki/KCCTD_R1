@@ -118,7 +118,8 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         {
             // Unityちゃん is 死
             if (NetworkGUI.gs == true)
-                LifeCount--;
+                if (monobitView.isMine == false) return;    // 所有権が無ければ
+                else LifeCount--;
             if(LifeCount==0)
                 OnDown();
         }
@@ -177,9 +178,10 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 		if (rb == null) return;
 
 		var ballSpeed = rb.velocity.magnitude;
-		if (ballSpeed > m_DurableValue) // ボールの速度が耐久値を上回っていたら
+		if (ballSpeed*100 > m_DurableValue) // ボールの速度が耐久値を上回っていたら
             if (NetworkGUI.gs == true)
-                LifeCount--;
+                if (monobitView.isMine == false) return;    // 所有権が無ければ
+                else LifeCount--;
             if (LifeCount == 0)
                 OnDown();
 	}
