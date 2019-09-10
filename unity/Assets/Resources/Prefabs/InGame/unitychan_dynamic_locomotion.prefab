@@ -2125,7 +2125,7 @@ MonoBehaviour:
   m_DirectionParam:
     m_Index: -1128574192
     m_Type: 1
-  bulletPrefab: {fileID: 3078677595879404155, guid: d292b0b71d1e61e499261c14960dbaf7,
+  bulletPrefab: {fileID: 2250546357626845801, guid: f92a58a088b632144a7c0c60a392f87d,
     type: 3}
   shotSpeed: 500
   shotCount: 6

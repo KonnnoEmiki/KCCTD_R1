@@ -149,6 +149,30 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 shotCount = 6;
                 shellLabel.text = "玉：" + shotCount;
             }
+            else if (pos.x >= 6 && pos.x <= 8 && pos.z >= 6 && pos.z <=8 && starttime <= now - 5 && shotCount < 6)
+            {
+                starttime = Time.time;
+                shotCount = 6;
+                shellLabel.text = "玉：" + shotCount;
+            }
+            else if (pos.x >= 6 && pos.x <= 8 && pos.z >= -8 && pos.z <= -6 && starttime <= now - 5 && shotCount < 6)
+            {
+                starttime = Time.time;
+                shotCount = 6;
+                shellLabel.text = "玉：" + shotCount;
+            }
+            else if (pos.x >= -8 && pos.x <= -6 && pos.z >= -8 && pos.z <= -6 && starttime <= now - 5 && shotCount < 6)
+            {
+                starttime = Time.time;
+                shotCount = 6;
+                shellLabel.text = "玉：" + shotCount;
+            }
+            else if (pos.x >= -8 && pos.x <= -6 && pos.z >= 6 && pos.z <= 8 && starttime <= now - 5 && shotCount < 6)
+            {
+                starttime = Time.time;
+                shotCount = 6;
+                shellLabel.text = "玉：" + shotCount;
+            }
 
         }
     }
