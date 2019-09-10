@@ -30,6 +30,11 @@ public class GM : MonobitEngine.MonoBehaviour
                 {
                     Select.gameObject.SetActive(false);
                     Destroy(gameObject);
+                    var roomData = MonobitEngine.MonobitNetwork.room;
+                    string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
+                    GUILayout.Label("Num Players : " + roomData.name + playerInfo, GUILayout.Width(BaseGUIWidth * 3));
+                    monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
+                    roomData.visible = true;
                 }
     }
     
