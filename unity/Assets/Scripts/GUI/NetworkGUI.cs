@@ -203,11 +203,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 			string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
 			GUILayout.Label("Room Name: " + roomName + playerInfo, GUILayout.Width(BaseGUIWidth * 3));
 
-            if (GUILayout.Button("Join", GUILayout.Width(BaseGUIWidth)))
-            {
-                NetworkManager.Instance.JoinRoom(roomData.name);
-                NetworkGUI.roommaster = false;
-            }// 入室
+			if (GUILayout.Button("Join", GUILayout.Width(BaseGUIWidth)))
+				NetworkManager.Instance.JoinRoom(roomData.name); // 入室
 			GUILayout.EndHorizontal();
 		}
 	}
