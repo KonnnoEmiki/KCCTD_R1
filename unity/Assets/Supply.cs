@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 public class Supply : MonoBehaviour
 {
     public static int HIT;
-    private static bool a = false;
-    
+
     void OnTriggerStay(Collider hit)
     {
-        if (hit.CompareTag("master")) HIT = 1;
+        if (hit.CompareTag("master"))
+        {
+            HIT = 1;
+            this.gameObject.SetActive(false);
+        }
     }
 }
