@@ -19,10 +19,16 @@ public class GoPlane : MonobitEngine.MonoBehaviour
             if (RoomManager.IsHost == true)
                 if (monobitView.isMine == true)
                 {
-            GM.stageselect = 1;
-            Stage.gameObject.SetActive(true);
-            Plane.gameObject.SetActive(false);
-            ForestStage.gameObject.SetActive(false);
-            }
+                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+                }
+    }
+
+    [MunRPC]
+    void stagechange1()
+    {
+        GM.stageselect = 1;
+        Stage.gameObject.SetActive(true);
+        Plane.gameObject.SetActive(false);
+        ForestStage.gameObject.SetActive(false);
     }
 }
