@@ -14,8 +14,10 @@ public class GoPlane : MonobitEngine.MonoBehaviour
 
     private void Update()
     {
-        if (MonobitEngine.MonobitNetwork.isHost == false)
-            Destroy(gameObject);
+        if (NetworkGUI.roommaster == false)
+            this.gameObject.SetActive(false);
+        if (NetworkGUI.roommaster == true)
+            this.gameObject.SetActive(true);
     }
 
     [MunRPC]

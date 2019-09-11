@@ -134,6 +134,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
 		if (GUILayout.Button("Create", GUILayout.Width(BaseGUIWidth)))
 		{
+            roommaster = true;
 			if (string.IsNullOrEmpty(m_RoomName) == false)
 				NetworkManager.Instance.CreateRoom(m_RoomName);
 		}
