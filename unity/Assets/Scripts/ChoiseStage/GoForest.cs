@@ -24,7 +24,7 @@ public class GoForest : MonobitEngine.MonoBehaviour
     }
 
     [MunRPC]
-    void stagechange2()
+    private void stagechange2()
     {
         GM.stageselect = 2;
         ForestStage.gameObject.SetActive(true);

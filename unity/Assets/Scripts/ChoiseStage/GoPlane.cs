@@ -24,7 +24,7 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     }
 
     [MunRPC]
-    void stagechange1()
+    private void stagechange1()
     {
         GM.stageselect = 1;
         Stage.gameObject.SetActive(true);
