@@ -17,7 +17,7 @@ public class GoForest : MonobitEngine.MonoBehaviour
     {
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player"))
-            if (monobitView.isMine == true)
+            if (monobitView.isMine == true && RoomManager.IsHost == true)
             {
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
                 }
