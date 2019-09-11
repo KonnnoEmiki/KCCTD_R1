@@ -23,6 +23,12 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     private bool gsf=true;
 
+    public GUIStyle button;
+    public GUIStyle Label;
+    public GUIStyle TagLabel;
+    public GUIStyle TextField;
+    public GUIStyle window;
+
     private void Start()
 	{
 		NetworkManager.Instance.AddNetworkEventObserver(this);
@@ -32,23 +38,31 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	{
 		if (MonobitEngine.MonobitNetwork.isConnect == false)
 		{
-			OnGui_Connect();
-			return;
+            GUILayout.BeginHorizontal(window, GUILayout.Width(BaseGUIWidth * 10));
+
+            OnGui_Connect();
+
+            GUILayout.EndHorizontal();
+            return;
 		}
 		
 		if (MonobitEngine.MonobitNetwork.inRoom == false)
 		{
-			OnGui_CreateRoom();
+            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 10));
+            OnGui_CreateRoom();
 			OnGui_SearchPlayer();
 			OnGui_SearchPlayerResult();
 			OnGui_ChooseRoom();
 			OnGui_Disconnect();
-		}
+            GUILayout.EndVertical();
+        }
 		else if(m_IsInGameScene == false)
 		{
-			OnGui_StartGame();
+            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 10));
+            OnGui_StartGame();
 			OnGui_LeaveRoom();
-		}
+            GUILayout.EndVertical();
+        }
 		else
 		{
 			// ゲーム中にカーソルロックが外れていれば退室用UI表示
@@ -61,60 +75,64 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// サーバーへの接続用GUI
 	private void OnGui_Connect()
 	{
-		GUILayout.BeginHorizontal();
-		GUILayout.Label("Player Name");
-		m_PlayerName = GUILayout.TextField(m_PlayerName, GUILayout.Width(BaseGUIWidth * 2));
+       
+		GUILayout.Label("Player Name",Label, GUILayout.Width(BaseGUIWidth * 3));
+		m_PlayerName = GUILayout.TextField(m_PlayerName, TextField, GUILayout.Width(BaseGUIWidth*4));
 
-		if (GUILayout.Button("Connect to Server", GUILayout.Width(BaseGUIWidth * 2)))
+		if (GUILayout.Button("Connect to Server", button, GUILayout.Width(BaseGUIWidth *3)))
 		{
 			if (string.IsNullOrEmpty(m_PlayerName) == false)
 				NetworkManager.Instance.ConnectToServer(m_PlayerName);
 		}
-
-		GUILayout.EndHorizontal();
 	}
 
 	// サーバーから切断用GUI
 	private void OnGui_Disconnect()
 	{
-		if (GUILayout.Button("Disconnect from Server", GUILayout.Width(BaseGUIWidth * 2)))
+
+        if (GUILayout.Button("Disconnect from Server", button, GUILayout.Width(BaseGUIWidth * 5)))
 		{
 			m_OnPushLeftOrDisconnectButton = true;
 			NetworkManager.Instance.DisconnectFromServer();
 		}
-	}
+
+    }
 
 	private void OnGui_StartGame()
 	{
-		var roomData = MonobitEngine.MonobitNetwork.room;
+        GUILayout.BeginVertical(window);
+
+        var roomData = MonobitEngine.MonobitNetwork.room;
 		string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
-		GUILayout.Label("Num Players : " + roomData.name + playerInfo, GUILayout.Width(BaseGUIWidth * 3));
+		GUILayout.Label("Num Players : " + roomData.name + playerInfo, Label, GUILayout.Width(BaseGUIWidth * 3));
 
 		if (RoomManager.IsHost == false) // ゲームを開始出来るのはホストのみに制限
 		{
-			GUILayout.Label("Waiting for host to start...");
+			GUILayout.Label("Waiting for host to start...", Label, GUILayout.Width(BaseGUIWidth * 3));
 			return;
 		}
 
 		// ルーム内に自分しか居なければ他のプレイヤーを待つ
 		if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
 		{
-			GUILayout.Label("Waiting for other player...");
+			GUILayout.Label("Waiting for other player...", Label, GUILayout.Width(BaseGUIWidth * 3));
 			return;
 		}
 
-		if (GUILayout.Button("Game Start", GUILayout.Width(BaseGUIWidth * 2)))
+		if (GUILayout.Button("Game Start", button, GUILayout.Width(BaseGUIWidth * 5)))
         {
             monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
 			roomData.visible = false; // ゲーム開始後はルームが他プレイヤーから見えないように
 			LoadInGameScene();
 		}
-	}
+
+        GUILayout.EndVertical();
+    }
 
 	// ルームから退室用GUI
 	private void OnGui_LeaveRoom()
 	{
-		if (GUILayout.Button("Leave from Room", GUILayout.Width(BaseGUIWidth * 2)))
+        if (GUILayout.Button("Leave from Room", button, GUILayout.Width(BaseGUIWidth * 5)))
 		{
 			m_OnPushLeftOrDisconnectButton = false;
             OnInGameScene();
@@ -126,12 +144,12 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	private void OnGui_CreateRoom()
     {
         gs = false;
-		GUILayout.Label("Create Room", new GUIStyle { fontStyle = FontStyle.Bold });
+		GUILayout.Label("Create Room", TagLabel, GUILayout.Width(BaseGUIWidth * 3));
 		GUILayout.BeginHorizontal();
-		GUILayout.Label("Room Name");
-		m_RoomName = GUILayout.TextField(m_RoomName, GUILayout.Width(BaseGUIWidth * 2));
+		GUILayout.Label("Room Name", Label, GUILayout.Width(BaseGUIWidth * 3));
+		m_RoomName = GUILayout.TextField(m_RoomName, TextField, GUILayout.Width(BaseGUIWidth * 4));
 
-		if (GUILayout.Button("Create", GUILayout.Width(BaseGUIWidth)))
+		if (GUILayout.Button("Create", button))
 		{
 			if (string.IsNullOrEmpty(m_RoomName) == false)
 				NetworkManager.Instance.CreateRoom(m_RoomName);
@@ -142,12 +160,12 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// 他プレイヤー検索用GUI
 	private void OnGui_SearchPlayer()
 	{
-		GUILayout.Label("Search Player", new GUIStyle { fontStyle = FontStyle.Bold });
+		GUILayout.Label("Search Player", TagLabel, GUILayout.Width(BaseGUIWidth * 3));
 		GUILayout.BeginHorizontal();
-		GUILayout.Label("Player Name : ");
-		m_SearchPlayerName = GUILayout.TextField(m_SearchPlayerName, GUILayout.Width(BaseGUIWidth * 2));
+		GUILayout.Label("Player Name : ", Label, GUILayout.Width(BaseGUIWidth * 3));
+		m_SearchPlayerName = GUILayout.TextField(m_SearchPlayerName, TextField, GUILayout.Width(BaseGUIWidth * 4));
 		string serachButtonName = "Search";
-		if (GUILayout.Button(serachButtonName))
+		if (GUILayout.Button(serachButtonName, button))
 		{
 			if (string.IsNullOrEmpty(m_SearchPlayerName) == false)
 				NetworkManager.Instance.SearchPlayers(m_SearchPlayerName.Split(','));
@@ -160,24 +178,24 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	{
 		if (NetworkManager.Instance.IsFindSearchPlayer == false) return;
 
-		GUILayout.Label("Search Result", new GUIStyle { fontStyle = FontStyle.Bold });
+		GUILayout.Label("Search Result", Label, GUILayout.Width(BaseGUIWidth * 3));
 		foreach(var player in MonobitEngine.MonobitNetwork.SearchPlayerList)
 		{
 			if(player.connect == false)
 			{
-				GUILayout.Label(player.playerName + " is Offline");
+				GUILayout.Label(player.playerName + " is Offline", Label, GUILayout.Width(BaseGUIWidth * 3));
 				continue;
 			}
 
 			if(player.inRoom == false)
 			{
-				GUILayout.Label(player.playerName + " is not in Room");
+				GUILayout.Label(player.playerName + " is not in Room", Label, GUILayout.Width(BaseGUIWidth * 3));
 				continue;
 			}
 
-			GUILayout.Label(player.playerName + " is in" + player.roomName);
+			GUILayout.Label(player.playerName + " is in" + player.roomName, Label, GUILayout.Width(BaseGUIWidth * 3));
 
-			if (GUILayout.Button("Join", GUILayout.Width(BaseGUIWidth * 2)))
+			if (GUILayout.Button("Join", button))
 				NetworkManager.Instance.JoinRoom(player.roomName);
 		}
 	}
@@ -190,7 +208,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		if (roomDataList.Length < 1)
 			return; // 他にルームが見つからなかった
 
-		GUILayout.Label("Choose Room", new GUIStyle { fontStyle = FontStyle.Bold });
+		GUILayout.Label("Choose Room", Label, GUILayout.Width(BaseGUIWidth * 3));
 		foreach (var roomData in roomDataList)
 		{
 			if (roomData.playerCount >= roomData.maxPlayers)
@@ -200,13 +218,13 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 			// ルーム情報表示
 			string roomName = roomData.name;
 			string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
-			GUILayout.Label("Room Name: " + roomName + playerInfo, GUILayout.Width(BaseGUIWidth * 3));
+			GUILayout.Label("Room Name: " + roomName + playerInfo, Label, GUILayout.Width(BaseGUIWidth * 3));
 
-			if (GUILayout.Button("Join", GUILayout.Width(BaseGUIWidth)))
+			if (GUILayout.Button("Join", button))
 				NetworkManager.Instance.JoinRoom(roomData.name); // 入室
 			GUILayout.EndHorizontal();
 		}
-	}
+    }
 
     void Update()
     {
