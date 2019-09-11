@@ -81,8 +81,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         Rotation(); // 回転
         Move();     // 移動
-        if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false) ;
-        else Shooting();
+        Shooting();
 
 
         // カメラの向いている方向に回転 & カメラから見て左右方向に回転
@@ -143,36 +142,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
 
-            }
-            else if (pos.x >= -1 && pos.x <= 1 && pos.z >= -1 && pos.z <= 1 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-            else if (pos.x >= 6 && pos.x <= 8 && pos.z >= 6 && pos.z <=8 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-            else if (pos.x >= 6 && pos.x <= 8 && pos.z >= -8 && pos.z <= -6 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-            else if (pos.x >= -8 && pos.x <= -6 && pos.z >= -8 && pos.z <= -6 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-            else if (pos.x >= -8 && pos.x <= -6 && pos.z >= 6 && pos.z <= 8 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
             }
 
         }

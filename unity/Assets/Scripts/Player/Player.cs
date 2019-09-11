@@ -25,6 +25,8 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 	private bool m_IsDown = false;
 	public bool IsDown { get { return m_IsDown; } }
 
+    public PlayerController playerController;
+
     public Vector3 Velocity
 	{
 		get
@@ -134,6 +136,13 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
                 Delay();
             }
         }
+
+        if (hit.CompareTag("Supply"))
+        {
+            playerController.starttime = Time.time;
+            playerController.shotCount = 6;
+            playerController.shellLabel.text = "玉：" + playerController.shotCount;
+        }  
     }
 
     static async void Delay()

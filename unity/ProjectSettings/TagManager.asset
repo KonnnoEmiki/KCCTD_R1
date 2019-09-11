@@ -9,6 +9,7 @@ TagManager:
   - SpawnArea
   - killer
   - muscle
+  - Supply
   layers:
   - Default
   - TransparentFX
