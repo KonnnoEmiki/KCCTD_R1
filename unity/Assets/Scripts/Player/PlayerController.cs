@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Threading.Tasks;
 
 public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent>
 {
@@ -34,6 +36,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     public float now;
     private float shotInterval;
     public Text shellLabel;
+    public int HIT;
 
     Vector3 lookAheadPosition;
 
@@ -58,7 +61,14 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
 		m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
-	}
+    }
+
+    void OnTriggerEnter(Collider hit)
+    {
+        if (hit.CompareTag("Supply"))
+            HIT = 1;
+        else HIT = 0;
+    }
 
     void FixedUpdate()
     {
@@ -142,6 +152,12 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
 
+            }
+            else if (HIT==1)
+            {
+                starttime = Time.time;
+                shotCount = 6;
+                shellLabel.text = "玉：" + shotCount;
             }
 
         }
