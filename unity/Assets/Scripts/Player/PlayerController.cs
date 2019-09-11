@@ -30,7 +30,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     public GameObject bulletPrefab;
     public float shotSpeed;
     public int shotCount = 6;
-    public int Esc;
     public float starttime;
     public float now;
     private float shotInterval;
@@ -56,12 +55,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 		if (GameManager.IsGameSet) return;	// 決着がついていれば
 		if (monobitView.isMine == false) return;	// 所有権が無ければ
 		if (m_Player.IsDown) return;				// 倒れていれば
-        if (Esc == 0)
-            if (Input.GetKey(KeyCode.Escape))
-                Esc = 1;
-        if (Esc == 1)
-            if (Input.GetKey(KeyCode.Escape))
-                Esc = 0;
 
         m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
 		m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
@@ -88,8 +81,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         Rotation(); // 回転
         Move();     // 移動
-        if (Esc == 0)
-            Shooting();
+        Shooting();
 
 
         // カメラの向いている方向に回転 & カメラから見て左右方向に回転
