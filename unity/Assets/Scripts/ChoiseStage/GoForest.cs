@@ -23,8 +23,8 @@ public class GoForest : MonobitEngine.MonoBehaviour
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
-        // 接触対象はPlayerタグですか？
-        if (hit.CompareTag("Player"))
+        // 接触対象はmasterタグですか？
+        if (hit.CompareTag("master"))
         {
             var roomData = MonobitEngine.MonobitNetwork.room;
 
