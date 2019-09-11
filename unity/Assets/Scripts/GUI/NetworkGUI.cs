@@ -19,6 +19,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool gs = false;
 
+    public static bool roommaster = false;
+
     private bool gsf=true;
 
     private void Start()
@@ -123,6 +125,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// ルーム作成用GUI
 	private void OnGui_CreateRoom()
 	{
+        roommaster = true;
         gs = false;
 		GUILayout.Label("Create Room", new GUIStyle { fontStyle = FontStyle.Bold });
 		GUILayout.BeginHorizontal();
@@ -183,6 +186,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// 既存ルームへの入室用GUI
 	private void OnGui_ChooseRoom()
 	{
+        roommaster = false;
         gsf = true;
         var roomDataList = MonobitEngine.MonobitNetwork.GetRoomData();
 		if (roomDataList.Length < 1)
