@@ -11,6 +11,13 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject Plane = null;
     // トリガーとの接触時に呼ばれるコールバック
+
+    private void Update()
+    {
+        if (MonobitEngine.MonobitNetwork.isHost == false)
+            Destroy(gameObject);
+    }
+
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
@@ -21,7 +28,8 @@ public class GoPlane : MonobitEngine.MonoBehaviour
 
             if (monobitView.isMine == true && NetworkGUI.roommaster==true)
             {
-                monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
             }
         }
     }
