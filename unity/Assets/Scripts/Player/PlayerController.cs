@@ -36,7 +36,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     public float now;
     private float shotInterval;
     public Text shellLabel;
-    public int HIT;
+    public Supply supply;
 
     Vector3 lookAheadPosition;
 
@@ -61,13 +61,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
 		m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
-    }
-
-    void OnTriggerEnter(Collider hit)
-    {
-        if (hit.CompareTag("Supply"))
-            HIT = 1;
-        else HIT = 0;
     }
 
     void FixedUpdate()
@@ -153,7 +146,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 }
 
             }
-            else if (HIT==1)
+            else if (supply.HIT==1)
             {
                 starttime = Time.time;
                 shotCount = 6;
