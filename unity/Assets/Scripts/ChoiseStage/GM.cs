@@ -27,17 +27,16 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "master";
         if (first == false)
             host.gameObject.tag = "Player";
-        var roomData = MonobitEngine.MonobitNetwork.room;
-        if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-        {
-            if (MonobitEngine.MonobitNetwork.isHost == true)
-                monobitView.RPC("stagechange", MonobitEngine.MonobitTargets.All, null);
-        }
+
+
+         monobitView.RPC("Stagechange", MonobitEngine.MonobitTargets.All, null);
+
+
         if (NetworkGUI.gs == true) Destroy(gameObject);
     }
 
     [MunRPC]
-    private void stagechange()
+    private void Stagechange()
     {
         if (stageNo != stageselect)
         {
