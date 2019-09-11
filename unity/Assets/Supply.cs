@@ -8,12 +8,16 @@ public class Supply : MonoBehaviour
 {
     public static int HIT;
 
+    private void Update()
+    {
+        
+    }
+
     void OnTriggerStay(Collider hit)
     {
         if (hit.CompareTag("master"))
         {
             HIT = 1;
-            this.gameObject.SetActive(false);
         }
     }
 }
