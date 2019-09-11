@@ -36,7 +36,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     public float now;
     private float shotInterval;
     public Text shellLabel;
-    public Supply supply;
 
     Vector3 lookAheadPosition;
 
@@ -132,7 +131,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
             lookAheadPosition.y += 1;
             Transform myTransform = this.transform;
             Vector3 pos = myTransform.position;
-            now = Time.time;
             if (Input.GetKey(KeyCode.Mouse0))
             {
 
@@ -144,11 +142,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                     shellLabel.text = "玉：" + shotCount;
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
-
             }
-            else if (supply.HIT==1)
+            else if(Supply.HIT==1)
             {
-                starttime = Time.time;
                 shotCount = 6;
                 shellLabel.text = "玉：" + shotCount;
             }
