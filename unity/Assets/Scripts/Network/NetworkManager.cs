@@ -71,6 +71,7 @@ public class NetworkManager : MonoBehaviour<NetworkManager>
 	// ルーム作成
 	public void CreateRoom(string roomName)
 	{
+        GM.first = true;
 		if (m_RoomManager == null) return;
         Player.LifeCount = Player.Stamina;
 
@@ -80,6 +81,7 @@ public class NetworkManager : MonoBehaviour<NetworkManager>
 	// ルームへ入室
 	public void JoinRoom(string roomName)
 	{
+        GM.first = false;
 		if (m_RoomManager == null) return;
         Player.LifeCount = Player.Stamina;
 
