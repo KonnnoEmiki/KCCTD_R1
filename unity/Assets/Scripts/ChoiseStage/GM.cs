@@ -34,13 +34,17 @@ public class GM : MonobitEngine.MonoBehaviour
             if (RoomManager.IsHost == true)
                 if (monobitView.isMine == true)
                 {
-                    var roomData = MonobitEngine.MonobitNetwork.room;
-                    string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
-                    GUILayout.Label("Num Players : " + roomData.name + playerInfo, GUILayout.Width(BaseGUIWidth * 3));
-                    monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
-                    roomData.visible = true;
+                    monobitView.RPC("stagechange", MonobitEngine.MonobitTargets.All, null);
                 }
     }
-    
 
+    [MunRPC]
+    void stagechange()
+    {
+         var roomData = MonobitEngine.MonobitNetwork.room;
+        string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
+        GUILayout.Label("Num Players : " + roomData.name + playerInfo, GUILayout.Width(BaseGUIWidth * 3));
+        monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
+        roomData.visible = true;
+    }
 }
