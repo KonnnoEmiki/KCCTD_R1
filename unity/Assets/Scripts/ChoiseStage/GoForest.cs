@@ -18,10 +18,16 @@ public class GoForest : MonobitEngine.MonoBehaviour
             if (RoomManager.IsHost == true)
                 if (monobitView.isMine == true)
                 {
-            GM.stageselect = 2;
-            ForestStage.gameObject.SetActive(true);
-            Plane.gameObject.SetActive(false);
-            Stage.gameObject.SetActive(false);
-            }
+                    monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
+                }
+    }
+
+    [MunRPC]
+    void stagechange2()
+    {
+        GM.stageselect = 2;
+        ForestStage.gameObject.SetActive(true);
+        Plane.gameObject.SetActive(false);
+        Stage.gameObject.SetActive(false);
     }
 }
