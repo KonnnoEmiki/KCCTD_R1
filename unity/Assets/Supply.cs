@@ -8,9 +8,15 @@ public class Supply : MonoBehaviour
 {
     public static int HIT;
 
+    private void Start()
+    {
+        HIT = 0;
+    }
+
     private void Update()
     {
         if (HIT == 1)
+            HIT = 0;
             this.gameObject.SetActive(false);
     }
 
