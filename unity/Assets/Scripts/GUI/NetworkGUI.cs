@@ -19,7 +19,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool gs = false;
 
-    public static bool roommaster = false;
+    public static bool roommaster = true;
 
     private bool gsf=true;
 
@@ -93,6 +93,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		if (RoomManager.IsHost == false) // ゲームを開始出来るのはホストのみに制限
 		{
 			GUILayout.Label("Waiting for host to start...");
+            roommaster = false;
 			return;
 		}
 

@@ -19,7 +19,7 @@ public class GoPlane : MonobitEngine.MonoBehaviour
         {
             var roomData = MonobitEngine.MonobitNetwork.room;
 
-            if (monobitView.isMine == true && RoomManager.IsHost == true)
+            if (monobitView.isMine == true && NetworkGUI.roommaster==true)
             {
                 monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
             }
