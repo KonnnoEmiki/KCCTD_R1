@@ -11,7 +11,6 @@ public class GoForest : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject Plane = null;
 
-    // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {

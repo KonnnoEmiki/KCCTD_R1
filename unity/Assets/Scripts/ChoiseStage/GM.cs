@@ -27,7 +27,12 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "master";
         if (first == false)
             host.gameObject.tag = "Player";
-        monobitView.RPC("stagechange", MonobitEngine.MonobitTargets.All, null);
+        var roomData = MonobitEngine.MonobitNetwork.room;
+        if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+        {
+            if (MonobitEngine.MonobitNetwork.isHost == true)
+                monobitView.RPC("stagechange", MonobitEngine.MonobitTargets.All, null);
+        }
         if (NetworkGUI.gs == true) Destroy(gameObject);
     }
 
