@@ -22,6 +22,10 @@ public class GoForest : MonobitEngine.MonoBehaviour
  
             if (monobitView.isMine == true&&RoomManager.IsHost == true)
             {
+                if (!MonobitEngine.MonobitNetwork.isHost)
+                {
+                    return;
+                }
                 monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
             }
         }

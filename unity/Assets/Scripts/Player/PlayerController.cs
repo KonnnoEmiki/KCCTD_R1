@@ -81,7 +81,8 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         Rotation(); // 回転
         Move();     // 移動
-        Shooting();
+        if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false) ;
+        else Shooting();
 
 
         // カメラの向いている方向に回転 & カメラから見て左右方向に回転
