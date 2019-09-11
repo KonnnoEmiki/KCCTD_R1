@@ -11,6 +11,15 @@ public class GoForest : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject Plane = null;
 
+    /*private void Update()
+    {
+        if (NetworkGUI.roommaster == false)
+            this.gameObject.SetActive(false);
+        if (NetworkGUI.roommaster == true)
+            this.gameObject.SetActive(true);
+    }*/
+
+    // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
@@ -31,5 +40,8 @@ public class GoForest : MonobitEngine.MonoBehaviour
     private void stagechange2()
     {
         GM.stageselect = 2;
+        ForestStage.gameObject.SetActive(true);
+        Plane.gameObject.SetActive(false);
+        Stage.gameObject.SetActive(false);
     }
 }
