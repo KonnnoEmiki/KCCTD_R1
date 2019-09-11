@@ -10,7 +10,8 @@ public class Supply : MonoBehaviour
 
     private void Update()
     {
-        
+        if (HIT == 1)
+            this.gameObject.SetActive(false);
     }
 
     void OnTriggerStay(Collider hit)
