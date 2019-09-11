@@ -12,7 +12,6 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     private GameObject Plane = null;
     // トリガーとの接触時に呼ばれるコールバック
 
-
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
@@ -33,8 +32,5 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     private void stagechange1()
     {
         GM.stageselect = 1;
-        Stage.gameObject.SetActive(true);
-        Plane.gameObject.SetActive(false);
-        ForestStage.gameObject.SetActive(false);
     }
 }

@@ -32,8 +32,5 @@ public class GoForest : MonobitEngine.MonoBehaviour
     private void stagechange2()
     {
         GM.stageselect = 2;
-        ForestStage.gameObject.SetActive(true);
-        Plane.gameObject.SetActive(false);
-        Stage.gameObject.SetActive(false);
     }
 }
