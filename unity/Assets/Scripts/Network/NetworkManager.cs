@@ -11,9 +11,11 @@ public class NetworkManager : MonoBehaviour<NetworkManager>
 	private ConnectionManager m_ConnectionManager = null;
 	[SerializeField]
 	private RoomManager m_RoomManager = null;
-	
-	// 検索したプレイヤーが見つかったか
-	public bool IsFindSearchPlayer
+    [SerializeField]
+    private RoomManager Unitychan = null;
+
+    // 検索したプレイヤーが見つかったか
+    public bool IsFindSearchPlayer
 	{
 		get { return m_ConnectionManager == null ? false : m_ConnectionManager.IsFIndSearchPlayers;}
 	}
@@ -83,7 +85,10 @@ public class NetworkManager : MonoBehaviour<NetworkManager>
 		if (m_RoomManager == null) return;
         Player.LifeCount = Player.Stamina;
 
-		m_RoomManager.JoinRoom(roomName);
+        Unitychan.tag = "Ball";
+
+
+        m_RoomManager.JoinRoom(roomName);
 	}
 
 	// ルームから退室

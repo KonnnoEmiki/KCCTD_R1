@@ -11,6 +11,12 @@ public class GoForest : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject Plane = null;
 
+    private void Update()
+    {
+        if (MonobitEngine.MonobitNetwork.isHost == false)
+            Destroy(gameObject);
+    }
+
     // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)
@@ -19,14 +25,11 @@ public class GoForest : MonobitEngine.MonoBehaviour
         if (hit.CompareTag("Player"))
         {
             var roomData = MonobitEngine.MonobitNetwork.room;
- 
-            if (monobitView.isMine == true&&RoomManager.IsHost == true)
+
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
-                if (!MonobitEngine.MonobitNetwork.isHost)
-                {
-                    return;
-                }
-                monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
             }
         }
     }
