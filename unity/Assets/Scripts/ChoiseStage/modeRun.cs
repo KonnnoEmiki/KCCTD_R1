@@ -13,7 +13,7 @@ public class modeRun : MonobitEngine.MonoBehaviour
     {
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player"))
-            if (RoomManager.IsHost == true)
+            if (RoomManager.IsHost == true && NetworkGUI.roommaster == true)
                 if (monobitView.isMine == true)
                 {
             GM.gamemode = 1;
