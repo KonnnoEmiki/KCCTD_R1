@@ -10,6 +10,7 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     private GameObject ForestStage = null;
     [SerializeField]
     private GameObject Plane = null;
+
     // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)
