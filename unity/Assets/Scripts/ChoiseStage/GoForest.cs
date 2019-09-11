@@ -11,14 +11,6 @@ public class GoForest : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject Plane = null;
 
-    private void Update()
-    {
-        if (NetworkGUI.roommaster == false)
-            this.gameObject.SetActive(false);
-        if (NetworkGUI.roommaster == true)
-            this.gameObject.SetActive(true);
-    }
-
     // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)

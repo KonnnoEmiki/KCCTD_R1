@@ -12,14 +12,6 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     private GameObject Plane = null;
     // トリガーとの接触時に呼ばれるコールバック
 
-    private void Update()
-    {
-        if (NetworkGUI.roommaster == false)
-            this.gameObject.SetActive(false);
-        if (NetworkGUI.roommaster == true)
-            this.gameObject.SetActive(true);
-    }
-
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
