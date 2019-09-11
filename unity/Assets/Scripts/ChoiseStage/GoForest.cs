@@ -17,10 +17,13 @@ public class GoForest : MonobitEngine.MonoBehaviour
     {
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player"))
-            if (monobitView.isMine == true && RoomManager.IsHost == true)
+        {
+            if (RoomManager.IsHost == false) return;
+            if (monobitView.isMine == true)
             {
-                    monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
-                }
+                monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
+            }
+        }
     }
 
     [MunRPC]

@@ -16,10 +16,13 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     {
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player"))
-                if (monobitView.isMine == true && RoomManager.IsHost == true)
-                {
-                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
-                }
+        {
+            if (RoomManager.IsHost == false) return;
+            if (monobitView.isMine == true)
+            {
+                monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+            }
+        }
     }
 
     [MunRPC]
