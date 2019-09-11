@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
-    public static int stageselect = 1;
+    public static int stageselect = 0;
     public static int gamemode = 0;
 
     private int stageNo = 0;
@@ -39,8 +39,8 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         if (stageselect == 1)
         {
-            Canan.gameObject.SetActive(true);
-            PlaneStage.gameObject.SetActive(false);
+            Canan.gameObject.SetActive(false);
+            PlaneStage.gameObject.SetActive(true);
             ForestStage.gameObject.SetActive(false);
         }
         if (stageselect == 2)
