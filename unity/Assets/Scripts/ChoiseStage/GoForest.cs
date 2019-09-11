@@ -10,15 +10,15 @@ public class GoForest : MonobitEngine.MonoBehaviour
     private GameObject Stage = null;
     [SerializeField]
     private GameObject Plane = null;
+
     // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player"))
-            if (RoomManager.IsHost == true)
-                if (monobitView.isMine == true)
-                {
+            if (NetworkGUI.roommaster == true && monobitView.isMine == true)
+            {
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
                 }
     }
