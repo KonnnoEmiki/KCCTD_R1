@@ -29,12 +29,13 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "Player";
 
 
-         monobitView.RPC("Stagechange", MonobitEngine.MonobitTargets.All, null);
+         //monobitView.RPC("Stagechange", MonobitEngine.MonobitTargets.All, null);
 
 
         if (NetworkGUI.gs == true) Destroy(gameObject);
     }
 
+    /*
     [MunRPC]
     private void Stagechange()
     {
@@ -54,6 +55,6 @@ public class GM : MonobitEngine.MonoBehaviour
                 Canan.gameObject.SetActive(false);
             }
         }
-    }
+    }*/
 
 }
