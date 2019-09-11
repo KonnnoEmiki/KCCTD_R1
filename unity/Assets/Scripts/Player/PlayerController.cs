@@ -36,7 +36,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     public float now;
     private float shotInterval;
     public Text shellLabel;
-    public Supply supply;
 
     Vector3 lookAheadPosition;
 
@@ -146,7 +145,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 }
 
             }
-            else if (supply.HIT==1)
+            else
             {
                 starttime = Time.time;
                 shotCount = 6;
