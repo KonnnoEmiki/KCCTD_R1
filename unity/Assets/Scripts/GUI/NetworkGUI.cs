@@ -19,7 +19,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool gs = false;
 
-    public static bool roommaster = true;
+    public static bool roommaster = false;
 
     private bool gsf=true;
 

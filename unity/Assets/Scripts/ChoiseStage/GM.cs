@@ -11,6 +11,17 @@ public class GM : MonobitEngine.MonoBehaviour
 
     [SerializeField]
     private GameObject Select = null;
+    [SerializeField]
+    private GameObject host = null;
+    public static bool first = true;
+
+    private void Update()
+    {
+        if (NetworkGUI.roommaster == true && first == true)
+            host.gameObject.tag = "master";
+        if (first == false)
+            host.gameObject.tag = "Player";
+    }
 
     void OnTriggerEnter(Collider hit)
     {

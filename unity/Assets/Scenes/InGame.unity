@@ -2470,6 +2470,7 @@ MonoBehaviour:
   Stage: {fileID: 773580420}
   ForestStage: {fileID: 198798602}
   Plane: {fileID: 252852582}
+  gest: {fileID: 3293966751762601676, guid: 9cc3098aaa260a346a8cc557f54771a7, type: 3}
 --- !u!135 &1322274948
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3544,6 +3545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Select: {fileID: 236015849}
+  host: {fileID: 3293966751762601676, guid: 9cc3098aaa260a346a8cc557f54771a7, type: 3}
 --- !u!65 &1833048220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5309,6 +5311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 608503602888654050, guid: c529fc5983a630b43b949023128329a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 608503602888654051, guid: c529fc5983a630b43b949023128329a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5369,6 +5376,12 @@ PrefabInstance:
       propertyPath: m_viewIdField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
+        type: 3}
+      propertyPath: host
+      value: 
+      objectReference: {fileID: 3293966751762601676, guid: 9cc3098aaa260a346a8cc557f54771a7,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 608503602888654049, guid: c529fc5983a630b43b949023128329a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c529fc5983a630b43b949023128329a2, type: 3}

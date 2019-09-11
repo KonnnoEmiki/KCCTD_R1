@@ -42,7 +42,7 @@ public class RoomManager : MonobitEngine.MonoBehaviour
 				m_LastErrorType = NetworkDefines.RoomErrorType.Already_Join_Room;
 				break;
 			}
-
+            NetworkGUI.roommaster = true;
 			MonobitEngine.RoomSettings roomSettings = new MonobitEngine.RoomSettings
 			{
 				isVisible = true,
