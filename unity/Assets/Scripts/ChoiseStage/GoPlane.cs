@@ -5,40 +5,33 @@ using UnityEngine;
 public class GoPlane : MonobitEngine.MonoBehaviour
 {
     [SerializeField]
+    private GameObject Plane = null;
+    [SerializeField]
     private GameObject Stage = null;
     [SerializeField]
     private GameObject ForestStage = null;
-    [SerializeField]
-    private GameObject Plane = null;
 
     [MunRPC]
-    private void Start()
+    void Start()
     {
         var roomData = MonobitEngine.MonobitNetwork.room;
-        if (GM.stageselect == 1)
-        {
-            
-
-            //if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-            {
-                // if (MonobitEngine.MonobitNetwork.isHost == true)
-                monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
-            }
-        }
+        if(GM.stageselect==1)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
     }
 
-    // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
-    private void OnTriggerEnter(Collider hit)
+    void OnTriggerEnter(Collider hit)
     {
-        var roomData = MonobitEngine.MonobitNetwork.room;
-        // 接触対象はmasterタグですか？
         if (hit.CompareTag("master"))
         {
-            // if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+            var roomData = MonobitEngine.MonobitNetwork.room;
+
+            if (monobitView.isMine == true && NetworkGUI.roommaster==true)
             {
-                //   if (MonobitEngine.MonobitNetwork.isHost == true)
-                monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
             }
         }
     }
@@ -47,8 +40,8 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     private void stagechange1()
     {
         GM.stageselect = 1;
-        ForestStage.gameObject.SetActive(false);
-        Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(true);
+        Plane.gameObject.SetActive(false);
+        ForestStage.gameObject.SetActive(false);
     }
 }

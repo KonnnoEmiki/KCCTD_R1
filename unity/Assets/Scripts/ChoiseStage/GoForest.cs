@@ -5,39 +5,32 @@ using UnityEngine;
 public class GoForest : MonobitEngine.MonoBehaviour
 {
     [SerializeField]
-    private GameObject ForestStage = null;
+    private GameObject Plane = null;
     [SerializeField]
     private GameObject Stage = null;
     [SerializeField]
-    private GameObject Plane = null;
+    private GameObject ForestStage = null;
 
     [MunRPC]
-    private void Start()
+    void Start()
     {
         var roomData = MonobitEngine.MonobitNetwork.room;
         if (GM.stageselect == 2)
-        {
-           
-
-            //if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-            {
-               // if (MonobitEngine.MonobitNetwork.isHost == true)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
-            }
-        }
     }
 
-    // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
-    private void OnTriggerEnter(Collider hit)
+    void OnTriggerEnter(Collider hit)
     {
-        var roomData = MonobitEngine.MonobitNetwork.room;
-        // 接触対象はmasterタグですか？
         if (hit.CompareTag("master"))
         {
-           // if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+            var roomData = MonobitEngine.MonobitNetwork.room;
+
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
-             //   if (MonobitEngine.MonobitNetwork.isHost == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
             }
         }
