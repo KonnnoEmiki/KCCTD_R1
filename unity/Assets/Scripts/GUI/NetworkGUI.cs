@@ -21,6 +21,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool roommaster = false;
 
+    public static int stageselect = 0;
+
     private bool gsf=true;
 
     public GUIStyle button;
@@ -128,6 +130,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.FlexibleSpace();
 
             GUILayout.Label("Waiting for host to start...", Label, GUILayout.Width(BaseGUIWidth * 3));
+            roommaster = false;
 
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
@@ -177,6 +180,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// ルーム作成用GUI
 	private void OnGui_CreateRoom()
     {
+        roommaster = true;
         gs = false;
         GUILayout.BeginHorizontal();
         GUILayout.Space(50);

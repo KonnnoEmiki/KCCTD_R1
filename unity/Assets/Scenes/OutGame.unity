@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44571573, g: 0.71900886, b: 0.73043394, a: 1}
+  m_IndirectSpecularColor: {r: 0.4466622, g: 0.4965092, b: 0.5748667, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -276,6 +276,291 @@ PrefabInstance:
         type: 3}
       propertyPath: ObservedComponents.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: ef73246840ee6a64e811306f05cf8da4, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Active.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: bd8575ca46f62af4eaedf455268a4475, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Normal.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Normal.m_TextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Normal.m_TextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Active.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Active.m_TextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Active.m_TextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876,
+        type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876,
+        type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Normal.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Normal.m_TextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Normal.m_TextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876,
+        type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Normal.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Normal.m_TextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Normal.m_TextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: b3c5c7afcfe6d1b41a8e087f71c911fa, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Active.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: b3c5c7afcfe6d1b41a8e087f71c911fa, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Normal.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Normal.m_TextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Normal.m_TextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Active.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Active.m_TextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Active.m_TextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876,
+        type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: c1846ace2045ecc4ca2a15e0f27f1e82, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Normal.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Normal.m_TextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Normal.m_TextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Overflow.m_Left
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Overflow.m_Right
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Overflow.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Overflow.m_Bottom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Overflow.m_Top
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Overflow.m_Bottom
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Overflow.m_Left
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Overflow.m_Right
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Overflow.m_Left
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_ImagePosition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_ContentOffset.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_ContentOffset.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Name
+      value: button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Name
+      value: Label
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Name
+      value: TagLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Name
+      value: TextField
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Name
+      value: window
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876,
+        type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_FontSize
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150fc7f6a3f644d4fa5685030447e3d1, type: 3}
