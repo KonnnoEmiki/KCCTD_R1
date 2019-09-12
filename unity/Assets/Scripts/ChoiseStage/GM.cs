@@ -32,7 +32,7 @@ public class GM : MonobitEngine.MonoBehaviour
          //monobitView.RPC("Stagechange", MonobitEngine.MonobitTargets.All, null);
 
 
-        if (NetworkGUI.gs == true) Destroy(gameObject);
+        if (NetworkGUI.gs == true) this.gameObject.SetActive(false);
     }
 
     /*

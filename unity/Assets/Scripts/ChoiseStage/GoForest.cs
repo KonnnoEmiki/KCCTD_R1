@@ -19,6 +19,21 @@ public class GoForest : MonobitEngine.MonoBehaviour
             this.gameObject.SetActive(true);
     }*/
 
+    [MunRPC]
+    private void Start()
+    {
+        if (GM.stageselect == 2)
+        {
+            var roomData = MonobitEngine.MonobitNetwork.room;
+
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+            {
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
+            }
+        }
+    }
+
     // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)

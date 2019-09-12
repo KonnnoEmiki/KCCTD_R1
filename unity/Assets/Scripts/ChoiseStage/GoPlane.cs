@@ -21,6 +21,22 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     }*/
 
     [MunRPC]
+    private void Start()
+    {
+        if (GM.stageselect == 1)
+        {
+            var roomData = MonobitEngine.MonobitNetwork.room;
+
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+            {
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+            }
+        }
+    }
+
+
+    [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
         // 接触対象はmasterタグですか？
