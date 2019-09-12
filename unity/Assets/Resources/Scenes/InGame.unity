@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4466622, g: 0.4965092, b: 0.5748667, a: 1}
+  m_IndirectSpecularColor: {r: 0.44571573, g: 0.71900886, b: 0.73043394, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5372,7 +5372,7 @@ PrefabInstance:
     - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
         type: 3}
       propertyPath: m_SpawnPrefab
-      value: Prefabs/InGame/MaleFreeSimpleMovement1
+      value: Prefabs/InGame/SapphiArtchan
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 608503602888654049, guid: c529fc5983a630b43b949023128329a2, type: 3}
