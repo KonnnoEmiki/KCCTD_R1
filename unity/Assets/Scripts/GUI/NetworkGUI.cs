@@ -84,6 +84,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
 
+        GUILayout.Space(10);
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();
 
@@ -99,6 +100,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	// サーバーから切断用GUI
 	private void OnGui_Disconnect()
 	{
+        GUILayout.Space(10);
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();
 

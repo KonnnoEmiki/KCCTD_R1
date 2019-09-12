@@ -560,6 +560,106 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TagLabel.m_FontSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Margin.m_Left
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Margin.m_Right
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Margin.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Margin.m_Bottom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Margin.m_Right
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Margin.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Margin.m_Bottom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Label.m_Margin.m_Left
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Margin.m_Left
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Margin.m_Right
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Margin.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TagLabel.m_Margin.m_Bottom
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Margin.m_Left
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Margin.m_Right
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Margin.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: TextField.m_Margin.m_Bottom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Margin.m_Left
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Margin.m_Right
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Margin.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: window.m_Margin.m_Bottom
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
