@@ -15,10 +15,10 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     void Start()
     {
         var roomData = MonobitEngine.MonobitNetwork.room;
-        if (GM.stageselect == 1)
+        if (GM.stageselect == 3)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
     }
 
     [MunRPC]
@@ -31,15 +31,15 @@ public class GoPlane : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
             }
         }
     }
 
     [MunRPC]
-    private void stagechange1()
+    private void stagechange3()
     {
-        GM.stageselect = 1;
+        GM.stageselect = 3;
         Stage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);

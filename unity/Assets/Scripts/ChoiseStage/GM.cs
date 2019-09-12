@@ -20,6 +20,12 @@ public class GM : MonobitEngine.MonoBehaviour
 
     public static bool first = true;
 
+    void Start()
+    {
+        stageselect = 0;
+        first = true;
+    }
+
     [MunRPC]
     private void Update()
     {
