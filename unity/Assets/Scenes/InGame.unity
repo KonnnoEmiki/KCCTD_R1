@@ -124,7 +124,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1614
+  m_Name: pb_Mesh-30134
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 252852584}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: SpawnArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1212,7 +1212,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1608
+  m_Name: pb_Mesh-30128
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1372,7 +1372,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1616
+  m_Name: pb_Mesh-30136
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1949,7 +1949,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh7848
+  m_Name: pb_Mesh42102
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2467,9 +2467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eacb4981f388142bd844c5eeaae58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Plane: {fileID: 252852582}
   Stage: {fileID: 773580420}
   ForestStage: {fileID: 198798602}
-  Plane: {fileID: 252852582}
 --- !u!135 &1322274948
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2586,7 +2586,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1610
+  m_Name: pb_Mesh-30130
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2788,9 +2788,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c6f3b3425040642af7b7a633ad933e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForestStage: {fileID: 198798602}
-  Stage: {fileID: 773580420}
   Plane: {fileID: 252852582}
+  Stage: {fileID: 773580420}
+  ForestStage: {fileID: 198798602}
 --- !u!135 &1445812300
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3252,7 +3252,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1602
+  m_Name: pb_Mesh-30122
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3546,9 +3546,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   host: {fileID: 3293966751762601676, guid: 9cc3098aaa260a346a8cc557f54771a7, type: 3}
-  Canan: {fileID: 252852582}
+  Stage: {fileID: 0}
   ForestStage: {fileID: 198798602}
-  PlaneStage: {fileID: 773580420}
+  Plane: {fileID: 0}
 --- !u!65 &1833048220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4390,7 +4390,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1612
+  m_Name: pb_Mesh-30132
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4710,7 +4710,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1604
+  m_Name: pb_Mesh-30124
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4870,7 +4870,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1606
+  m_Name: pb_Mesh-30126
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
