@@ -32,8 +32,8 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "master";
         if (first == false)
             host.gameObject.tag = "Player";
-        if (NetworkGUI.gs == true)
-            this.gameObject.SetActive(false);
+       // if (NetworkGUI.gs == true)
+        //    this.gameObject.SetActive(false);
     }
 
 }
