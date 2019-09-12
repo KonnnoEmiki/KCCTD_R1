@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
-    public static int stageselect = 0;
+
     public static int gamemode = 0;
 
     private int stageNo = 0;
@@ -22,7 +22,6 @@ public class GM : MonobitEngine.MonoBehaviour
 
     void Start()
     {
-        stageselect = 0;
         first = true;
     }
 
@@ -36,4 +35,5 @@ public class GM : MonobitEngine.MonoBehaviour
         if (NetworkGUI.gs == true)
             this.gameObject.SetActive(false);
     }
+
 }

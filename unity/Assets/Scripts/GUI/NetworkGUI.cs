@@ -21,6 +21,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool roommaster = false;
 
+    public static int stageselect = 0;
+
     private bool gsf=true;
 
     private void Start()

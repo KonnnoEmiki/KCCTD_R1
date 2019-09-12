@@ -12,10 +12,10 @@ public class GoForest : MonobitEngine.MonoBehaviour
     private GameObject ForestStage = null;
 
     [MunRPC]
-    void Start()
+    void Update()
     {
         var roomData = MonobitEngine.MonobitNetwork.room;
-        if (GM.stageselect == 2)
+        if (NetworkGUI.stageselect == 2)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
@@ -37,7 +37,7 @@ public class GoForest : MonobitEngine.MonoBehaviour
     [MunRPC]
     private void stagechange2()
     {
-        GM.stageselect = 2;
+        NetworkGUI.stageselect = 2;
         ForestStage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
