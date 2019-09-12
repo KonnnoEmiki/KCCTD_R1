@@ -3,7 +3,12 @@ guid: ff2bcd10a19d71e41a01911a2a0d2c24
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Plane: {instanceID: 0}
+  - Stage: {instanceID: 0}
+  - ForestStage: {instanceID: 0}
+  - StageLabel: {fileID: 6712043745291300243, guid: df16f522117e95240aa673ba71b66b33,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

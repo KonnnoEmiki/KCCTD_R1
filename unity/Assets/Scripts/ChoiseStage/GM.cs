@@ -98,7 +98,7 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.gamemode = 0;
         BallLuncher.gameObject.SetActive(true);
-        ModeLabel.text = "BallLuncher On";
+        ModeLabel.text = "mode:"+"BallLuncherOn";
     }
 
     [MunRPC]
@@ -106,7 +106,7 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.gamemode = 1;
         BallLuncher.gameObject.SetActive(false);
-        ModeLabel.text = "BallLuncher Off";
+        ModeLabel.text = "mode:"+"BallLuncherOff";
     }
 
 }

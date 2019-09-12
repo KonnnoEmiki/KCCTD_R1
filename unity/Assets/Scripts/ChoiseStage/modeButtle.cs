@@ -37,6 +37,6 @@ public class modeButtle : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.gamemode = 1;
         BallLuncher.gameObject.SetActive(false);
-        ModeLabel.text = "BallLuncher On";
+        ModeLabel.text = "mode:" + "BallLuncherOn";
     }
 }

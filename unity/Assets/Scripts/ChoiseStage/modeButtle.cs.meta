@@ -3,7 +3,10 @@ guid: 52e48e74bbbaaed4088d55aad2bdfea7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - BallLuncher: {instanceID: 0}
+  - ModeLabel: {fileID: 8035761820343373667, guid: 5dfe003ccba1c214cb3813dcc394adfa,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -3,7 +3,17 @@ guid: 1db0be1a5bc5cf446a018d23ca2d0df4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - host: {instanceID: 0}
+  - BallLuncher: {instanceID: 0}
+  - choise: {instanceID: 0}
+  - Stage: {instanceID: 0}
+  - ForestStage: {instanceID: 0}
+  - Plane: {instanceID: 0}
+  - StageLabel: {fileID: 6712043745291300243, guid: df16f522117e95240aa673ba71b66b33,
+      type: 3}
+  - ModeLabel: {fileID: 8035761820343373667, guid: 5dfe003ccba1c214cb3813dcc394adfa,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
