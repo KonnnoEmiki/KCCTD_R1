@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
-    public static int stageselect = 0;
+
     public static int gamemode = 0;
 
     private int stageNo = 0;
