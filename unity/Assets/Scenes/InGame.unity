@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   host: {fileID: 3293966751762601676, guid: 9cc3098aaa260a346a8cc557f54771a7, type: 3}
+  choise: {fileID: 236015849}
   Stage: {fileID: 773580420}
   ForestStage: {fileID: 198798602}
   Plane: {fileID: 252852582}
