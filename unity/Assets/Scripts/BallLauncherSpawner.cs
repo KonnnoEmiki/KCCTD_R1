@@ -10,7 +10,7 @@ public class BallLauncherSpawner : MonoBehaviour<BallLauncherSpawner>
 
 	public void SpawnLauncher()
 	{
-        if (NetworkGUI.gs == true)
+        if (NetworkGUI.gs == true && NetworkGUI.Ballmode == true)
         {
             Vector3 spherePos = Random.onUnitSphere;
             var areaRadius = GameManager.Instance.AreaCollider.bounds.size.x * 0.5f * 0.9f;
