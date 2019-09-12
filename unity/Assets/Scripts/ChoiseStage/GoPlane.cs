@@ -10,19 +10,11 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     private GameObject ForestStage = null;
     [SerializeField]
     private GameObject Plane = null;
-    // トリガーとの接触時に呼ばれるコールバック
-
-    /*private void Update()
-    {
-        if (NetworkGUI.roommaster == false)
-            this.gameObject.SetActive(false);
-        if (NetworkGUI.roommaster == true)
-            this.gameObject.SetActive(true);
-    }*/
 
     [MunRPC]
     private void Start()
-    {var roomData = MonobitEngine.MonobitNetwork.room;
+    {
+        var roomData = MonobitEngine.MonobitNetwork.room;
         if (GM.stageselect == 1)
         {
             
@@ -37,13 +29,12 @@ public class GoPlane : MonobitEngine.MonoBehaviour
 
     // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
-    void OnTriggerEnter(Collider hit)
-    { var roomData = MonobitEngine.MonobitNetwork.room;
+    private void OnTriggerEnter(Collider hit)
+    {
+        var roomData = MonobitEngine.MonobitNetwork.room;
         // 接触対象はmasterタグですか？
         if (hit.CompareTag("master"))
         {
-           
-
             // if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
                 //   if (MonobitEngine.MonobitNetwork.isHost == true)

@@ -20,7 +20,7 @@ public class GM : MonobitEngine.MonoBehaviour
 
     public static bool first = true;
 
-    void Start()
+    private void Start()
     {
         stageselect = 0;
     }
