@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
@@ -21,11 +20,6 @@ public class GM : MonobitEngine.MonoBehaviour
 
     public static bool first = true;
 
-    void Start()
-    {
-        first = true;
-    }
-
     [MunRPC]
     private void Update()
     {
@@ -33,8 +27,16 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "master";
         if (first == false)
             host.gameObject.tag = "Player";
-          if (NetworkGUI.gs == true)
-             choise.gameObject.SetActive(false);
+        if (NetworkGUI.gs == true)
+        {
+            GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("master");
+            foreach (GameObject obj in tagobjs)
+            {
+                Destroy(obj);
+            }
+            choise.gameObject.SetActive(false);
+        }
+
         var roomData = MonobitEngine.MonobitNetwork.room;
         if (NetworkGUI.stageselect == 0)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
@@ -48,14 +50,15 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.gamemode == 0)
+
+        if (NetworkGUI.Ballmode == false)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("gamemode0", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.gamemode == 1)
+                    monobitView.RPC("BallOff", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.Ballmode == true)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("gamemode1", MonobitEngine.MonobitTargets.All, null);
+                    monobitView.RPC("BallOn", MonobitEngine.MonobitTargets.All, null);
     }
 
     [MunRPC]
@@ -86,17 +89,15 @@ public class GM : MonobitEngine.MonoBehaviour
     }
 
     [MunRPC]
-    private void gamemode0()
+    private void BallOff()
     {
-        NetworkGUI.gamemode = 0;
-        BallLuncher.gameObject.SetActive(true);
+        NetworkGUI.Ballmode = false;
     }
 
     [MunRPC]
-    private void gamemode1()
+    private void BallOn()
     {
-        NetworkGUI.gamemode = 1;
-        BallLuncher.gameObject.SetActive(false);
+        NetworkGUI.Ballmode = true;
     }
 
 }

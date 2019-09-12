@@ -23,7 +23,9 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static int stageselect = 0;
 
-    public static int gamemode = 0;
+    public static bool Ballmode = true;
+
+    public static int gamemode = 1;
 
     private bool gsf=true;
 
@@ -142,7 +144,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
 
 		// ルーム内に自分しか居なければ他のプレイヤーを待つ
-		if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
+		/*if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
 		{
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
@@ -152,7 +154,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
             return;
-		}
+		}*/
 
 		if (GUILayout.Button("Game Start", button, GUILayout.Width(BaseGUIWidth * 3)))
         {
@@ -185,6 +187,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	private void OnGui_CreateRoom()
     {
         roommaster = true;
+        GM.first = true;
         gs = false;
         GUILayout.BeginHorizontal();
         GUILayout.Space(50);
@@ -254,6 +257,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	private void OnGui_ChooseRoom()
 	{
         gsf = true;
+        GM.first = false;
         var roomDataList = MonobitEngine.MonobitNetwork.GetRoomData();
 		if (roomDataList.Length < 1)
 			return; // 他にルームが見つからなかった
