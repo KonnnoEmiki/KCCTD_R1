@@ -152,12 +152,16 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             return;
 		}
 
-		if (GUILayout.Button("Game Start", button, GUILayout.Width(BaseGUIWidth * 3)))
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button("Game Start", button, GUILayout.Width(BaseGUIWidth * 3)))
         {
             monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
 			roomData.visible = false; // ゲーム開始後はルームが他プレイヤーから見えないように
 			LoadInGameScene();
 		}
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();
     }
