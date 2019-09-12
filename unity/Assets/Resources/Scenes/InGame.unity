@@ -5369,6 +5369,11 @@ PrefabInstance:
       propertyPath: m_viewIdField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
+        type: 3}
+      propertyPath: m_SpawnPrefab
+      value: Prefabs/InGame/MaleFreeSimpleMovement1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 608503602888654049, guid: c529fc5983a630b43b949023128329a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c529fc5983a630b43b949023128329a2, type: 3}

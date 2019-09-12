@@ -740,8 +740,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558264638167218}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.49999937, w: 0.50000066}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4558780136451604}
   - {fileID: 4485198414577694}
@@ -864,7 +864,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611597450915140}
-  m_LocalRotation: {x: -0.6087614, y: -0.00024358726, z: 0.7933532, w: -0.0003151177}
+  m_LocalRotation: {x: -0.6087614, y: -0.00024358727, z: 0.7933532, w: -0.00031511774}
   m_LocalPosition: {x: -0.009793099, y: -0.0032242318, z: 0.003381915}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
@@ -984,6 +984,8 @@ GameObject:
   - component: {fileID: 5474187033452851528}
   - component: {fileID: 1529636097792135795}
   - component: {fileID: 8797067285605303391}
+  - component: {fileID: 7217818437294487529}
+  - component: {fileID: 8860843287726902000}
   m_Layer: 0
   m_Name: MaleFreeSimpleMovement1
   m_TagString: Untagged
@@ -1027,7 +1029,7 @@ Rigidbody:
   m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!136 &136606663363984694
@@ -1054,7 +1056,7 @@ Animator:
   m_GameObject: {fileID: 1824340380413090}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 45d480461bbdc704587e117329ce8e69, type: 3}
-  m_Controller: {fileID: 9100000, guid: f297797635a2b7445ad2ea55cec7353b, type: 2}
+  m_Controller: {fileID: 22100000, guid: d8e9c8e5fc76f454a804151537d85fd3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -1121,7 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BallTag: Ball
   m_GrandedParam:
-    m_Index: 862969536
+    m_Index: 940228561
     m_Type: 3
   m_InFallParam:
     m_Index: -978215931
@@ -1139,7 +1141,7 @@ MonoBehaviour:
     m_Index: -2004386410
     m_Type: 4
   m_FootColliderRadius: 0.11
-  m_CastDistance: 0.3
+  m_CastDistance: 0
   m_DurableValue: 10
 --- !u!114 &331982923201903133
 MonoBehaviour:
@@ -1175,8 +1177,8 @@ MonoBehaviour:
   m_IsEncrypt: 1
   InternalObservedComponents: []
   ObservedComponents:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1529636097792135795}
+  - {fileID: 8797067285605303391}
   ownerId: 0
   group: 0
   prefixBackup: -1
@@ -1195,7 +1197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 95665039525092722}
-  m_Controller: {fileID: 9100000, guid: f297797635a2b7445ad2ea55cec7353b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7a96a0461e7f9844fa11b9434c16d243, type: 2}
   m_SyncAnimLayers:
   - m_Index: 0
     m_Name: Base Layer
@@ -1205,41 +1207,35 @@ MonoBehaviour:
     m_EnableSync: 1
   m_SyncAnimParams:
   - m_Type: 1
-    m_Name: MoveSpeed
-    m_EnableSync: 1
-  - m_Type: 9
     m_Name: Jump
     m_EnableSync: 0
-  - m_Type: 9
-    m_Name: Land
-    m_EnableSync: 0
-  - m_Type: 9
-    m_Name: Pickup
-    m_EnableSync: 0
-  - m_Type: 4
-    m_Name: Grounded
-    m_EnableSync: 1
-  - m_Type: 9
+  - m_Type: 1
     m_Name: Speed
     m_EnableSync: 0
   - m_Type: 1
     m_Name: Direction
     m_EnableSync: 1
-  - m_Type: 1
+  - m_Type: 9
     m_Name: OnJump
     m_EnableSync: 0
-  - m_Type: 9
+  - m_Type: 4
     m_Name: OnDown
     m_EnableSync: 0
   - m_Type: 9
     m_Name: InFall
     m_EnableSync: 0
-  - m_Type: 9
+  - m_Type: 4
     m_Name: InLanding
     m_EnableSync: 0
-  - m_Type: 4
+  - m_Type: 9
     m_Name: Win
-    m_EnableSync: 1
+    m_EnableSync: 0
+  - m_Type: 9
+    m_Name: JumpHeight
+    m_EnableSync: 0
+  - m_Type: 9
+    m_Name: Granded
+    m_EnableSync: 0
 --- !u!114 &8797067285605303391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1262,170 @@ MonoBehaviour:
     m_LerpRate: 1
   m_SnapEnabled: 1
   m_SnapThreshold: 3
+--- !u!114 &7217818437294487529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824340380413090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb7f19d4fbccd54f8b426de3d85dd38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveKey:
+    Name: Horizontal
+    DescriptiveName: 
+    DescriptiveNegativeName: 
+    NegativeButton: left
+    PositiveButton: right
+    AltNegativeButton: a
+    AltPositiveButton: d
+    Gravity: 3
+    Dead: 0.001
+    Sensitivity: 3
+    Snap: 1
+    Invert: 0
+    Type: 0
+    Axis: 0
+    JoyNum: 0
+  m_RotationKey:
+    Name: Vertical
+    DescriptiveName: 
+    DescriptiveNegativeName: 
+    NegativeButton: down
+    PositiveButton: up
+    AltNegativeButton: s
+    AltPositiveButton: w
+    Gravity: 3
+    Dead: 0.001
+    Sensitivity: 3
+    Snap: 1
+    Invert: 0
+    Type: 0
+    Axis: 0
+    JoyNum: 0
+  m_JumpKey:
+    Name: Jump
+    DescriptiveName: 
+    DescriptiveNegativeName: 
+    NegativeButton: 
+    PositiveButton: space
+    AltNegativeButton: 
+    AltPositiveButton: 
+    Gravity: 1000
+    Dead: 0.001
+    Sensitivity: 1000
+    Snap: 0
+    Invert: 0
+    Type: 0
+    Axis: 0
+    JoyNum: 0
+--- !u!114 &8860843287726902000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824340380413090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6514ba86f976d724ab63844a6015b2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dynamicRatio: 0.9
+  stiffnessForce: 0.01
+  stiffnessCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dragForce: 0.2
+  dragCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  springBones:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1826566120413068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,8 +1928,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 6706580802226095364}
+  m_Follow: {fileID: 4549428611729446}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 60
@@ -2752,8 +2912,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 6706580802226095364}
+  m_Follow: {fileID: 4549428611729446}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 60
@@ -3623,13 +3783,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2401442639655629721}
-    characterCount: 0
+    characterCount: 3
     spriteCount: 0
     spaceCount: 0
-    wordCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
