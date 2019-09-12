@@ -35,7 +35,7 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "Player";
         if (NetworkGUI.gs == true)
             this.gameObject.SetActive(false);
-        if(stageselect==0)
+        if (stageselect == 0)
         {
             var roomData = MonobitEngine.MonobitNetwork.room;
 
@@ -46,7 +46,7 @@ public class GM : MonobitEngine.MonoBehaviour
     }
 
 
-        
+
 
     [MunRPC]
     private void stagechange0()
@@ -57,3 +57,4 @@ public class GM : MonobitEngine.MonoBehaviour
         ForestStage.gameObject.SetActive(false);
 
     }
+}

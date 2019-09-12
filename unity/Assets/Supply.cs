@@ -4,15 +4,21 @@ using UnityEngine;
 using System;
 using System.Threading.Tasks;
 
-public class Supply : MonoBehaviour
+public class Supply :MonobitEngine.MonoBehaviour
 {
 
     void OnTriggerStay(Collider hit)
     {
-        if (hit.CompareTag("Player")|| hit.CompareTag("master"))
+        if (hit.CompareTag("Player")|| hit.CompareTag("master")&& PlayerController.shotCount < 6)
         {
             PlayerController.shotCount = 6;
-            this.gameObject.SetActive(false);
+            monobitView.RPC("Activefalse", MonobitEngine.MonobitTargets.All, null);
         }
+    }
+
+    [MunRPC]
+    private void Activefalse()
+    {
+        this.gameObject.SetActive(false);
     }
 }
