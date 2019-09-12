@@ -21,11 +21,6 @@ public class GM : MonobitEngine.MonoBehaviour
 
     public static bool first = true;
 
-    void Start()
-    {
-        first = true;
-    }
-
     [MunRPC]
     private void Update()
     {
@@ -33,8 +28,15 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "master";
         if (first == false)
             host.gameObject.tag = "Player";
-          if (NetworkGUI.gs == true)
-             choise.gameObject.SetActive(false);
+        if (NetworkGUI.gs == true)
+        {
+            choise.gameObject.SetActive(false);
+            GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("master");
+            foreach (GameObject obj in tagobjs)
+            {
+                Destroy(obj);
+            }
+        }
         var roomData = MonobitEngine.MonobitNetwork.room;
         if (NetworkGUI.stageselect == 0)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)

@@ -25,7 +25,9 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static int gamemode = 0;
 
-    private bool gsf=true;
+    public static bool Ballflag = true;
+
+    private bool gsf = true;
 
     public GUIStyle button;
     public GUIStyle Label;
@@ -142,7 +144,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
 
 		// ルーム内に自分しか居なければ他のプレイヤーを待つ
-		if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
+		/*if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
 		{
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
@@ -152,7 +154,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
             return;
-		}
+		}*/
 
 		if (GUILayout.Button("Game Start", button, GUILayout.Width(BaseGUIWidth * 3)))
         {
