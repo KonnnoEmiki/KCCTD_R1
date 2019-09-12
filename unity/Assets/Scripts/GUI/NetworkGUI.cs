@@ -43,6 +43,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
 
             OnGui_Connect();
+            OnGui_CloseGame();
 
             GUILayout.EndVertical();
             return;
@@ -97,8 +98,19 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.EndHorizontal();
     }
 
-	// サーバーから切断用GUI
-	private void OnGui_Disconnect()
+    //ゲーム終了用GUI
+    private void OnGui_CloseGame()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(20);
+        if (GUILayout.Button("Close", button, GUILayout.Width(BaseGUIWidth * 3)))
+            UnityEditor.EditorApplication.isPlaying = false;
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+    }
+
+    // サーバーから切断用GUI
+    private void OnGui_Disconnect()
 	{
         GUILayout.Space(10);
         GUILayout.BeginHorizontal();
