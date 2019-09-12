@@ -5,25 +5,25 @@ using UnityEngine;
 public class GoForest : MonobitEngine.MonoBehaviour
 {
     [SerializeField]
-    private GameObject ForestStage = null;
+    private GameObject Plane = null;
     [SerializeField]
     private GameObject Stage = null;
     [SerializeField]
-    private GameObject Plane = null;
+    private GameObject ForestStage = null;
 
-    /*private void Update()
+    [MunRPC]
+    void Start()
     {
-        if (NetworkGUI.roommaster == false)
-            this.gameObject.SetActive(false);
-        if (NetworkGUI.roommaster == true)
-            this.gameObject.SetActive(true);
-    }*/
+        var roomData = MonobitEngine.MonobitNetwork.room;
+        if (GM.stageselect == 2)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
+    }
 
-    // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
-        // 接触対象はmasterタグですか？
         if (hit.CompareTag("master"))
         {
             var roomData = MonobitEngine.MonobitNetwork.room;

@@ -27,34 +27,8 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "master";
         if (first == false)
             host.gameObject.tag = "Player";
-
-
-         //monobitView.RPC("Stagechange", MonobitEngine.MonobitTargets.All, null);
-
-
-        if (NetworkGUI.gs == true) Destroy(gameObject);
+        if (NetworkGUI.gs == true)
+            this.gameObject.SetActive(false);
     }
-
-    /*
-    [MunRPC]
-    private void Stagechange()
-    {
-        if (stageNo != stageselect)
-        {
-            stageNo = stageselect;
-            if (stageselect == 1)
-            {
-                Canan.gameObject.SetActive(false);
-                PlaneStage.gameObject.SetActive(true);
-                ForestStage.gameObject.SetActive(false);
-            }
-            if (stageselect == 2)
-            {
-                ForestStage.gameObject.SetActive(true);
-                PlaneStage.gameObject.SetActive(false);
-                Canan.gameObject.SetActive(false);
-            }
-        }
-    }*/
 
 }

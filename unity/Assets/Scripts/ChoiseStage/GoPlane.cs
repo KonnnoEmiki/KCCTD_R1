@@ -5,41 +5,41 @@ using UnityEngine;
 public class GoPlane : MonobitEngine.MonoBehaviour
 {
     [SerializeField]
+    private GameObject Plane = null;
+    [SerializeField]
     private GameObject Stage = null;
     [SerializeField]
     private GameObject ForestStage = null;
-    [SerializeField]
-    private GameObject Plane = null;
-    // トリガーとの接触時に呼ばれるコールバック
 
-    /*private void Update()
+    [MunRPC]
+    void Start()
     {
-        if (NetworkGUI.roommaster == false)
-            this.gameObject.SetActive(false);
-        if (NetworkGUI.roommaster == true)
-            this.gameObject.SetActive(true);
-    }*/
+        var roomData = MonobitEngine.MonobitNetwork.room;
+        if (GM.stageselect == 3)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
+    }
 
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
-        // 接触対象はmasterタグですか？
         if (hit.CompareTag("master"))
         {
             var roomData = MonobitEngine.MonobitNetwork.room;
 
-            if (monobitView.isMine == true && NetworkGUI.roommaster==true)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
             }
         }
     }
 
     [MunRPC]
-    private void stagechange1()
+    private void stagechange3()
     {
-        GM.stageselect = 1;
+        GM.stageselect = 3;
         Stage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);

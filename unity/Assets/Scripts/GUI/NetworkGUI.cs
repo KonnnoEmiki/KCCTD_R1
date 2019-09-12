@@ -98,11 +98,11 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
 
 		// ルーム内に自分しか居なければ他のプレイヤーを待つ
-		if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
+		/*if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
 		{
 			GUILayout.Label("Waiting for other player...");
 			return;
-		}
+		}*/
 
 		if (GUILayout.Button("Game Start", GUILayout.Width(BaseGUIWidth * 2)))
         {

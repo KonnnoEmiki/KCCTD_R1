@@ -9,7 +9,7 @@ public class Supply : MonoBehaviour
 
     void OnTriggerStay(Collider hit)
     {
-        if (hit.CompareTag("Player"))
+        if (hit.CompareTag("Player")|| hit.CompareTag("master"))
         {
             PlayerController.shotCount = 6;
             this.gameObject.SetActive(false);
