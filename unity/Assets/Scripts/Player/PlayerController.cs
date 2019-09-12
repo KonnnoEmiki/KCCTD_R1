@@ -31,7 +31,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 	private Camera m_Camera = null;
     public GameObject bulletPrefab;
     public float shotSpeed;
-    public int shotCount = 6;
+    public static int shotCount = 6;
     public float starttime;
     public float now;
     private float shotInterval;
@@ -131,6 +131,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
             lookAheadPosition.y += 1;
             Transform myTransform = this.transform;
             Vector3 pos = myTransform.position;
+            shellLabel.text = "玉：" + shotCount;
             if (Input.GetKey(KeyCode.Mouse0))
             {
 
@@ -139,16 +140,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
                     shotCount -= 1;
-                    shellLabel.text = "玉：" + shotCount;
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
             }
-            else if(Supply.HIT==1)
-            {
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-
         }
     }
 
