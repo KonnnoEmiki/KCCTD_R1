@@ -16,15 +16,15 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 	[SerializeField]
 	private float m_JumpPow = 4;		// ジャンプ力
 
-	// 各種Animatorのパラメータ設定用
-	[SerializeField]
+    // 各種Animatorのパラメータ設定用
+    [SerializeField]
 	private AnimationParameter m_JumpParam = new AnimationParameter();
 	[SerializeField]
 	private AnimationParameter m_SpeedParam = new AnimationParameter();
 	[SerializeField]
 	private AnimationParameter m_DirectionParam = new AnimationParameter();
 
-	private Player m_Player = null;
+    private Player m_Player = null;
 	private PlayerInput m_Input = null;
 	private PlayerAnimationController m_AnimController = null;
 	private Rigidbody m_RigidBody = null;
@@ -36,6 +36,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     public float now;
     private float shotInterval;
     public Text shellLabel;
+    
 
     Vector3 lookAheadPosition;
 

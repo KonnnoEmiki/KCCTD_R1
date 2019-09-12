@@ -40,7 +40,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
 	private void OnGUI()
 	{
-		if (MonobitEngine.MonobitNetwork.isConnect == false)
+
+        if (MonobitEngine.MonobitNetwork.isConnect == false)
 		{
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
 
