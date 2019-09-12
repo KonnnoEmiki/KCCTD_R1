@@ -22,32 +22,32 @@ public class GoPlane : MonobitEngine.MonoBehaviour
 
     [MunRPC]
     private void Start()
-    {
+    {var roomData = MonobitEngine.MonobitNetwork.room;
         if (GM.stageselect == 1)
         {
-            var roomData = MonobitEngine.MonobitNetwork.room;
+            
 
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+            // if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+                //  if (MonobitEngine.MonobitNetwork.isHost == true)
+                monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
             }
         }
     }
 
-
+    // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)
-    {
+    {  var roomData = MonobitEngine.MonobitNetwork.room;
         // 接触対象はmasterタグですか？
         if (hit.CompareTag("master"))
         {
-            var roomData = MonobitEngine.MonobitNetwork.room;
+          
 
-            if (monobitView.isMine == true && NetworkGUI.roommaster==true)
+            //if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+                //  if (MonobitEngine.MonobitNetwork.isHost == true)
+                monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
             }
         }
     }
@@ -56,8 +56,8 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     private void stagechange1()
     {
         GM.stageselect = 1;
-        Stage.gameObject.SetActive(true);
-        Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);
+        Plane.gameObject.SetActive(false);
+        Stage.gameObject.SetActive(true);
     }
 }

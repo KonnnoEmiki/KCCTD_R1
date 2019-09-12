@@ -7,8 +7,6 @@ public class GM : MonobitEngine.MonoBehaviour
     public static int stageselect = 0;
     public static int gamemode = 0;
 
-    private int stageNo = 0;
-
     [SerializeField]
     private GameObject host = null;
     [SerializeField]
@@ -19,6 +17,11 @@ public class GM : MonobitEngine.MonoBehaviour
     private GameObject PlaneStage = null;
 
     public static bool first = true;
+
+    private void Start()
+    {
+        stageselect = 0;
+    }
 
     [MunRPC]
     private void Update()
