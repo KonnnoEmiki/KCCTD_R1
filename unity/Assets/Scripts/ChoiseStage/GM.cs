@@ -22,7 +22,6 @@ public class GM : MonobitEngine.MonoBehaviour
 
     void Start()
     {
-        stageselect = 0;
         first = true;
     }
 
@@ -35,26 +34,6 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "Player";
         if (NetworkGUI.gs == true)
             this.gameObject.SetActive(false);
-        if (stageselect == 0)
-        {
-            var roomData = MonobitEngine.MonobitNetwork.room;
-
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange", MonobitEngine.MonobitTargets.All, null);
-        }
     }
 
-
-
-
-    [MunRPC]
-    private void stagechange()
-    {
-        GM.stageselect = 0;
-        Stage.gameObject.SetActive(false);
-        Plane.gameObject.SetActive(true);
-        ForestStage.gameObject.SetActive(false);
-
-    }
 }
