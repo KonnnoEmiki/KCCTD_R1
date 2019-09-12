@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 public class SupplyBrain : MonoBehaviour
 {
-    public bool Flag=true;
+    public static bool flag=true;
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     private void Update()
     {
         var obj = transform.Find("cartridge").gameObject;
-        if (!obj.activeInHierarchy&&Flag)
+        if (!obj.activeInHierarchy&&flag)
         {
-            Flag = false;
+            flag = false;
             StartCoroutine("sleep");
         }
     }
@@ -28,6 +29,6 @@ public class SupplyBrain : MonoBehaviour
         var obj = transform.Find("cartridge").gameObject;
         yield return new WaitForSeconds(5);
         obj.SetActive(true);
-        Flag = true;
+        flag = true;
     }
 }
