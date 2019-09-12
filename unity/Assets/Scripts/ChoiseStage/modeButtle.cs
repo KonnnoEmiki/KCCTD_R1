@@ -16,7 +16,7 @@ public class modeButtle : MonobitEngine.MonoBehaviour
             if (RoomManager.IsHost == true)
                 if(monobitView.isMine==true)
                {
-            GM.gamemode = 2;
+            NetworkGUI.gamemode = 2;
             BallLuncher.gameObject.SetActive(false);
             }
     }

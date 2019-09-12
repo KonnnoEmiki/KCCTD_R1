@@ -23,6 +23,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static int stageselect = 0;
 
+    public static int gamemode = 0;
+
     private bool gsf=true;
 
     public GUIStyle button;
