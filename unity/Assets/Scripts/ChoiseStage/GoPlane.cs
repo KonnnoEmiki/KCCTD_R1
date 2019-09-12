@@ -27,9 +27,9 @@ public class GoPlane : MonobitEngine.MonoBehaviour
         {
             
 
-            // if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+            //if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
-                //  if (MonobitEngine.MonobitNetwork.isHost == true)
+                // if (MonobitEngine.MonobitNetwork.isHost == true)
                 monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
             }
         }
@@ -38,15 +38,15 @@ public class GoPlane : MonobitEngine.MonoBehaviour
     // トリガーとの接触時に呼ばれるコールバック
     [MunRPC]
     void OnTriggerEnter(Collider hit)
-    {  var roomData = MonobitEngine.MonobitNetwork.room;
+    { var roomData = MonobitEngine.MonobitNetwork.room;
         // 接触対象はmasterタグですか？
         if (hit.CompareTag("master"))
         {
-          
+           
 
-            //if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+            // if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
-                //  if (MonobitEngine.MonobitNetwork.isHost == true)
+                //   if (MonobitEngine.MonobitNetwork.isHost == true)
                 monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
             }
         }
