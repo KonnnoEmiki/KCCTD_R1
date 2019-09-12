@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2128,7 +2128,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2250546357626845801, guid: f92a58a088b632144a7c0c60a392f87d,
     type: 3}
   shotSpeed: 500
-  shotCount: 6
   starttime: 0
   now: 0
   shellLabel: {fileID: 5787743350709243462}

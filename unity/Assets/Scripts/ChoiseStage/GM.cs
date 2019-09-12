@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
-    public static int stageselect = 1;
+
     public static int gamemode = 0;
 
-    private static readonly int BaseGUIWidth = 75;
+    private int stageNo = 0;
 
     [SerializeField]
-    private GameObject Select = null;
+    private GameObject host = null;
+    [SerializeField]
+    private GameObject Stage = null;
+    [SerializeField]
+    private GameObject ForestStage = null;
+    [SerializeField]
+    private GameObject Plane = null;
 
-    void OnTriggerEnter(Collider hit)
+    public static bool first = true;
+
+    void Start()
     {
-        // 接触対象はPlayerタグですか？
-        if (hit.CompareTag("Player"))
-            if(NetworkGUI.roommaster == true)
-                if (monobitView.isMine == true)
-                {
-                    Destroy(gameObject);
-                }
+        first = true;
+    }
+
+    [MunRPC]
+    private void Update()
+    {
+        if (NetworkGUI.roommaster == true && first == true)
+            host.gameObject.tag = "master";
+        if (first == false)
+            host.gameObject.tag = "Player";
+        if (NetworkGUI.gs == true)
+            this.gameObject.SetActive(false);
     }
 
 }
