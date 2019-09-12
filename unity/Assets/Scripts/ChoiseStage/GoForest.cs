@@ -21,14 +21,14 @@ public class GoForest : MonobitEngine.MonoBehaviour
 
     [MunRPC]
     private void Start()
-    {
+    { var roomData = MonobitEngine.MonobitNetwork.room;
         if (GM.stageselect == 2)
         {
-            var roomData = MonobitEngine.MonobitNetwork.room;
+           
 
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+            //if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
-                if (MonobitEngine.MonobitNetwork.isHost == true)
+               // if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
             }
         }
@@ -38,14 +38,14 @@ public class GoForest : MonobitEngine.MonoBehaviour
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
+            var roomData = MonobitEngine.MonobitNetwork.room;
         // 接触対象はmasterタグですか？
         if (hit.CompareTag("master"))
         {
-            var roomData = MonobitEngine.MonobitNetwork.room;
 
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+           // if (monobitView.isMine == true && NetworkGUI.roommaster == true)
             {
-                if (MonobitEngine.MonobitNetwork.isHost == true)
+             //   if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
             }
         }
