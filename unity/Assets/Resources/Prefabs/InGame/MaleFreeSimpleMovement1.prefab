@@ -864,7 +864,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611597450915140}
-  m_LocalRotation: {x: -0.6087614, y: -0.00024358727, z: 0.7933532, w: -0.00031511774}
+  m_LocalRotation: {x: -0.6087614, y: -0.0002435873, z: 0.7933532, w: -0.0003151178}
   m_LocalPosition: {x: -0.009793099, y: -0.0032242318, z: 0.003381915}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children:
@@ -1024,9 +1024,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824340380413090}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 5
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -1141,7 +1141,7 @@ MonoBehaviour:
     m_Index: -2004386410
     m_Type: 4
   m_FootColliderRadius: 0.11
-  m_CastDistance: 0
+  m_CastDistance: 0.3
   m_DurableValue: 10
 --- !u!114 &331982923201903133
 MonoBehaviour:
@@ -1207,20 +1207,20 @@ MonoBehaviour:
     m_EnableSync: 1
   m_SyncAnimParams:
   - m_Type: 1
-    m_Name: Jump
-    m_EnableSync: 0
-  - m_Type: 1
     m_Name: Speed
-    m_EnableSync: 0
+    m_EnableSync: 1
   - m_Type: 1
     m_Name: Direction
     m_EnableSync: 1
+  - m_Type: 1
+    m_Name: JumpHeight
+    m_EnableSync: 1
   - m_Type: 9
-    m_Name: OnJump
+    m_Name: Jump
     m_EnableSync: 0
   - m_Type: 4
-    m_Name: OnDown
-    m_EnableSync: 0
+    m_Name: Granded
+    m_EnableSync: 1
   - m_Type: 9
     m_Name: InFall
     m_EnableSync: 0
@@ -1228,13 +1228,13 @@ MonoBehaviour:
     m_Name: InLanding
     m_EnableSync: 0
   - m_Type: 9
+    m_Name: OnJump
+    m_EnableSync: 0
+  - m_Type: 9
+    m_Name: OnDown
+    m_EnableSync: 0
+  - m_Type: 9
     m_Name: Win
-    m_EnableSync: 0
-  - m_Type: 9
-    m_Name: JumpHeight
-    m_EnableSync: 0
-  - m_Type: 9
-    m_Name: Granded
     m_EnableSync: 0
 --- !u!114 &8797067285605303391
 MonoBehaviour:
@@ -1275,13 +1275,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MoveKey:
-    Name: Horizontal
+    Name: Vertical
     DescriptiveName: 
     DescriptiveNegativeName: 
-    NegativeButton: left
-    PositiveButton: right
-    AltNegativeButton: a
-    AltPositiveButton: d
+    NegativeButton: down
+    PositiveButton: up
+    AltNegativeButton: s
+    AltPositiveButton: w
     Gravity: 3
     Dead: 0.001
     Sensitivity: 3
@@ -1291,13 +1291,13 @@ MonoBehaviour:
     Axis: 0
     JoyNum: 0
   m_RotationKey:
-    Name: Vertical
+    Name: Horizontal
     DescriptiveName: 
     DescriptiveNegativeName: 
-    NegativeButton: down
-    PositiveButton: up
-    AltNegativeButton: s
-    AltPositiveButton: w
+    NegativeButton: left
+    PositiveButton: right
+    AltNegativeButton: a
+    AltPositiveButton: d
     Gravity: 3
     Dead: 0.001
     Sensitivity: 3
