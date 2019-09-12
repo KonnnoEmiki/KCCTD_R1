@@ -60,13 +60,6 @@ public class SimpleChat : MonobitEngine.MonoBehaviour {
                 }
                 GUILayout.EndHorizontal();
 
-                // ルームからの退室
-                if (GUILayout.Button("Leave Room", GUILayout.Width(150)))
-                {
-                    MonobitNetwork.LeaveRoom();
-                    chatLog.Clear();
-                }
-
                 // チャット発言文の入力
                 GUILayout.BeginHorizontal();
                 GUILayout.Label("Message : ");
@@ -91,19 +84,6 @@ public class SimpleChat : MonobitEngine.MonoBehaviour {
             // ルームに入室していない場合
             else
             {
-                // ルーム名の入力
-                GUILayout.BeginHorizontal();
-                GUILayout.Label("RoomName : ");
-                roomName = GUILayout.TextField(roomName, GUILayout.Width(200));
-                GUILayout.EndHorizontal();
-
-                // ルームを作成して入室する
-                if (GUILayout.Button("Create Room", GUILayout.Width(150)))
-                {
-                    MonobitNetwork.CreateRoom(roomName);
-                    chatLog.Clear();
-                }
-
                 // ルーム一覧を検索
                 foreach ( RoomData room in MonobitNetwork.GetRoomData())
                 {
@@ -118,20 +98,8 @@ public class SimpleChat : MonobitEngine.MonoBehaviour {
         // MUNサーバに接続していない場合
         else
         {
-            // プレイヤー名の入力
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("PlayerName : ");
-            MonobitNetwork.playerName = GUILayout.TextField((MonobitNetwork.playerName == null) ? "": MonobitNetwork.playerName, GUILayout.Width(200));
-            GUILayout.EndHorizontal();
-            
             // デフォルトロビーへの自動入室を許可する
             MonobitNetwork.autoJoinLobby = true;
-
-            // MUNサーバに接続する
-            if( GUILayout.Button("Connect Server", GUILayout.Width(150)))
-            {
-                MonobitNetwork.ConnectServer("SimpleChat_v1.0");
-            }
         }
     }
 }
