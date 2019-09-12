@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoCanan : MonobitEngine.MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GoCanan : MonobitEngine.MonoBehaviour
     private GameObject Stage = null;
     [SerializeField]
     private GameObject ForestStage = null;
+
+    public Text StageLabel;
 
     [MunRPC]
     void Update()
@@ -41,5 +44,6 @@ public class GoCanan : MonobitEngine.MonoBehaviour
         Stage.gameObject.SetActive(false);
         Plane.gameObject.SetActive(true);
         ForestStage.gameObject.SetActive(false);
+        StageLabel.text = "Canan";
     }
 }

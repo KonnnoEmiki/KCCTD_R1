@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
-
-    public static int gamemode = 0;
 
     private int stageNo = 0;
 
     [SerializeField]
     private GameObject host = null;
+    [SerializeField]
+    private GameObject BallLuncher = null;
     [SerializeField]
     private GameObject choise = null;
     [SerializeField]
@@ -21,6 +22,9 @@ public class GM : MonobitEngine.MonoBehaviour
     private GameObject Plane = null;
 
     public static bool first = true;
+
+    public Text StageLabel;
+    public Text ModeLabel;
 
     void Start()
     {
@@ -49,6 +53,14 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.gamemode == 0)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("gamemode0", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.gamemode == 1)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("gamemode1", MonobitEngine.MonobitTargets.All, null);
     }
 
     [MunRPC]
@@ -58,6 +70,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Stage.gameObject.SetActive(false);
         Plane.gameObject.SetActive(true);
         ForestStage.gameObject.SetActive(false);
+        StageLabel.text = "Canan";
     }
 
     [MunRPC]
@@ -67,6 +80,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Stage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);
+        StageLabel.text = "Plane";
     }
 
     [MunRPC]
@@ -76,7 +90,23 @@ public class GM : MonobitEngine.MonoBehaviour
         ForestStage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
+        StageLabel.text = "Forest";
     }
 
+    [MunRPC]
+    private void gamemode0()
+    {
+        NetworkGUI.gamemode = 0;
+        BallLuncher.gameObject.SetActive(true);
+        ModeLabel.text = "BallLuncher On";
+    }
+
+    [MunRPC]
+    private void gamemode1()
+    {
+        NetworkGUI.gamemode = 1;
+        BallLuncher.gameObject.SetActive(false);
+        ModeLabel.text = "BallLuncher Off";
+    }
 
 }
