@@ -12,11 +12,11 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject host = null;
     [SerializeField]
-    private GameObject Canan = null;
+    private GameObject Stage = null;
     [SerializeField]
     private GameObject ForestStage = null;
     [SerializeField]
-    private GameObject PlaneStage = null;
+    private GameObject Plane = null;
 
     public static bool first = true;
 
@@ -35,6 +35,25 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "Player";
         if (NetworkGUI.gs == true)
             this.gameObject.SetActive(false);
+        if(stageselect==0)
+        {
+            var roomData = MonobitEngine.MonobitNetwork.room;
+
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange0", MonobitEngine.MonobitTargets.All, null);
+        }
     }
 
-}
+
+        
+
+    [MunRPC]
+    private void stagechange0()
+    {
+        GM.stageselect = 1;
+        Stage.gameObject.SetActive(false);
+        Plane.gameObject.SetActive(true);
+        ForestStage.gameObject.SetActive(false);
+
+    }
