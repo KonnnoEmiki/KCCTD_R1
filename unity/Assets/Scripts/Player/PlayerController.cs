@@ -58,6 +58,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 		if (GameManager.IsGameSet) return;	// 決着がついていれば
 		if (monobitView.isMine == false) return;	// 所有権が無ければ
 		if (m_Player.IsDown) return;				// 倒れていれば
+        if (Master.MenuOn == true) return;          // メニューウィンドウを開いていれば
 
         m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
 		m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
@@ -66,6 +67,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     void FixedUpdate()
     {
         if (GameManager.IsGameSet) return; // 決着がついていれば
+        if (Master.MenuOn == true) return;          // メニューウィンドウを開いていれば
         if (monobitView.isMine == false)
         {
             Destroy(gameObject.transform.Find("Canvas").gameObject);

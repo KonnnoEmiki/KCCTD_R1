@@ -5,7 +5,7 @@ using UnityEngine;
 public class Master : MonoBehaviour
 {
     public GameObject Menu;
-    private bool MenuOn = true;
+    public static bool MenuOn = true;
     private bool flag = false;
 
     void Start()
@@ -15,13 +15,13 @@ public class Master : MonoBehaviour
 
     void Update()
     {
-        //Eキー押しっぱなしでも連続で切り替わらないように
+        // Eキー押しっぱなしでも連続で切り替わらないように
         if (Input.GetKey(KeyCode.E) && flag == true)
             return;
 
         flag = false;
 
-        //メニュー表示非表示切り替え
+        // メニュー非表示
         if (Input.GetKey(KeyCode.E) && MenuOn == true)
         {
             Menu.SetActive(false);
@@ -29,6 +29,7 @@ public class Master : MonoBehaviour
             flag = true;
             return;
         }
+        // メニュー表示
         if (Input.GetKey(KeyCode.E) && MenuOn == false)
         {
             Menu.SetActive(true);

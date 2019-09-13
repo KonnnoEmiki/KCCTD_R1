@@ -12,6 +12,7 @@ TagManager:
   - master
   - Supply
   - GUI
+  - SubCamera
   layers:
   - Default
   - TransparentFX
