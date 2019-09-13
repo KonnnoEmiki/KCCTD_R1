@@ -27,6 +27,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool Ballflag = true;
 
+    public static bool Itemflag = true;
+
     private bool gsf = true;
 
     public GUIStyle button;
