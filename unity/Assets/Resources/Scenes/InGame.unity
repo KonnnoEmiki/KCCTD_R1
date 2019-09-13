@@ -9694,7 +9694,7 @@ PrefabInstance:
     - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
         type: 3}
       propertyPath: m_SpawnPrefab
-      value: Prefabs/InGame/AcquireChan
+      value: Prefabs/InGame/unitychan_dynamic_locomotion
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 608503602888654049, guid: c529fc5983a630b43b949023128329a2, type: 3}
