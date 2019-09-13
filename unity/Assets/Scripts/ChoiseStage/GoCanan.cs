@@ -12,6 +12,8 @@ public class GoCanan : MonobitEngine.MonoBehaviour
     private GameObject ForestStage = null;
     [SerializeField]
     private GameObject ShrineStage = null;
+    [SerializeField]
+    private GameObject SkyStage = null;
 
     [MunRPC]
     void Update()
@@ -44,5 +46,6 @@ public class GoCanan : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(true);
         ForestStage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 }

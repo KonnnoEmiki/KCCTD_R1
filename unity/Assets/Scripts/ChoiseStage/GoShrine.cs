@@ -12,6 +12,8 @@ public class GoShrine : MonobitEngine.MonoBehaviour
     private GameObject ForestStage = null;
     [SerializeField]
     private GameObject ShrineStage = null;
+    [SerializeField]
+    private GameObject SkyStage = null;
 
     [MunRPC]
     void Update()
@@ -44,5 +46,6 @@ public class GoShrine : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(true);
+        SkyStage.gameObject.SetActive(false);
     }
 }
