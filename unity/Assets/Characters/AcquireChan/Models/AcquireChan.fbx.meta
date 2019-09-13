@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 50a0208afad970f42b91e82ff62fab00
-timeCreated: 1515146525
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: body
@@ -182,10 +180,32 @@ ModelImporter:
     13700006: skin
     13700008: hand_01
     13700010: hand_nml_01
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chrmt_com_skin_01
+    second: {fileID: 2100000, guid: ea56e6a5f97064544a647035754685cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chrmt_f_acquire_body_01
+    second: {fileID: 2100000, guid: fe6a22f35544fdd46b52ce3d2c49ac6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chrmt_f_acquire_face_01
+    second: {fileID: 2100000, guid: f4773a8e5d4ac104b888a1580b05b466, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: chrmt_f_acquire_hair_01
+    second: {fileID: 2100000, guid: a66c7d0527b036a409d275859476c395, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -198,12 +218,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 0
   meshes:
@@ -211,22 +234,34 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -459,7 +494,7 @@ ModelImporter:
     - name: mn_c_spine_02
       parentName: mn_c_spine_01
       position: {x: -0.16922085, y: -3.9422985e-17, z: -6.938894e-20}
-      rotation: {x: 0.0000000025611369, y: -0.053445667, z: 0.0000000041218295, w: 0.99857074}
+      rotation: {x: 0.000000002561137, y: -0.05344567, z: 0.00000000412183, w: 0.9985708}
       scale: {x: 1.0000023, y: 1.0000023, z: 0.99999976}
     - name: mn_c_neck
       parentName: mn_c_spine_02
@@ -499,7 +534,7 @@ ModelImporter:
     - name: mn_l_shoulder
       parentName: mn_l_collar
       position: {x: -0.12902999, y: 5.3290704e-17, z: -1.7763568e-17}
-      rotation: {x: -0.007602103, y: 0.15647559, z: 0.018377827, w: 0.98748153}
+      rotation: {x: -0.0076021035, y: 0.1564756, z: 0.01837783, w: 0.9874816}
       scale: {x: 1.0000021, y: 0.9999988, z: 1.0000033}
     - name: mn_l_elbow
       parentName: mn_l_shoulder
@@ -514,7 +549,7 @@ ModelImporter:
     - name: wp_l_wrist
       parentName: mn_l_wrist
       position: {x: -0.07601064, y: -0.00857275, z: 0.018869719}
-      rotation: {x: 0.54053, y: 0.4585603, z: -0.5196392, w: 0.47699562}
+      rotation: {x: 0.5405301, y: 0.4585603, z: -0.51963925, w: 0.47699562}
       scale: {x: 1.0000021, y: 0.9999991, z: 1.0000014}
     - name: sj_l_wrist
       parentName: mn_l_elbow
@@ -549,7 +584,7 @@ ModelImporter:
     - name: wp_r_wrist
       parentName: mn_r_wrist
       position: {x: -0.07601064, y: 0.00857275, z: 0.018869719}
-      rotation: {x: -0.5405141, y: 0.45858443, z: 0.51965594, w: 0.4769722}
+      rotation: {x: -0.5405142, y: 0.45858446, z: 0.519656, w: 0.47697222}
       scale: {x: 0.9999996, y: 0.9999978, z: 0.99999624}
     - name: sj_r_wrist
       parentName: mn_r_elbow
@@ -561,26 +596,6 @@ ModelImporter:
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0.121869385, y: 0.0000000074505797, z: -0.000000018160788, w: 0.9925462}
       scale: {x: 0.9999989, y: 0.9999996, z: 1.0000025}
-    - name: mn_r_hip
-      parentName: mn_c_main
-      position: {x: 0.083, y: -0.040525094, z: 0.006564945}
-      rotation: {x: -0.022744939, y: 0.02274494, z: 0.706741, w: 0.70674086}
-      scale: {x: 1.0000048, y: 1.0000048, z: 0.9999988}
-    - name: mn_r_knee
-      parentName: mn_r_hip
-      position: {x: -0.41049856, y: 5.3850504e-18, z: 4.440892e-18}
-      rotation: {x: -0.000000009313226, y: -0.099555194, z: -0.000000045634806, w: 0.9950321}
-      scale: {x: 1.0000012, y: 1.0000017, z: 0.9999999}
-    - name: mn_r_ankle
-      parentName: mn_r_knee
-      position: {x: -0.4131568, y: -1.1658697e-15, z: -4.4408918e-17}
-      rotation: {x: 0.000000007887981, y: 0.51045144, z: 0.000000017218843, w: 0.85990655}
-      scale: {x: 1, y: 1.0000042, z: 1.0000035}
-    - name: mn_r_toe
-      parentName: mn_r_ankle
-      position: {x: -0.16397327, y: -1.8180023e-11, z: 1.7763568e-17}
-      rotation: {x: 0.00000002661056, y: 0.11596538, z: -0.000000057320236, w: 0.99325323}
-      scale: {x: 1.0000067, y: 1.0000008, z: 0.99999744}
     - name: mn_l_hip
       parentName: mn_c_main
       position: {x: -0.083, y: -0.040525094, z: 0.006564945}
@@ -599,7 +614,27 @@ ModelImporter:
     - name: mn_l_toe
       parentName: mn_l_ankle
       position: {x: -0.16397327, y: 8.623857e-12, z: 1.3322676e-17}
-      rotation: {x: 0.00000002661056, y: 0.11596538, z: -0.000000057320236, w: 0.99325323}
+      rotation: {x: 0.000000026610563, y: 0.11596539, z: -0.00000005732024, w: 0.9932533}
+      scale: {x: 1.0000067, y: 1.0000008, z: 0.99999744}
+    - name: mn_r_hip
+      parentName: mn_c_main
+      position: {x: 0.083, y: -0.040525094, z: 0.006564945}
+      rotation: {x: -0.022744939, y: 0.02274494, z: 0.706741, w: 0.70674086}
+      scale: {x: 1.0000048, y: 1.0000048, z: 0.9999988}
+    - name: mn_r_knee
+      parentName: mn_r_hip
+      position: {x: -0.41049856, y: 5.3850504e-18, z: 4.440892e-18}
+      rotation: {x: -0.000000009313226, y: -0.099555194, z: -0.000000045634806, w: 0.9950321}
+      scale: {x: 1.0000012, y: 1.0000017, z: 0.9999999}
+    - name: mn_r_ankle
+      parentName: mn_r_knee
+      position: {x: -0.4131568, y: -1.1658697e-15, z: -4.4408918e-17}
+      rotation: {x: 0.000000007887981, y: 0.51045144, z: 0.000000017218843, w: 0.85990655}
+      scale: {x: 1, y: 1.0000042, z: 1.0000035}
+    - name: mn_r_toe
+      parentName: mn_r_ankle
+      position: {x: -0.16397327, y: -1.8180023e-11, z: 1.7763568e-17}
+      rotation: {x: 0.000000026610563, y: 0.11596539, z: -0.00000005732024, w: 0.9932533}
       scale: {x: 1.0000067, y: 1.0000008, z: 0.99999744}
     armTwist: 0.5
     foreArmTwist: 0.5
@@ -609,7 +644,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
