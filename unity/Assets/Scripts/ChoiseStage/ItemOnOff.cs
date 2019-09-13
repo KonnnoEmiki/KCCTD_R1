@@ -9,16 +9,6 @@ public class ItemOnOff : MonobitEngine.MonoBehaviour
     private GameObject Item = null;
 
     [MunRPC]
-    void Update()
-    {
-        var roomData = MonobitEngine.MonobitNetwork.room;
-        if (NetworkGUI.stageselect == 0)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("Itemonoff", MonobitEngine.MonobitTargets.All, null);
-    }
-
-    [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
         if (hit.CompareTag("master"))

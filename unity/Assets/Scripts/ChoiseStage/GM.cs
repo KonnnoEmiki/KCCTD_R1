@@ -11,6 +11,8 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject Item = null;
     [SerializeField]
+    private GameObject Trap = null;
+    [SerializeField]
     private GameObject choise = null;
     [SerializeField]
     private GameObject Stage = null;
@@ -60,14 +62,26 @@ public class GM : MonobitEngine.MonoBehaviour
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("Ballon", MonobitEngine.MonobitTargets.All, null);
 
-        if (NetworkGUI.Itemflag == false)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("Itemoff", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.Itemflag == true)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("Itemon", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.gs == true)
+        {
+            if (NetworkGUI.Itemflag == false)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Itemoff", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.Itemflag == true)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Itemon", MonobitEngine.MonobitTargets.All, null);
+
+            if (NetworkGUI.Trapflag == false)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Trapoff", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.Trapflag == true)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
+        }
     }
 
     [MunRPC]
@@ -122,5 +136,20 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.Itemflag = true;
         Item.gameObject.SetActive(true);
+    }
+
+    [MunRPC]
+    private void Trapoff()
+    {
+        NetworkGUI.Trapflag = false;
+        Trap.gameObject.SetActive(false);
+
+    }
+
+    [MunRPC]
+    private void Trapon()
+    {
+        NetworkGUI.Trapflag = true;
+        Trap.gameObject.SetActive(true);
     }
 }

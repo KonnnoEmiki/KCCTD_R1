@@ -26,7 +26,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
     public static int gamemode = 0;
 
     public static bool Ballflag = true;
-
+    public static bool Trapflag = true;
     public static bool Itemflag = true;
 
     private bool gsf = true;

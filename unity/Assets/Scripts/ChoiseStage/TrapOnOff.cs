@@ -2,17 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapOnOff : MonoBehaviour
+public class TrapOnOff : MonobitEngine.MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    private GameObject Trap = null;
+
+    [MunRPC]
+    void OnTriggerEnter(Collider hit)
     {
-        
+        if (hit.CompareTag("master"))
+        {
+            var roomData = MonobitEngine.MonobitNetwork.room;
+
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("Traponoff", MonobitEngine.MonobitTargets.All, null);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    [MunRPC]
+    private void Traponoff()
     {
-        
+        if (NetworkGUI.Trapflag == false)
+        {
+            Trap.gameObject.SetActive(true);
+            NetworkGUI.Trapflag = true;
+        }
+        else if (NetworkGUI.Trapflag == true)
+        {
+            Trap.gameObject.SetActive(false);
+            NetworkGUI.Trapflag = false;
+        }
     }
 }
