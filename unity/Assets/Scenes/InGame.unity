@@ -7594,7 +7594,7 @@ GameObject:
   - component: {fileID: 1711749423}
   - component: {fileID: 1711749422}
   m_Layer: 0
-  m_Name: flag
+  m_Name: flagTr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

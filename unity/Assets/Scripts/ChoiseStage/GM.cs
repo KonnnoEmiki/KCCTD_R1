@@ -50,7 +50,6 @@ public class GM : MonobitEngine.MonoBehaviour
                 Destroy(obj);
             }
             start = false;
-            if (NetworkGUI.roommaster == false)
             {
                 GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Player");
                 foreach (GameObject obj in tagobjs1)
@@ -81,9 +80,6 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("Ballon", MonobitEngine.MonobitTargets.All, null);
-
-        if (NetworkGUI.gs == true)
-        {
             if (NetworkGUI.Itemflag == false)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
@@ -106,11 +102,11 @@ public class GM : MonobitEngine.MonoBehaviour
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("TPSoff", MonobitEngine.MonobitTargets.All, null);
-            if (NetworkGUI.Trapflag == true)
+            if (NetworkGUI.TPSflag == true)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
-        }
+       
     }
 
     [MunRPC]
