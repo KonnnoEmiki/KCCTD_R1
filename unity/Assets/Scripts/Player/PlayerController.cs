@@ -41,7 +41,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
     private float m_JumpStartTimeMoveKeyValue = 0;
 
-
     void Start()
 	{
 		m_AnimController = GetComponent<PlayerAnimationController>();
@@ -86,10 +85,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
         Rotation(); // 回転
         Move();     // 移動
         if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false) { }
-        else if (!modeButtle.Flag)
-        {
-            obj.SetActive(false);
-        }
+        else if (!NetworkGUI.TPSflag)obj.SetActive(false);
         else Shooting();
 
 
