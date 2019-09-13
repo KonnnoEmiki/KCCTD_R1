@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Threading.Tasks;
 
 public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent>
 {
@@ -29,7 +31,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 	private Camera m_Camera = null;
     public GameObject bulletPrefab;
     public float shotSpeed;
-    public int shotCount = 6;
+    public static int shotCount = 6;
     public float starttime;
     public float now;
     private float shotInterval;
@@ -56,9 +58,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 		if (monobitView.isMine == false) return;	// 所有権が無ければ
 		if (m_Player.IsDown) return;				// 倒れていれば
 
-		m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
+        m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
 		m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
-	}
+    }
 
     void FixedUpdate()
     {
@@ -81,7 +83,8 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         Rotation(); // 回転
         Move();     // 移動
-        Shooting();
+        if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false) { }
+        else Shooting();
 
 
         // カメラの向いている方向に回転 & カメラから見て左右方向に回転
@@ -129,7 +132,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
             lookAheadPosition.y += 1;
             Transform myTransform = this.transform;
             Vector3 pos = myTransform.position;
-            now = Time.time;
+            shellLabel.text = "玉：" + shotCount;
             if (Input.GetKey(KeyCode.Mouse0))
             {
 
@@ -138,42 +141,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
                     shotCount -= 1;
-                    shellLabel.text = "玉：" + shotCount;
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
-
             }
-            else if (pos.x >= -1 && pos.x <= 1 && pos.z >= -1 && pos.z <= 1 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-            else if (pos.x >= 6 && pos.x <= 8 && pos.z >= 6 && pos.z <=8 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-            else if (pos.x >= 6 && pos.x <= 8 && pos.z >= -8 && pos.z <= -6 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-            else if (pos.x >= -8 && pos.x <= -6 && pos.z >= -8 && pos.z <= -6 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-            else if (pos.x >= -8 && pos.x <= -6 && pos.z >= 6 && pos.z <= 8 && starttime <= now - 5 && shotCount < 6)
-            {
-                starttime = Time.time;
-                shotCount = 6;
-                shellLabel.text = "玉：" + shotCount;
-            }
-
         }
     }
 

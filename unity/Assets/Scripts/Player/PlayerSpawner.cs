@@ -8,12 +8,14 @@ public class PlayerSpawner : MonoBehaviour
 	[SerializeField,AssetPath]
 	private string m_SpawnPrefab = string.Empty;
 
-	void Update()
+
+    void Update()
 	{
 		if (MonobitEngine.MonobitNetwork.inRoom == false)
 			return;
 		
 		SpawnPrefab();
+            GM.first = false;
 		Destroy(this);
 	}
 
