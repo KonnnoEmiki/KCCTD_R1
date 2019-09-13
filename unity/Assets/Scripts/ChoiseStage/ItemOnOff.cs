@@ -35,8 +35,14 @@ public class ItemOnOff : MonobitEngine.MonoBehaviour
     private void Itemonoff()
     {
         if (NetworkGUI.Itemflag == false)
+        {
             Item.gameObject.SetActive(true);
+            NetworkGUI.Itemflag = true;
+        }
         else if (NetworkGUI.Itemflag == true)
+        {
             Item.gameObject.SetActive(false);
+            NetworkGUI.Itemflag = false;
+        }
     }
 }
