@@ -148,7 +148,7 @@ public class GM : MonobitEngine.MonoBehaviour
     [MunRPC]
     private void stagechange3()
     {
-        NetworkGUI.stageselect = 2;
+        NetworkGUI.stageselect = 3;
         ForestStage.gameObject.SetActive(false);
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
