@@ -22,6 +22,8 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject ShrineStage = null;
     [SerializeField]
+    private GameObject SkyStage = null;
+    [SerializeField]
     private GameObject Plane = null;
     [SerializeField]
     private GameObject flagTp = null;
@@ -60,7 +62,10 @@ public class GM : MonobitEngine.MonoBehaviour
                 }
             }
         }
+
         var roomData = MonobitEngine.MonobitNetwork.room;
+
+        //Stage
         if (NetworkGUI.stageselect == 0)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
@@ -77,7 +82,12 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.stageselect == 4)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange4", MonobitEngine.MonobitTargets.All, null);
 
+        //BallLuncher
         if (NetworkGUI.Ballflag == false)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
@@ -86,32 +96,35 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("Ballon", MonobitEngine.MonobitTargets.All, null);
-            if (NetworkGUI.Itemflag == false)
+        //Item
+        if (NetworkGUI.Itemflag == false)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("Itemoff", MonobitEngine.MonobitTargets.All, null);
-            if (NetworkGUI.Itemflag == true)
+        if (NetworkGUI.Itemflag == true)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("Itemon", MonobitEngine.MonobitTargets.All, null);
 
-            if (NetworkGUI.Trapflag == false)
-                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                    if (MonobitEngine.MonobitNetwork.isHost == true)
-                        monobitView.RPC("Trapoff", MonobitEngine.MonobitTargets.All, null);
-            if (NetworkGUI.Trapflag == true)
-                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                    if (MonobitEngine.MonobitNetwork.isHost == true)
-                        monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
-            
-            if (NetworkGUI.TPSflag == false)
-                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                    if (MonobitEngine.MonobitNetwork.isHost == true)
-                        monobitView.RPC("TPSoff", MonobitEngine.MonobitTargets.All, null);
-            if (NetworkGUI.TPSflag == true)
-                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                    if (MonobitEngine.MonobitNetwork.isHost == true)
-                        monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
+        //Trap
+        if (NetworkGUI.Trapflag == false)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("Trapoff", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.Trapflag == true)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
+
+        //TPS
+        if (NetworkGUI.TPSflag == false)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("TPSoff", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.TPSflag == true)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
        
     }
 
@@ -123,6 +136,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(true);
         ForestStage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -133,6 +147,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -143,6 +158,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -153,6 +169,18 @@ public class GM : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(true);
+        SkyStage.gameObject.SetActive(false);
+    }
+
+    [MunRPC]
+    private void stagechange4()
+    {
+        NetworkGUI.stageselect = 4;
+        ForestStage.gameObject.SetActive(false);
+        Plane.gameObject.SetActive(false);
+        Stage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(true);
     }
 
 

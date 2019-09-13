@@ -41,6 +41,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
     private float m_JumpStartTimeMoveKeyValue = 0;
 
+    private float skyjump1 = 0;
+    private float skyjump2 = 1;
+
     void Start()
 	{
 		m_AnimController = GetComponent<PlayerAnimationController>();
@@ -60,6 +63,17 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
 		m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
+
+        if (NetworkGUI.stageselect == 4)
+        {
+            skyjump1 = 1;
+            skyjump2 = 3;
+        }
+        if (NetworkGUI.stageselect != 4)
+        {
+            skyjump1 = 0;
+            skyjump2 = 1;
+        }
     }
 
     void FixedUpdate()
@@ -122,7 +136,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 moveVal *= m_ForwordSpeed;  // 前進なら
                                             // ジャンプ中なら
             if (m_Player.IsJumping)
-                moveVal *= 0.5f;
+                moveVal *= 0.5f + skyjump1;
 
             m_RigidBody.MovePosition(transform.TransformPoint(Vector3.forward * moveVal));
         }
@@ -193,7 +207,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 	{
 		// プレイヤーのジャンプ処理
 
-		m_RigidBody.velocity += (Vector3.up * m_JumpPow + transform.forward * m_JumpStartTimeMoveKeyValue);
+		m_RigidBody.velocity += (Vector3.up * m_JumpPow * skyjump2 + transform.forward * m_JumpStartTimeMoveKeyValue);
 	}
 
 	public void OnDown()
