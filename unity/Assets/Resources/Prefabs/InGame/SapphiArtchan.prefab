@@ -4316,7 +4316,7 @@ GameObject:
   - component: {fileID: 4606716999266425133}
   m_Layer: 0
   m_Name: SapphiArtchan
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4526,7 +4526,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2250546357626845801, guid: f92a58a088b632144a7c0c60a392f87d,
     type: 3}
   shotSpeed: 500
-  shotCount: 6
   starttime: 0
   now: 0
   shellLabel: {fileID: 7391029822408112925}
