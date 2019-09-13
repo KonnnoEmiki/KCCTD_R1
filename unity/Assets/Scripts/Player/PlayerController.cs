@@ -41,7 +41,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
     private float m_JumpStartTimeMoveKeyValue = 0;
 
-	void Start()
+    void Start()
 	{
 		m_AnimController = GetComponent<PlayerAnimationController>();
 		m_RigidBody = GetComponent<Rigidbody>();
@@ -64,6 +64,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
     void FixedUpdate()
     {
+        var obj = transform.Find("Canvas").gameObject;
         if (GameManager.IsGameSet) return; // 決着がついていれば
         if (monobitView.isMine == false)
         {
@@ -84,6 +85,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
         Rotation(); // 回転
         Move();     // 移動
         if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false) { }
+        else if (!NetworkGUI.TPSflag)obj.SetActive(false);
         else Shooting();
 
 
@@ -127,6 +129,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         void Shooting()
         {
+            obj.SetActive(true);
             monobitView.RPC("UpdateLookAhead", MonobitEngine.MonobitTargets.All, lookAheadPosition);
             lookAheadPosition = this.gameObject.transform.position + this.gameObject.transform.forward;
             lookAheadPosition.y += 1;

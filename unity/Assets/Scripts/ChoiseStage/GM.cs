@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
@@ -9,11 +8,11 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject host = null;
     [SerializeField]
+    private GameObject TPS = null;
+    [SerializeField]
     private GameObject Item = null;
     [SerializeField]
     private GameObject Trap = null;
-    [SerializeField]
-    private GameObject TPS = null;
     [SerializeField]
     private GameObject choise = null;
     [SerializeField]
@@ -83,12 +82,12 @@ public class GM : MonobitEngine.MonoBehaviour
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
-
+            
             if (NetworkGUI.TPSflag == false)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("TPSoff", MonobitEngine.MonobitTargets.All, null);
-            if (NetworkGUI.TPSflag == true)
+            if (NetworkGUI.Trapflag == true)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
@@ -167,15 +166,15 @@ public class GM : MonobitEngine.MonoBehaviour
     [MunRPC]
     private void TPSoff()
     {
-        NetworkGUI.Trapflag = false;
-        Trap.gameObject.SetActive(false);
+        NetworkGUI.TPSflag = false;
+        TPS.gameObject.SetActive(false);
 
     }
 
     [MunRPC]
     private void TPSon()
     {
-        NetworkGUI.Trapflag = true;
-        Trap.gameObject.SetActive(true);
+        NetworkGUI.TPSflag = true;
+        TPS.gameObject.SetActive(true);
     }
 }
