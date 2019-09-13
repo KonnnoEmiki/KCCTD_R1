@@ -10,6 +10,8 @@ public class GoForest : MonobitEngine.MonoBehaviour
     private GameObject Stage = null;
     [SerializeField]
     private GameObject ForestStage = null;
+    [SerializeField]
+    private GameObject ShrineStage = null;
 
     [MunRPC]
     void Update()
@@ -41,5 +43,6 @@ public class GoForest : MonobitEngine.MonoBehaviour
         ForestStage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(false);
     }
 }

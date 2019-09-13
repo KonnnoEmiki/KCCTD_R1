@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoCanan : MonobitEngine.MonoBehaviour
+public class GoShrine : MonobitEngine.MonoBehaviour
 {
     [SerializeField]
     private GameObject Plane = null;
@@ -17,10 +17,10 @@ public class GoCanan : MonobitEngine.MonoBehaviour
     void Update()
     {
         var roomData = MonobitEngine.MonobitNetwork.room;
-        if (NetworkGUI.stageselect == 0)
+        if (NetworkGUI.stageselect == 3)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange0", MonobitEngine.MonobitTargets.All, null);
+                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
     }
 
     [MunRPC]
@@ -32,17 +32,17 @@ public class GoCanan : MonobitEngine.MonoBehaviour
 
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange0", MonobitEngine.MonobitTargets.All, null);
+                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
         }
     }
 
     [MunRPC]
-    private void stagechange0()
+    private void stagechange3()
     {
-        NetworkGUI.stageselect = 0;
+        NetworkGUI.stageselect = 3;
         Stage.gameObject.SetActive(false);
-        Plane.gameObject.SetActive(true);
+        Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);
-        ShrineStage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(true);
     }
 }

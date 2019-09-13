@@ -20,6 +20,8 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject ForestStage = null;
     [SerializeField]
+    private GameObject ShrineStage = null;
+    [SerializeField]
     private GameObject Plane = null;
     [SerializeField]
     private GameObject flagTp = null;
@@ -71,6 +73,10 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.stageselect == 3)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
 
         if (NetworkGUI.Ballflag == false)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
@@ -116,6 +122,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Stage.gameObject.SetActive(false);
         Plane.gameObject.SetActive(true);
         ForestStage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -125,6 +132,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Stage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -134,7 +142,19 @@ public class GM : MonobitEngine.MonoBehaviour
         ForestStage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(false);
     }
+
+    [MunRPC]
+    private void stagechange3()
+    {
+        NetworkGUI.stageselect = 2;
+        ForestStage.gameObject.SetActive(false);
+        Plane.gameObject.SetActive(false);
+        Stage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(true);
+    }
+
 
     [MunRPC]
     private void Balloff()
