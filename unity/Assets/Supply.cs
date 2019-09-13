@@ -11,8 +11,7 @@ public class Supply :MonobitEngine.MonoBehaviour
     {
         if (hit.CompareTag("Player")|| hit.CompareTag("master")&& PlayerController.shotCount < 6)
         {
-            //if(monobitView.isMine == true)
-                PlayerController.shotCount = 6;
+            PlayerController.shotCount = 6;
             monobitView.RPC("Activefalse", MonobitEngine.MonobitTargets.All, null);
         }
     }

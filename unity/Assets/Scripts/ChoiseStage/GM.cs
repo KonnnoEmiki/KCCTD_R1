@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
 
-    private int stageNo = 0;
-
     [SerializeField]
     private GameObject host = null;
     [SerializeField]
-    private GameObject BallLuncher = null;
+    private GameObject TPS = null;
+    [SerializeField]
+    private GameObject Item = null;
+    [SerializeField]
+    private GameObject Trap = null;
     [SerializeField]
     private GameObject choise = null;
     [SerializeField]
@@ -19,17 +20,23 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject ForestStage = null;
     [SerializeField]
+    private GameObject ShrineStage = null;
+    [SerializeField]
+    private GameObject SkyStage = null;
+    [SerializeField]
     private GameObject Plane = null;
+    [SerializeField]
+    private GameObject flagTp = null;
+    [SerializeField]
+    private GameObject flagB = null;
+    [SerializeField]
+    private GameObject flagI = null;
+    [SerializeField]
+    private GameObject flagTr = null;
 
     public static bool first = true;
 
-    public Text StageLabel;
-    public Text ModeLabel;
-
-    void Start()
-    {
-        first = true;
-    }
+    private bool start = true;
 
     [MunRPC]
     private void Update()
@@ -38,9 +45,27 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "master";
         if (first == false)
             host.gameObject.tag = "Player";
-          if (NetworkGUI.gs == true)
-             choise.gameObject.SetActive(false);
+        if (NetworkGUI.gs == true && start == true)
+        {
+            choise.gameObject.SetActive(false);
+            GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("master");
+            foreach (GameObject obj in tagobjs)
+            {
+                Destroy(obj);
+            }
+            start = false;
+            {
+                GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Player");
+                foreach (GameObject obj in tagobjs1)
+                {
+                    Destroy(obj);
+                }
+            }
+        }
+
         var roomData = MonobitEngine.MonobitNetwork.room;
+
+        //Stage
         if (NetworkGUI.stageselect == 0)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
@@ -53,14 +78,54 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.gamemode == 0)
+        if (NetworkGUI.stageselect == 3)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("gamemode0", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.gamemode == 1)
+                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.stageselect == 4)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("gamemode1", MonobitEngine.MonobitTargets.All, null);
+                    monobitView.RPC("stagechange4", MonobitEngine.MonobitTargets.All, null);
+
+        //BallLuncher
+        if (NetworkGUI.Ballflag == false)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("Balloff", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.Ballflag == true)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("Ballon", MonobitEngine.MonobitTargets.All, null);
+        //Item
+        if (NetworkGUI.Itemflag == false)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Itemoff", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.Itemflag == true)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Itemon", MonobitEngine.MonobitTargets.All, null);
+
+        //Trap
+        if (NetworkGUI.Trapflag == false)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("Trapoff", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.Trapflag == true)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
+
+        //TPS
+        if (NetworkGUI.TPSflag == false)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("TPSoff", MonobitEngine.MonobitTargets.All, null);
+        if (NetworkGUI.TPSflag == true)
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
+       
     }
 
     [MunRPC]
@@ -70,7 +135,8 @@ public class GM : MonobitEngine.MonoBehaviour
         Stage.gameObject.SetActive(false);
         Plane.gameObject.SetActive(true);
         ForestStage.gameObject.SetActive(false);
-        StageLabel.text = "Canan";
+        ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -80,7 +146,8 @@ public class GM : MonobitEngine.MonoBehaviour
         Stage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);
-        StageLabel.text = "Plane";
+        ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -90,23 +157,93 @@ public class GM : MonobitEngine.MonoBehaviour
         ForestStage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
-        StageLabel.text = "Forest";
+        ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
-    private void gamemode0()
+    private void stagechange3()
     {
-        NetworkGUI.gamemode = 0;
-        BallLuncher.gameObject.SetActive(true);
-        ModeLabel.text = "BallLuncher On";
+        NetworkGUI.stageselect = 3;
+        ForestStage.gameObject.SetActive(false);
+        Plane.gameObject.SetActive(false);
+        Stage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(true);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
-    private void gamemode1()
+    private void stagechange4()
     {
-        NetworkGUI.gamemode = 1;
-        BallLuncher.gameObject.SetActive(false);
-        ModeLabel.text = "BallLuncher Off";
+        NetworkGUI.stageselect = 4;
+        ForestStage.gameObject.SetActive(false);
+        Plane.gameObject.SetActive(false);
+        Stage.gameObject.SetActive(false);
+        ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(true);
     }
 
+
+    [MunRPC]
+    private void Balloff()
+    {
+        NetworkGUI.Ballflag = false;
+        flagB.gameObject.SetActive(false);
+    }
+
+    [MunRPC]
+    private void Ballon()
+    {
+        NetworkGUI.Ballflag = true;
+        flagB.gameObject.SetActive(true);
+    }
+
+    [MunRPC]
+    private void Itemoff()
+    {
+        NetworkGUI.Itemflag = false;
+        Item.gameObject.SetActive(false);
+        flagI.gameObject.SetActive(false);
+
+    }
+
+    [MunRPC]
+    private void Itemon()
+    {
+        NetworkGUI.Itemflag = true;
+        Item.gameObject.SetActive(true);
+    }
+
+    [MunRPC]
+    private void Trapoff()
+    {
+        NetworkGUI.Trapflag = false;
+        Trap.gameObject.SetActive(false);
+        flagTr.gameObject.SetActive(false);
+
+    }
+
+    [MunRPC]
+    private void Trapon()
+    {
+        NetworkGUI.Trapflag = true;
+        Trap.gameObject.SetActive(true);
+        flagTr.gameObject.SetActive(true);
+    }
+
+    [MunRPC]
+    private void TPSoff()
+    {
+        NetworkGUI.TPSflag = false;
+        TPS.gameObject.SetActive(false);
+        flagTp.gameObject.SetActive(false);
+    }
+
+    [MunRPC]
+    private void TPSon()
+    {
+        NetworkGUI.TPSflag = true;
+        TPS.gameObject.SetActive(true);
+        flagTp.gameObject.SetActive(true);
+    }
 }

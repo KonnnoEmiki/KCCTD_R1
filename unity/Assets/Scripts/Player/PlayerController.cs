@@ -42,7 +42,10 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
     private float m_JumpStartTimeMoveKeyValue = 0;
 
-	void Start()
+    private float skyjump1 = 0;
+    private float skyjump2 = 1;
+
+    void Start()
 	{
 		m_AnimController = GetComponent<PlayerAnimationController>();
 		m_RigidBody = GetComponent<Rigidbody>();
@@ -62,10 +65,22 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
 		m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
+
+        if (NetworkGUI.stageselect == 4)
+        {
+            skyjump1 = 1;
+            skyjump2 = 3;
+        }
+        if (NetworkGUI.stageselect != 4)
+        {
+            skyjump1 = 0;
+            skyjump2 = 1;
+        }
     }
 
     void FixedUpdate()
     {
+        var obj = transform.Find("Canvas").gameObject;
         if (GameManager.IsGameSet) return; // 決着がついていれば
         if (Master.MenuOn == true) return;          // メニューウィンドウを開いていれば
         if (monobitView.isMine == false)
@@ -86,7 +101,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
         Rotation(); // 回転
         Move();     // 移動
-        Shooting();
+        if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false) { }
+        else if (!NetworkGUI.TPSflag)obj.SetActive(false);
+        else Shooting();
 
 
         // カメラの向いている方向に回転 & カメラから見て左右方向に回転
@@ -122,13 +139,14 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 moveVal *= m_ForwordSpeed;  // 前進なら
                                             // ジャンプ中なら
             if (m_Player.IsJumping)
-                moveVal *= 0.5f;
+                moveVal *= 0.5f + skyjump1;
 
             m_RigidBody.MovePosition(transform.TransformPoint(Vector3.forward * moveVal));
         }
 
         void Shooting()
         {
+            obj.SetActive(true);
             monobitView.RPC("UpdateLookAhead", MonobitEngine.MonobitTargets.All, lookAheadPosition);
             lookAheadPosition = this.gameObject.transform.position + this.gameObject.transform.forward;
             lookAheadPosition.y += 1;
@@ -192,7 +210,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 	{
 		// プレイヤーのジャンプ処理
 
-		m_RigidBody.velocity += (Vector3.up * m_JumpPow + transform.forward * m_JumpStartTimeMoveKeyValue);
+		m_RigidBody.velocity += (Vector3.up * m_JumpPow * skyjump2 + transform.forward * m_JumpStartTimeMoveKeyValue);
 	}
 
 	public void OnDown()
