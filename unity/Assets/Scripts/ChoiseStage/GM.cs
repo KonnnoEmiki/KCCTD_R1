@@ -21,8 +21,18 @@ public class GM : MonobitEngine.MonoBehaviour
     private GameObject ForestStage = null;
     [SerializeField]
     private GameObject Plane = null;
+    [SerializeField]
+    private GameObject flagTp = null;
+    [SerializeField]
+    private GameObject flagB = null;
+    [SerializeField]
+    private GameObject flagI = null;
+    [SerializeField]
+    private GameObject flagTr = null;
 
     public static bool first = true;
+
+    private bool start = true;
 
     [MunRPC]
     private void Update()
@@ -31,13 +41,22 @@ public class GM : MonobitEngine.MonoBehaviour
             host.gameObject.tag = "master";
         if (first == false)
             host.gameObject.tag = "Player";
-        if (NetworkGUI.gs == true)
+        if (NetworkGUI.gs == true && start == true)
         {
             choise.gameObject.SetActive(false);
             GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("master");
             foreach (GameObject obj in tagobjs)
             {
                 Destroy(obj);
+            }
+            start = false;
+            if (NetworkGUI.roommaster == false)
+            {
+                GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Player");
+                foreach (GameObject obj in tagobjs1)
+                {
+                    Destroy(obj);
+                }
             }
         }
         var roomData = MonobitEngine.MonobitNetwork.room;
@@ -125,12 +144,14 @@ public class GM : MonobitEngine.MonoBehaviour
     private void Balloff()
     {
         NetworkGUI.Ballflag = false;
+        flagB.gameObject.SetActive(false);
     }
 
     [MunRPC]
     private void Ballon()
     {
         NetworkGUI.Ballflag = true;
+        flagB.gameObject.SetActive(true);
     }
 
     [MunRPC]
@@ -138,7 +159,8 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.Itemflag = false;
         Item.gameObject.SetActive(false);
-        
+        flagI.gameObject.SetActive(false);
+
     }
 
     [MunRPC]
@@ -153,6 +175,7 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.Trapflag = false;
         Trap.gameObject.SetActive(false);
+        flagTr.gameObject.SetActive(false);
 
     }
 
@@ -161,6 +184,7 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.Trapflag = true;
         Trap.gameObject.SetActive(true);
+        flagTr.gameObject.SetActive(true);
     }
 
     [MunRPC]
@@ -168,7 +192,7 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.TPSflag = false;
         TPS.gameObject.SetActive(false);
-
+        flagTp.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -176,5 +200,6 @@ public class GM : MonobitEngine.MonoBehaviour
     {
         NetworkGUI.TPSflag = true;
         TPS.gameObject.SetActive(true);
+        flagTp.gameObject.SetActive(true);
     }
 }
