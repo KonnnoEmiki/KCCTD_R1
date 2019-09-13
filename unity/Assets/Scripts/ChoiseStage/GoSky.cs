@@ -39,7 +39,7 @@ public class GoSky : MonobitEngine.MonoBehaviour
     }
 
     [MunRPC]
-    private void stagechange3()
+    private void stagechange4()
     {
         NetworkGUI.stageselect = 4;
         Stage.gameObject.SetActive(false);

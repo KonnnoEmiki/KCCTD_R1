@@ -62,7 +62,9 @@ public class GM : MonobitEngine.MonoBehaviour
                 }
             }
         }
+
         var roomData = MonobitEngine.MonobitNetwork.room;
+
         //Stage
         if (NetworkGUI.stageselect == 0)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
@@ -84,6 +86,7 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("stagechange4", MonobitEngine.MonobitTargets.All, null);
+
         //BallLuncher
         if (NetworkGUI.Ballflag == false)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
@@ -102,6 +105,7 @@ public class GM : MonobitEngine.MonoBehaviour
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("Itemon", MonobitEngine.MonobitTargets.All, null);
+
         //Trap
         if (NetworkGUI.Trapflag == false)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
@@ -111,6 +115,7 @@ public class GM : MonobitEngine.MonoBehaviour
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
+
         //TPS
         if (NetworkGUI.TPSflag == false)
             if (monobitView.isMine == true && NetworkGUI.roommaster == true)
@@ -131,6 +136,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(true);
         ForestStage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -141,6 +147,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(false);
         ForestStage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -151,6 +158,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(false);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
@@ -161,6 +169,7 @@ public class GM : MonobitEngine.MonoBehaviour
         Plane.gameObject.SetActive(false);
         Stage.gameObject.SetActive(false);
         ShrineStage.gameObject.SetActive(true);
+        SkyStage.gameObject.SetActive(false);
     }
 
     [MunRPC]
