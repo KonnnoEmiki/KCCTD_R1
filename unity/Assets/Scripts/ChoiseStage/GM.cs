@@ -13,6 +13,8 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject Trap = null;
     [SerializeField]
+    private GameObject TPS = null;
+    [SerializeField]
     private GameObject choise = null;
     [SerializeField]
     private GameObject Stage = null;
@@ -81,6 +83,15 @@ public class GM : MonobitEngine.MonoBehaviour
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
+
+            if (NetworkGUI.TPSflag == false)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("TPSoff", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.TPSflag == true)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
         }
     }
 
@@ -148,6 +159,21 @@ public class GM : MonobitEngine.MonoBehaviour
 
     [MunRPC]
     private void Trapon()
+    {
+        NetworkGUI.Trapflag = true;
+        Trap.gameObject.SetActive(true);
+    }
+
+    [MunRPC]
+    private void TPSoff()
+    {
+        NetworkGUI.Trapflag = false;
+        Trap.gameObject.SetActive(false);
+
+    }
+
+    [MunRPC]
+    private void TPSon()
     {
         NetworkGUI.Trapflag = true;
         Trap.gameObject.SetActive(true);
