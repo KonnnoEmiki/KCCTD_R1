@@ -64,7 +64,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         }
 		else if(m_IsInGameScene == false)
 		{
-            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 5));
+            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
             OnGui_StartGame();
             OnGui_ChooseStage();
 			OnGui_LeaveRoom();
@@ -182,21 +182,28 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.EndVertical();
     }
 
+    //ステージ選択用GUI
     private void OnGui_ChooseStage()
     {
-        GUILayout.BeginHorizontal();
-        GUILayout.FlexibleSpace();
+ 
         if (RoomManager.IsHost == true)
         {
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(50);
+            GUILayout.Label("SelectStage", TagLabel);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
             if (GUILayout.Button("Loby", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 0;
             if (GUILayout.Button("Plane",button,GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 1;
             if (GUILayout.Button("Forest", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 2;
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
         }
-        GUILayout.FlexibleSpace();
-        GUILayout.EndHorizontal();
     }
 
 	// ルームから退室用GUI

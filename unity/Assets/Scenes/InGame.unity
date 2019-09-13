@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44571573, g: 0.71900886, b: 0.73043394, a: 1}
+  m_IndirectSpecularColor: {r: 0.4466622, g: 0.4965092, b: 0.5748667, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -364,6 +364,8 @@ MonoBehaviour:
   Stage: {fileID: 773580420}
   ForestStage: {fileID: 198798602}
   Plane: {fileID: 252852582}
+  StageLabel: {fileID: 0}
+  ModeLabel: {fileID: 0}
 --- !u!114 &146273711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,7 +582,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117200
+  m_Name: pb_Mesh-1672
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -1156,7 +1158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252852582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3758938, y: 3.1517358, z: -1.677768}
+  m_LocalPosition: {x: 3, y: -2, z: -5}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 1461083283}
@@ -1271,6 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BallLuncher: {fileID: 539392289}
+  ModeLabel: {fileID: 0}
 --- !u!136 &289801705
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1632,6 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BallLuncher: {fileID: 539392289}
+  ModeLabel: {fileID: 0}
 --- !u!136 &403125303
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2499,7 +2503,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117194
+  m_Name: pb_Mesh-1666
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -2659,7 +2663,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117202
+  m_Name: pb_Mesh-1674
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4865,6 +4869,7 @@ MonoBehaviour:
   Plane: {fileID: 252852582}
   Stage: {fileID: 773580420}
   ForestStage: {fileID: 198798602}
+  StageLabel: {fileID: 0}
 --- !u!135 &1322274948
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4989,7 +4994,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117196
+  m_Name: pb_Mesh-1668
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -5445,6 +5450,7 @@ MonoBehaviour:
   Plane: {fileID: 252852582}
   Stage: {fileID: 773580420}
   ForestStage: {fileID: 198798602}
+  StageLabel: {fileID: 0}
 --- !u!135 &1445812300
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6366,6 +6372,7 @@ MonoBehaviour:
   Plane: {fileID: 252852582}
   Stage: {fileID: 773580420}
   ForestStage: {fileID: 198798602}
+  StageLabel: {fileID: 0}
 --- !u!114 &1547721043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6640,7 +6647,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117188
+  m_Name: pb_Mesh-1660
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7931,7 +7938,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117198
+  m_Name: pb_Mesh-1670
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -8357,7 +8364,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117190
+  m_Name: pb_Mesh-1662
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -8721,7 +8728,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-117192
+  m_Name: pb_Mesh-1664
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
