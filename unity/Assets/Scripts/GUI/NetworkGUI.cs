@@ -27,6 +27,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static bool Ballflag = true;
     public static bool Trapflag = true;
+    public static bool TPSflag = true;
     public static bool Itemflag = true;
     public static bool TPSflag = true;
 
