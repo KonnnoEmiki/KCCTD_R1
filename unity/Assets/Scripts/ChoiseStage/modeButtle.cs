@@ -12,27 +12,32 @@ public class modeButtle : MonobitEngine.MonoBehaviour
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
-        var obj = transform.Find("PlaneSupply").gameObject;
-        var obj1 = transform.Find("PlaneSupply/Supply/cartridge").gameObject;
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("master"))
             if (RoomManager.IsHost == true)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                 {
-                    NetworkGUI.gamemode = 2;
-                    if (!Flag) {
-                        Flag = true;
-                        obj.SetActive(true);
-                        obj1.SetActive(true);
-                        SupplyBrain.flag = true;
-                    }
-                    else
-                    {
-                        Flag = false;
-                        obj.SetActive(false);
-                    }
+                    monobitView.RPC("BulletChange", MonobitEngine.MonobitTargets.All, null);
                 }
     }
 
-
+    [MunRPC]
+    void BulletChange()
+    {
+        var obj = transform.Find("PlaneSupply").gameObject;
+        var obj1 = transform.Find("PlaneSupply/Supply/cartridge").gameObject;
+        NetworkGUI.gamemode = 2;
+        if (!Flag)
+        {
+            Flag = true;
+            obj.SetActive(true);
+            obj1.SetActive(true);
+            SupplyBrain.flag = true;
+        }
+        else
+        {
+            Flag = false;
+            obj.SetActive(false);
+        }
+    }
 }
