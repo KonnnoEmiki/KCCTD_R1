@@ -66,6 +66,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		{
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 5));
             OnGui_StartGame();
+            OnGui_ChooseStage();
 			OnGui_LeaveRoom();
             GUILayout.EndVertical();
         }
@@ -179,6 +180,23 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();
+    }
+
+    private void OnGui_ChooseStage()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        if (RoomManager.IsHost == true)
+        {
+            if (GUILayout.Button("Loby", button, GUILayout.Width(BaseGUIWidth * 2)))
+                stageselect = 0;
+            if (GUILayout.Button("Plane",button,GUILayout.Width(BaseGUIWidth * 2)))
+                stageselect = 1;
+            if (GUILayout.Button("Forest", button, GUILayout.Width(BaseGUIWidth * 2)))
+                stageselect = 2;
+        }
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
     }
 
 	// ルームから退室用GUI

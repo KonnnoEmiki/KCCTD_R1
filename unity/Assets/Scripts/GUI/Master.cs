@@ -6,34 +6,36 @@ public class Master : MonoBehaviour
 {
     public GameObject Menu;
     private bool MenuOn = true;
+    private bool flag = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Eキー押しっぱなしでも連続で切り替わらないように
+        if (Input.GetKey(KeyCode.E) && flag == true)
+            return;
+
+        flag = false;
+
+        //メニュー表示非表示切り替え
         if (Input.GetKey(KeyCode.E) && MenuOn == true)
         {
             Menu.SetActive(false);
             MenuOn = false;
-            //startcoroutine("Delay");
+            flag = true;
             return;
         }
         if (Input.GetKey(KeyCode.E) && MenuOn == false)
         {
             Menu.SetActive(true);
             MenuOn = true;
-            //startcoroutine("Delay");
+            flag = true;
             return;
         }
     }
 
-   /* IEnumerator Delay()
-    {
-        yield return new WaitForSeconds(1.0f);
-    }*/
 }
