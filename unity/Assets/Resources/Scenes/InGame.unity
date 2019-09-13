@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4466622, g: 0.4965092, b: 0.5748667, a: 1}
+  m_IndirectSpecularColor: {r: 0.44571573, g: 0.71900886, b: 0.73043394, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22530,7 +22530,7 @@ Transform:
   - {fileID: 955614583}
   - {fileID: 1889767791}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207880202
 GameObject:
@@ -34148,7 +34148,7 @@ PrefabInstance:
     - target: {fileID: 3335724081115250621, guid: 6dce561a395c38547b3408ff627e9a02,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3335724081115250621, guid: 6dce561a395c38547b3408ff627e9a02,
         type: 3}
@@ -39567,11 +39567,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3293966751762601676, guid: 9cc3098aaa260a346a8cc557f54771a7,
         type: 3}
-    - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
-        type: 3}
-      propertyPath: m_SpawnPrefab
-      value: Prefabs/InGame/unitychan_dynamic_locomotion
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 608503602888654049, guid: c529fc5983a630b43b949023128329a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c529fc5983a630b43b949023128329a2, type: 3}
