@@ -50,6 +50,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
 
             OnGui_Connect();
+            OnGui_CloseGame();
 
             GUILayout.EndVertical();
             return;
@@ -67,9 +68,11 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         }
 		else if(m_IsInGameScene == false)
 		{
-            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 5));
+            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
             OnGui_StartGame();
-			OnGui_LeaveRoom();
+            OnGui_ChooseStage();
+           // OnGui_ChooseMode();
+            OnGui_LeaveRoom();
             GUILayout.EndVertical();
         }
 		else
@@ -120,7 +123,18 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.EndHorizontal();
     }
 
-	private void OnGui_StartGame()
+    //ゲーム終了用GUI
+    private void OnGui_CloseGame()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(20);
+        if (GUILayout.Button("Close", button, GUILayout.Width(BaseGUIWidth * 3)))
+            UnityEditor.EditorApplication.isPlaying = false;
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+    }
+
+    private void OnGui_StartGame()
 	{
         GUILayout.BeginVertical();
         GUILayout.BeginHorizontal();
@@ -146,8 +160,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             return;
 		}
 
-		// ルーム内に自分しか居なければ他のプレイヤーを待つ
-		/*if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
+        // ルーム内に自分しか居なければ他のプレイヤーを待つ
+        /*if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
 		{
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
@@ -158,19 +172,46 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.EndHorizontal();
             return;
 		}*/
-
-		if (GUILayout.Button("Game Start", button, GUILayout.Width(BaseGUIWidth * 3)))
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button("Game Start", button, GUILayout.Width(BaseGUIWidth * 3)))
         {
             monobitView.RPC("LoadInGameScene", MonobitEngine.MonobitTargets.OthersBuffered);
 			roomData.visible = false; // ゲーム開始後はルームが他プレイヤーから見えないように
 			LoadInGameScene();
 		}
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();
     }
 
-	// ルームから退室用GUI
-	private void OnGui_LeaveRoom()
+    //ステージ選択用GUI
+    private void OnGui_ChooseStage()
+    {
+
+        if (RoomManager.IsHost == true)
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(50);
+            GUILayout.Label("SelectStage", TagLabel);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("Loby", button, GUILayout.Width(BaseGUIWidth * 2)))
+                stageselect = 0;
+            if (GUILayout.Button("Plane", button, GUILayout.Width(BaseGUIWidth * 2)))
+                stageselect = 1;
+            if (GUILayout.Button("Forest", button, GUILayout.Width(BaseGUIWidth * 2)))
+                stageselect = 2;
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
+        }
+    }
+
+    // ルームから退室用GUI
+    private void OnGui_LeaveRoom()
 	{
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();
