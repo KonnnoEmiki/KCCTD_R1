@@ -210,6 +210,24 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         }
     }
 
+    /*private void OnGui_ChooseMode()
+    {
+        if(RoomManager.IsHost==true)
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(50);
+            GUILayout.Label("SelectMode", TagLabel);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button("", button, GUILayout.Width(BaseGUIWidth * 2)))
+                gamemode =;
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
+        }
+    }*/
+
     // ルームから退室用GUI
     private void OnGui_LeaveRoom()
 	{
