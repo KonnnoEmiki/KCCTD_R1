@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &339719582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,12 +331,12 @@ PrefabInstance:
         type: 3}
       propertyPath: button.m_Normal.m_Background
       value: 
-      objectReference: {fileID: 2800000, guid: ef73246840ee6a64e811306f05cf8da4, type: 3}
+      objectReference: {fileID: 2800000, guid: 184d8ffefa3b21e4194382772ae8b146, type: 3}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Active.m_Background
       value: 
-      objectReference: {fileID: 2800000, guid: bd8575ca46f62af4eaedf455268a4475, type: 3}
+      objectReference: {fileID: 2800000, guid: 05ef55e5084e1f04fbbefcb2f40b5efd, type: 3}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Normal.m_TextColor.r
@@ -429,12 +429,12 @@ PrefabInstance:
         type: 3}
       propertyPath: TextField.m_Normal.m_Background
       value: 
-      objectReference: {fileID: 2800000, guid: b3c5c7afcfe6d1b41a8e087f71c911fa, type: 3}
+      objectReference: {fileID: 2800000, guid: 05599dfceeaaf544ab51fa1ee8ee6a23, type: 3}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Active.m_Background
       value: 
-      objectReference: {fileID: 2800000, guid: b3c5c7afcfe6d1b41a8e087f71c911fa, type: 3}
+      objectReference: {fileID: 2800000, guid: 05599dfceeaaf544ab51fa1ee8ee6a23, type: 3}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Normal.m_TextColor.r
@@ -480,7 +480,7 @@ PrefabInstance:
         type: 3}
       propertyPath: window.m_Normal.m_Background
       value: 
-      objectReference: {fileID: 2800000, guid: c1846ace2045ecc4ca2a15e0f27f1e82, type: 3}
+      objectReference: {fileID: 2800000, guid: 8480de0448ee588459c5da29fd196fb0, type: 3}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: window.m_Normal.m_TextColor.r
@@ -711,6 +711,26 @@ PrefabInstance:
         type: 3}
       propertyPath: window.m_Margin.m_Bottom
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Hover.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 34c33e33d6e30964a917a19b8c187538, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Hover.m_TextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Hover.m_TextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: button.m_Hover.m_TextColor.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150fc7f6a3f644d4fa5685030447e3d1, type: 3}
