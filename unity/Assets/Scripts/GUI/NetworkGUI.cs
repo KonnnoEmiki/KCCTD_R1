@@ -25,12 +25,15 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static int gamemode = 0;
 
+    public static int CharaSelect = 0;
+
     public static bool Ballflag = true;
     public static bool Trapflag = true;
     public static bool TPSflag = true;
     public static bool Itemflag = true;
 
     private bool gsf = true;
+    private bool cs = false;
 
     public GUIStyle button;
     public GUIStyle Label;
@@ -50,37 +53,44 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
 
             OnGui_Connect();
+            OnGui_CharacterSelect();
             OnGui_CloseGame();
 
             GUILayout.EndVertical();
             return;
 		}
-		
-		if (MonobitEngine.MonobitNetwork.inRoom == false)
-		{
+
+        if (MonobitEngine.MonobitNetwork.inRoom == false)
+        {
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 10));
             OnGui_CreateRoom();
-			OnGui_SearchPlayer();
-			OnGui_SearchPlayerResult();
-			OnGui_ChooseRoom();
-			OnGui_Disconnect();
+            OnGui_SearchPlayer();
+            OnGui_SearchPlayerResult();
+            OnGui_ChooseRoom();
+            OnGui_Disconnect();
             GUILayout.EndVertical();
         }
-		else if(m_IsInGameScene == false)
-		{
+        /*else if (cs == true)// キャラクター選択GUI
+        {
+            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
+            OnGui_CharacterSelect();
+            GUILayout.EndVertical();
+        }*/
+        else if (m_IsInGameScene == false)
+        {
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
             OnGui_StartGame();
             OnGui_ChooseStage();
-           // OnGui_ChooseMode();
+            // OnGui_ChooseMode();
             OnGui_LeaveRoom();
             GUILayout.EndVertical();
         }
-		else
-		{
-			// ゲーム中にカーソルロックが外れていれば退室用UI表示
-			if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false)
-				OnGui_LeaveRoom();
-		}
+        else
+        {
+            // ゲーム中にカーソルロックが外れていれば退室用UI表示
+            if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false)
+                OnGui_LeaveRoom();
+        }
 		
 	}
 
@@ -210,6 +220,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         }
     }
 
+    // モード選択用GUI
     /*private void OnGui_ChooseMode()
     {
         if(RoomManager.IsHost==true)
@@ -228,8 +239,29 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         }
     }*/
 
-    // ルームから退室用GUI
-    private void OnGui_LeaveRoom()
+    // キャラクター選択用GUI
+    private void OnGui_CharacterSelect()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(50);
+        GUILayout.Label("CharacterSelect", TagLabel);
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button("0", button, GUILayout.Width(BaseGUIWidth * 2)))
+                CharaSelect =0;
+        if (GUILayout.Button("1", button, GUILayout.Width(BaseGUIWidth * 2)))
+            CharaSelect =1;
+        if (GUILayout.Button("2", button, GUILayout.Width(BaseGUIWidth * 2)))
+            CharaSelect = 2;
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+        //cs = false;
+    }
+
+        // ルームから退室用GUI
+        private void OnGui_LeaveRoom()
 	{
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();
@@ -260,6 +292,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
 		if (GUILayout.Button("Create", button))
 		{
+            //cs = true;
 			if (string.IsNullOrEmpty(m_RoomName) == false)
 				NetworkManager.Instance.CreateRoom(m_RoomName);
 		}
@@ -338,8 +371,11 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 			string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
 			GUILayout.Label("Room Name: " + roomName + playerInfo, Label, GUILayout.Width(BaseGUIWidth * 3));
 
-			if (GUILayout.Button("Join", button, GUILayout.Width(BaseGUIWidth * 3)))
-				NetworkManager.Instance.JoinRoom(roomData.name); // 入室
+            if (GUILayout.Button("Join", button, GUILayout.Width(BaseGUIWidth * 3)))
+            {
+               // cs = true;
+                NetworkManager.Instance.JoinRoom(roomData.name); // 入室
+            }
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
 		}

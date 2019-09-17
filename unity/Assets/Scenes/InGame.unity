@@ -6503,6 +6503,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547721040}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1560065556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1560065557}
+  m_Layer: 0
+  m_Name: CharacterSelect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1560065557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560065556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.122522354, y: 4.6216974, z: 5.225725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1597114286
 GameObject:
   m_ObjectHideFlags: 0
@@ -9262,6 +9292,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3293966751762601676, guid: 9cc3098aaa260a346a8cc557f54771a7,
         type: 3}
+    - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
+        type: 3}
+      propertyPath: m_SpawnPrefab1
+      value: Prefabs/InGame/AcquireChan
+      objectReference: {fileID: 0}
+    - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
+        type: 3}
+      propertyPath: m_SpawnPrefab0
+      value: Prefabs/InGame/unitychan_dynamic_locomotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 608503602888654048, guid: c529fc5983a630b43b949023128329a2,
+        type: 3}
+      propertyPath: m_SpawnPrefab2
+      value: Prefabs/InGame/SapphiArtchan
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 608503602888654049, guid: c529fc5983a630b43b949023128329a2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c529fc5983a630b43b949023128329a2, type: 3}
