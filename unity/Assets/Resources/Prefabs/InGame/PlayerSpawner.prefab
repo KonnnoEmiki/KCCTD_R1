@@ -59,4 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e0749eb5c2799498925c02d94892c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SpawnPrefab: Prefabs/InGame/unitychan_dynamic_locomotion
+  m_SpawnPrefab0: Prefabs/InGame/unitychan_dynamic_locomotion
+  m_SpawnPrefab1: Prefabs/InGame/AcquireChan
+  m_SpawnPrefab2: Prefabs/InGame/SapphiArtchan
