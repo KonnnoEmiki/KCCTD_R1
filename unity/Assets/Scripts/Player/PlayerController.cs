@@ -44,6 +44,8 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     private float skyjump1 = 0;
     private float skyjump2 = 1;
 
+    public static bool Flag;
+
     void Start()
 	{
 		m_AnimController = GetComponent<PlayerAnimationController>();
@@ -92,6 +94,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
             PlayJumpAnim();
             m_JumpStartTimeMoveKeyValue = m_Input.MoveKeyVal;
         }
+
+        if (shotCount == 6) Flag = false;
+        else Flag = true;
 
         // ジャンプ中以外のその場アニメーション再生中は移動,回転処理は走らせない
         if (m_Player.IsPlayPlaceAnim && m_Player.IsJumping == false) return;
@@ -150,6 +155,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
             Transform myTransform = this.transform;
             Vector3 pos = myTransform.position;
             shellLabel.text = "玉：" + shotCount;
+
             if (Input.GetKey(KeyCode.Mouse0))
             {
 
