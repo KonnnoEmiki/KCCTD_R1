@@ -99,7 +99,10 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 
     public static int LifeCount = Stamina;
 
-	void Start()
+    public static bool sibouflag = false;
+    public static int HighScore = 0;
+
+    void Start()
     {
 		m_RigidBody = GetComponent<Rigidbody>();
 		m_Collider = GetComponent<CapsuleCollider>();
@@ -107,6 +110,8 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 		m_AnimController = GetComponent<PlayerAnimationController>();
 
         LifeCount = 3;
+
+        sibouflag = false;
 
 		Init();
     }
@@ -120,14 +125,15 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
             if (NetworkGUI.gs == true)
                 if (monobitView.isMine == false)
                 {
-                    ScoreCounter.score = ScoreCounter.score + 100;
+                    ScoreCounter.scoreflag = 3;
                     return;    // 所有権が無ければ
                 }
                 else LifeCount--;
             if (LifeCount == 0)
             {
                 if (monobitView.isMine == false)
-                    ScoreCounter.score = ScoreCounter.score + 1000;
+                    ScoreCounter.scoreflag = 2;
+                sibouflag = true;
                 OnDown();
             }
         }
@@ -190,14 +196,15 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
             if (NetworkGUI.gs == true)
                 if (monobitView.isMine == false)
                 {
-                    ScoreCounter.score = ScoreCounter.score + 100;
+                    ScoreCounter.scoreflag = 3;
                     return;    // 所有権が無ければ
                 }
                 else LifeCount--;
         if (LifeCount == 0)
         {
             if (monobitView.isMine == false)
-                ScoreCounter.score = ScoreCounter.score + 1000;
+                ScoreCounter.scoreflag = 2;
+            sibouflag = true;
             OnDown();
         }
 	}

@@ -293,6 +293,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         {
             gs = true;
             gsf = false;
+            if (RoomManager.NumPlayers == 1&&gs)
+                OnInGameScene();
         }
     }
 

@@ -164,7 +164,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
                     shotCount -= 1;
-                    ScoreCounter.score=ScoreCounter.score+10;
+                    ScoreCounter.scoreflag = 1;
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
             }

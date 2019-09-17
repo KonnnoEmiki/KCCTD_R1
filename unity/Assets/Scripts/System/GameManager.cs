@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour<GameManager>,IObserver<PlayerEvent>,IOb
 	private int m_NumSpawnBallLaunchers = 0;
 
 	private NetworkObjectPool m_PrefabPool = null;
-
+    
 	void Start()
 	{
 		m_PrefabPool = GetComponent<NetworkObjectPool>();
@@ -169,8 +169,7 @@ public class GameManager : MonoBehaviour<GameManager>,IObserver<PlayerEvent>,IOb
 		yield return new WaitForSeconds(1);
 		PlayerManager.Instance.OnGameSet();
 		m_GameUIManager.OnGameSet();
-
-		yield return new WaitForSeconds(m_FinishGameOffsetTime);
+        yield return new WaitForSeconds(m_FinishGameOffsetTime);
 		FinishGame();
 		NetworkGUI.Instance.OnInGameScene();
 	}
