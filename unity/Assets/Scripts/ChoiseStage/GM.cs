@@ -34,17 +34,22 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject flagTr = null;
 
-    public static bool first = true;
+    public static bool first = false;
 
     private bool start = true;
+
+    private void Start()
+    {
+            host.gameObject.tag = "Player";
+    }
 
     [MunRPC]
     private void Update()
     {
         if (NetworkGUI.roommaster == true && first == true)
             host.gameObject.tag = "master";
-        if (first == false)
-            host.gameObject.tag = "Player";
+        if (first == false && NetworkGUI.gs == false)
+            host.gameObject.tag = "Ball";
         if (NetworkGUI.gs == true && start == true)
         {
             choise.gameObject.SetActive(false);
@@ -53,14 +58,14 @@ public class GM : MonobitEngine.MonoBehaviour
             {
                 Destroy(obj);
             }
-            start = false;
-            /*{
-                GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Player");
+            {
+                GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Ball");
                 foreach (GameObject obj in tagobjs1)
                 {
                     Destroy(obj);
                 }
-            }*/
+                start = false;
+            }
         }
 
         var roomData = MonobitEngine.MonobitNetwork.room;
