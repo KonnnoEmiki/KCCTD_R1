@@ -9,10 +9,10 @@ public class Supply :MonobitEngine.MonoBehaviour
 
     void OnTriggerStay(Collider hit)
     {
-        if (PlayerController.Flag)
+        if (hit.CompareTag("Player"))
         {
             PlayerController.shotCount = 6;
-            monobitView.RPC("Activefalse", MonobitEngine.MonobitTargets.All, null);]
+            monobitView.RPC("Activefalse", MonobitEngine.MonobitTargets.All, null);
             PlayerController.Flag = false;
         }
     }
