@@ -51,7 +51,14 @@ public class ScoreCounter : MonoBehaviour
             }
             if (Player.sibouflag == true)
             {
-                Player.HighScore = result;
+                if (result > Player.HighScore)
+                    Player.HighScore = result;
+                return;
+            }
+            if (GameManager.syuumaku == true)
+            {
+                if (result > Player.HighScore)
+                    Player.HighScore = result;
                 return;
             }
             Text score_text = scoreLabel.GetComponent<Text>();

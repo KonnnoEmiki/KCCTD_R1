@@ -132,7 +132,6 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
             if (LifeCount == 0)
             {
                 if (monobitView.isMine == false)
-                    ScoreCounter.scoreflag = 2;
                 sibouflag = true;
                 OnDown();
             }
@@ -203,7 +202,6 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         if (LifeCount == 0)
         {
             if (monobitView.isMine == false)
-                ScoreCounter.scoreflag = 2;
             sibouflag = true;
             OnDown();
         }
