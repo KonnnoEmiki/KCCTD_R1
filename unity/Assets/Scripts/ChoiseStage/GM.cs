@@ -54,13 +54,13 @@ public class GM : MonobitEngine.MonoBehaviour
                 Destroy(obj);
             }
             start = false;
-            {
+            /*{
                 GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Player");
                 foreach (GameObject obj in tagobjs1)
                 {
                     Destroy(obj);
                 }
-            }
+            }*/
         }
 
         var roomData = MonobitEngine.MonobitNetwork.room;
@@ -131,6 +131,7 @@ public class GM : MonobitEngine.MonoBehaviour
     [MunRPC]
     private void stagechange0()
     {
+        Debug.Log("stage0");
         NetworkGUI.stageselect = 0;
         Stage.gameObject.SetActive(false);
         Plane.gameObject.SetActive(true);
@@ -142,6 +143,7 @@ public class GM : MonobitEngine.MonoBehaviour
     [MunRPC]
     private void stagechange1()
     {
+        Debug.Log("stage1");
         NetworkGUI.stageselect = 1;
         Stage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
@@ -153,6 +155,7 @@ public class GM : MonobitEngine.MonoBehaviour
     [MunRPC]
     private void stagechange2()
     {
+        Debug.Log("stage2");
         NetworkGUI.stageselect = 2;
         ForestStage.gameObject.SetActive(true);
         Plane.gameObject.SetActive(false);
@@ -164,6 +167,7 @@ public class GM : MonobitEngine.MonoBehaviour
     [MunRPC]
     private void stagechange3()
     {
+        Debug.Log("stage3");
         NetworkGUI.stageselect = 3;
         ForestStage.gameObject.SetActive(false);
         Plane.gameObject.SetActive(false);
@@ -175,6 +179,7 @@ public class GM : MonobitEngine.MonoBehaviour
     [MunRPC]
     private void stagechange4()
     {
+        Debug.Log("stage4");
         NetworkGUI.stageselect = 4;
         ForestStage.gameObject.SetActive(false);
         Plane.gameObject.SetActive(false);
