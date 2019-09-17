@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using System.Threading.Tasks;
 
-public class SupplyBrain : MonoBehaviour
+public class SupplyBrain : MonobitEngine.MonoBehaviour
 {
     public static bool flag = true;
     public static float Time = 5;
@@ -20,10 +20,18 @@ public class SupplyBrain : MonoBehaviour
         var obj = transform.Find("cartridge").gameObject;
         if (!obj.activeInHierarchy&&flag)
         {
+            monobitView.RPC("Onemore", MonobitEngine.MonobitTargets.All, null);
             flag = false;
             StartCoroutine("sleep");
             Time = 5;
         }
+    }
+
+    [MunRPC]
+    private void Activefalse()
+    {
+        var obj = transform.Find("cartridge").gameObject;
+        obj.SetActive(false);
     }
 
     IEnumerator sleep()

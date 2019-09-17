@@ -169,7 +169,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
     void OnTriggerStay(Collider hit)
     {
-        if (monobitView.isMine) Flag = true;
+        if (monobitView.isMine&&shotCount<6) Flag = true;
     }
 
     // ジャンプアニメーション再生
