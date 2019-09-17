@@ -37,6 +37,12 @@ public class Master : MonoBehaviour
             flag = true;
             return;
         }
+        /* メニューを開くとカーソル表示
+        if (MenuOn == true)
+            Cursor.visible = true;
+        else
+            Cursor.visible = false;
+            */
     }
 
 }
