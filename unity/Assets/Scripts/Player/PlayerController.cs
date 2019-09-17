@@ -167,6 +167,11 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
         }
     }
 
+    void OnTriggerStay(Collider hit)
+    {
+        if (monobitView.isMine) Flag = true;
+    }
+
     // ジャンプアニメーション再生
     [MunRPC]
 	private void PlayJumpAnim()
