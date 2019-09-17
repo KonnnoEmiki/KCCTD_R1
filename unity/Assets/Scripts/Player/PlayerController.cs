@@ -164,14 +164,15 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
                     shotCount -= 1;
+                    ScoreCounter.score=ScoreCounter.score+10;
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
             }
         }
     }
 
-    // ジャンプアニメーション再生
-    [MunRPC]
+// ジャンプアニメーション再生
+[MunRPC]
 	private void PlayJumpAnim()
 	{
 		// AnimatorのTriggerは同期されないので、

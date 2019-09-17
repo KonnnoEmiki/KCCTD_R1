@@ -118,10 +118,18 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         {
             // Unityちゃん is 死
             if (NetworkGUI.gs == true)
-                if (monobitView.isMine == false) return;    // 所有権が無ければ
+                if (monobitView.isMine == false)
+                {
+                    ScoreCounter.score = ScoreCounter.score + 100;
+                    return;    // 所有権が無ければ
+                }
                 else LifeCount--;
-            if(LifeCount==0)
+            if (LifeCount == 0)
+            {
+                if (monobitView.isMine == false)
+                    ScoreCounter.score = ScoreCounter.score + 1000;
                 OnDown();
+            }
         }
 
         // 接触対象はmuscleタグですか？
@@ -178,12 +186,20 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 		if (rb == null) return;
 
 		var ballSpeed = rb.velocity.magnitude;
-		if (ballSpeed*100 > m_DurableValue) // ボールの速度が耐久値を上回っていたら
+        if (ballSpeed * 100 > m_DurableValue) // ボールの速度が耐久値を上回っていたら
             if (NetworkGUI.gs == true)
-                if (monobitView.isMine == false) return;    // 所有権が無ければ
+                if (monobitView.isMine == false)
+                {
+                    ScoreCounter.score = ScoreCounter.score + 100;
+                    return;    // 所有権が無ければ
+                }
                 else LifeCount--;
-            if (LifeCount == 0)
-                OnDown();
+        if (LifeCount == 0)
+        {
+            if (monobitView.isMine == false)
+                ScoreCounter.score = ScoreCounter.score + 1000;
+            OnDown();
+        }
 	}
 
     void Init()
