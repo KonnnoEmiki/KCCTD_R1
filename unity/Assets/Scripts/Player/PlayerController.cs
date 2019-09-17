@@ -44,7 +44,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     private float skyjump1 = 0;
     private float skyjump2 = 1;
 
-    public static bool Flag;
+    public static bool Flag = false;
 
     void Start()
 	{
@@ -94,9 +94,6 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
             PlayJumpAnim();
             m_JumpStartTimeMoveKeyValue = m_Input.MoveKeyVal;
         }
-
-        if (shotCount == 6) Flag = false;
-        else Flag = true;
 
         // ジャンプ中以外のその場アニメーション再生中は移動,回転処理は走らせない
         if (m_Player.IsPlayPlaceAnim && m_Player.IsJumping == false) return;
@@ -168,6 +165,15 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 }
             }
         }
+    }
+
+    void OnTriggerStay(Collider hit)
+    {
+        if (hit.CompareTag("Supply")&&shotCount<6)
+        {
+            Flag = true;
+        }
+        else Flag = false;
     }
 
     // ジャンプアニメーション再生
