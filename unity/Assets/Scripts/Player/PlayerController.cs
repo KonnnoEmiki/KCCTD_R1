@@ -31,7 +31,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
     private Camera m_Camera = null;
     public GameObject bulletPrefab;
     public float shotSpeed;
-    public static int shotCount = 6;
+    public static int shotCount;
     public float starttime;
     public float now;
     private float shotInterval;
@@ -55,6 +55,8 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
         m_Camera = Camera.main;
         m_AnimController.AddObserver(this); // アニメーションイベント通知受け取り用
         shellLabel.text = "玉：6";
+        if (NetworkGUI.stageselect == 4) shotCount = 10;
+        else shotCount = 6;
     }
 
     void Update()
@@ -147,6 +149,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
         {
             obj.SetActive(true);
             monobitView.RPC("UpdateLookAhead", MonobitEngine.MonobitTargets.All, lookAheadPosition);
+
             lookAheadPosition = this.gameObject.transform.position + this.gameObject.transform.forward;
             lookAheadPosition.y += 1;
             Transform myTransform = this.transform;
@@ -161,7 +164,10 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
                     shotCount -= 1;
-                    monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
+                    if (NetworkGUI.stageselect == 4)
+                        monobitView.RPC("Skyshooting", MonobitEngine.MonobitTargets.All, null);
+                    else
+                        monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
             }
         }
@@ -169,7 +175,10 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
 
     void OnTriggerStay(Collider hit)
     {
-        if (monobitView.isMine && shotCount < 6) Flag = true;
+        if (NetworkGUI.stageselect == 4)
+            if (monobitView.isMine && shotCount < 10) Flag = true;
+        else
+            if (monobitView.isMine && shotCount < 6) Flag = true;
     }
 
     // ジャンプアニメーション再生
@@ -182,6 +191,39 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
         if (monobitView.isMine)
             monobitView.RPC("PlayJumpAnim", MonobitEngine.MonobitTargets.Others);
         m_AnimController.SetAnimationParameter(m_JumpParam);
+    }
+
+    [MunRPC]
+    void Skyshooting()
+    {
+        GameObject bullet0 = (GameObject)Instantiate(bulletPrefab, lookAheadPosition, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
+        lookAheadPosition.y += 0.5f;
+        GameObject bullet1 = (GameObject)Instantiate(bulletPrefab, lookAheadPosition, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
+        lookAheadPosition.y -= 1;
+        GameObject bullet2 = (GameObject)Instantiate(bulletPrefab, lookAheadPosition, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
+        Vector3 Position = transform.position;
+        Position.y += 1;
+        GameObject bullet3 = (GameObject)Instantiate(bulletPrefab, Position+ transform.rotation * new Vector3(1.0f, 0, 0), Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
+        GameObject bullet4 = (GameObject)Instantiate(bulletPrefab, Position + transform.rotation * new Vector3(-1.0f, 0, 0), Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0));
+        Rigidbody bulletRb0 = bullet0.GetComponent<Rigidbody>();
+        Rigidbody bulletRb1 = bullet1.GetComponent<Rigidbody>();
+        Rigidbody bulletRb2 = bullet2.GetComponent<Rigidbody>();
+        Rigidbody bulletRb3 = bullet3.GetComponent<Rigidbody>();
+        Rigidbody bulletRb4 = bullet4.GetComponent<Rigidbody>();
+        bulletRb0.AddForce(transform.forward * shotSpeed * 2);
+        bulletRb1.AddForce(transform.forward * shotSpeed * 2);
+        bulletRb2.AddForce(transform.forward * shotSpeed * 2);
+        bulletRb3.AddForce(transform.forward * shotSpeed * 2);
+        bulletRb4.AddForce(transform.forward * shotSpeed * 2);
+
+        //射撃されてから3秒後に弾のオブジェクトを破壊する.
+
+        Destroy(bullet0, 3.0f);
+        Destroy(bullet1, 3.0f);
+        Destroy(bullet2, 3.0f);
+        Destroy(bullet3, 3.0f);
+        Destroy(bullet4, 3.0f);
+
     }
 
     [MunRPC]
