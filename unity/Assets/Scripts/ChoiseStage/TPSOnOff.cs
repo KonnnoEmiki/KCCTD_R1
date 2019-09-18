@@ -6,8 +6,6 @@ public class TPSOnOff : MonobitEngine.MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject TPS = null;
-    [SerializeField]
     private GameObject flag = null;
 
     [MunRPC]
@@ -28,7 +26,11 @@ public class TPSOnOff : MonobitEngine.MonoBehaviour
     {
         if (NetworkGUI.TPSflag == false)
         {
-            TPS.gameObject.SetActive(true);
+            GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("Supply");
+            foreach (GameObject obj in tagobjs)
+            {
+                obj.gameObject.SetActive(true);
+            }
             flag.gameObject.SetActive(true);
             NetworkGUI.TPSflag = true;
             SupplyBrain.flag = true;
@@ -37,7 +39,11 @@ public class TPSOnOff : MonobitEngine.MonoBehaviour
         }
         else if (NetworkGUI.TPSflag == true)
         {
-            TPS.gameObject.SetActive(false);
+            GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("Supply");
+            foreach (GameObject obj in tagobjs)
+            {
+                obj.gameObject.SetActive(false);
+            }
             flag.gameObject.SetActive(false);
             NetworkGUI.TPSflag = false;
         }

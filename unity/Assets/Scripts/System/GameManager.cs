@@ -51,8 +51,11 @@ public class GameManager : MonoBehaviour<GameManager>,IObserver<PlayerEvent>,IOb
 
 	private NetworkObjectPool m_PrefabPool = null;
 
+    public static bool syuumaku = false;
+    
 	void Start()
 	{
+        syuumaku = false;
 		m_PrefabPool = GetComponent<NetworkObjectPool>();
 		MonobitEngine.MonobitNetwork.ObjectPool = m_PrefabPool;
 		NetworkManager.Instance.AddNetworkEventObserver(this);
@@ -153,7 +156,8 @@ public class GameManager : MonoBehaviour<GameManager>,IObserver<PlayerEvent>,IOb
 	// プレイヤーが倒れた
 	private void OnDownPlayer()
 	{
-		if (PlayerManager.Instance.NumSurvivingPlayers > 1)
+        ScoreCounter.scoreflag = 2;
+        if (PlayerManager.Instance.NumSurvivingPlayers > 1)
 			return;
 
 		m_IsGameSet = true;
@@ -166,11 +170,11 @@ public class GameManager : MonoBehaviour<GameManager>,IObserver<PlayerEvent>,IOb
 	// 決着が付いた事を通知
 	private IEnumerator NotifyGameSet()
 	{
+        syuumaku = true;
 		yield return new WaitForSeconds(1);
 		PlayerManager.Instance.OnGameSet();
 		m_GameUIManager.OnGameSet();
-
-		yield return new WaitForSeconds(m_FinishGameOffsetTime);
+        yield return new WaitForSeconds(m_FinishGameOffsetTime);
 		FinishGame();
 		NetworkGUI.Instance.OnInGameScene();
 	}

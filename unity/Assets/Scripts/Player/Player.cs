@@ -99,7 +99,10 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 
     public static int LifeCount = Stamina;
 
-	void Start()
+    public static bool sibouflag = false;
+    public static int HighScore = 0;
+
+    void Start()
     {
 		m_RigidBody = GetComponent<Rigidbody>();
 		m_Collider = GetComponent<CapsuleCollider>();
@@ -107,6 +110,8 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 		m_AnimController = GetComponent<PlayerAnimationController>();
 
         LifeCount = 3;
+
+        sibouflag = false;
 
 		Init();
     }
@@ -118,10 +123,18 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         {
             // Unityちゃん is 死
             if (NetworkGUI.gs == true)
-                if (monobitView.isMine == false) return;    // 所有権が無ければ
+                if (monobitView.isMine == false)
+                {
+                    ScoreCounter.scoreflag = 3;
+                    return;    // 所有権が無ければ
+                }
                 else LifeCount--;
-            if(LifeCount==0)
+            if (LifeCount == 0)
+            {
+                if (monobitView.isMine == false)
+                sibouflag = true;
                 OnDown();
+            }
         }
 
         // 接触対象はmuscleタグですか？
@@ -178,12 +191,20 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 		if (rb == null) return;
 
 		var ballSpeed = rb.velocity.magnitude;
-		if (ballSpeed*100 > m_DurableValue) // ボールの速度が耐久値を上回っていたら
+        if (ballSpeed * 100 > m_DurableValue) // ボールの速度が耐久値を上回っていたら
             if (NetworkGUI.gs == true)
-                if (monobitView.isMine == false) return;    // 所有権が無ければ
+                if (monobitView.isMine == false)
+                {
+                    ScoreCounter.scoreflag = 3;
+                    return;    // 所有権が無ければ
+                }
                 else LifeCount--;
-            if (LifeCount == 0)
-                OnDown();
+        if (LifeCount == 0)
+        {
+            if (monobitView.isMine == false)
+            sibouflag = true;
+            OnDown();
+        }
 	}
 
     void Init()
