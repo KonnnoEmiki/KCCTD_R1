@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class BallOnOff : MonobitEngine.MonoBehaviour
 {
-    [SerializeField]
-    private GameObject flag = null;
-
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
@@ -26,12 +23,10 @@ public class BallOnOff : MonobitEngine.MonoBehaviour
         if (NetworkGUI.Ballflag == false)
         {
             NetworkGUI.Ballflag = true;
-            flag.gameObject.SetActive(true);
         }
         else if (NetworkGUI.Ballflag == true)
         {
             NetworkGUI.Ballflag = false;
-            flag.gameObject.SetActive(false);
         }
     }
 }
