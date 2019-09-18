@@ -177,7 +177,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
     void OnTriggerStay(Collider hit)
     {
         if (NetworkGUI.stageselect == 4)
+        {
             if (monobitView.isMine && shotCount < 10) Flag = true;
+        }
         else
             if (monobitView.isMine && shotCount < 6) Flag = true;
     }
