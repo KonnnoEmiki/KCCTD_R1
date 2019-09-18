@@ -163,6 +163,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
 
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
+                    ScoreCounter.scoreflag = 1;
                     shotCount -= 1;
                     if (NetworkGUI.stageselect == 4)
                         monobitView.RPC("Skyshooting", MonobitEngine.MonobitTargets.All, null);

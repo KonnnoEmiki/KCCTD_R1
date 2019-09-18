@@ -59,6 +59,11 @@ public class ScoreCounter : MonoBehaviour
                 scoreflag = 0;
                 score = score + 300;
             }
+            if (scoreflag == 6)
+            {
+                scoreflag = 0;
+                score = score + 100;
+            }
             if (Player.sibouflag == true)
             {
                 if (result > Player.HighScore)

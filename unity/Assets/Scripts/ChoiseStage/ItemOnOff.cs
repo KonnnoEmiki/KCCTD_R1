@@ -5,11 +5,6 @@ using UnityEngine;
 public class ItemOnOff : MonobitEngine.MonoBehaviour
 {
 
-    [SerializeField]
-    private GameObject Item = null;
-    [SerializeField]
-    private GameObject flag = null;
-
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
@@ -28,14 +23,10 @@ public class ItemOnOff : MonobitEngine.MonoBehaviour
     {
         if (NetworkGUI.Itemflag == false)
         {
-            Item.gameObject.SetActive(true);
-            flag.gameObject.SetActive(true);
             NetworkGUI.Itemflag = true;
         }
         else if (NetworkGUI.Itemflag == true)
         {
-            Item.gameObject.SetActive(false);
-            flag.gameObject.SetActive(false);
             NetworkGUI.Itemflag = false;
         }
     }
