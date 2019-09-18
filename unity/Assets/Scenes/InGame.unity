@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 76510010}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 164274644}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 172166159}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2705,7 +2705,7 @@ GameObject:
   - component: {fileID: 385067481}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3519,7 +3519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &545872518
 Transform:
   m_ObjectHideFlags: 0
@@ -5879,6 +5879,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShrineSupply
       objectReference: {fileID: 0}
+    - target: {fileID: 6104693267511545159, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6104693267511545156, guid: 4de88a6aba5de424598e95629e2a3a01,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5934,6 +5939,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6104693267083214313, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104693266488743105, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104693267157823956, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104693266738130328, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104693267394282115, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104693266357424808, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104693267803128700, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104693267626937752, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104693266635410083, guid: 4de88a6aba5de424598e95629e2a3a01,
+        type: 3}
+      propertyPath: m_TagString
+      value: Supply
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de88a6aba5de424598e95629e2a3a01, type: 3}
 --- !u!1 &1132209992
@@ -5984,7 +6034,7 @@ GameObject:
   - component: {fileID: 1146768757}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6187,7 +6237,7 @@ GameObject:
   - component: {fileID: 1238438068}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6378,7 +6428,7 @@ GameObject:
   - component: {fileID: 1261905812}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7834,7 +7884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1440590342
 Transform:
   m_ObjectHideFlags: 0
@@ -9135,7 +9185,7 @@ GameObject:
   - component: {fileID: 1664585206}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9566,7 +9616,7 @@ GameObject:
   - component: {fileID: 1800949993}
   m_Layer: 0
   m_Name: cartridge
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13397,7 +13447,7 @@ PrefabInstance:
     - target: {fileID: 6974537180737607396, guid: 76c46c5a45642ad468c4d861aeefcc5d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6974537180737607397, guid: 76c46c5a45642ad468c4d861aeefcc5d,
         type: 3}
