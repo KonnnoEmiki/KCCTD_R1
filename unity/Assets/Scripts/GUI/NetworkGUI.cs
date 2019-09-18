@@ -25,6 +25,11 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static int gamemode = 0;
 
+    public static int Charaselectc = 0;
+    public static bool chara_u = true;
+    public static bool chara_a = true;
+    public static bool chara = true;
+
     public static bool Ballflag = true;
     public static bool Trapflag = true;
     public static bool TPSflag = true;
@@ -37,6 +42,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
     public GUIStyle TagLabel;
     public GUIStyle TextField;
     public GUIStyle window;
+    public GUIStyle Toggle;
 
     private void Start()
 	{
@@ -67,8 +73,10 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         }
 		else if(m_IsInGameScene == false)
 		{
-            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
+            GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 10));
             OnGui_StartGame();
+            OnGui_ChooseMode();
+            GUILayout.Space(10);
             OnGui_ChooseStage();
             GUILayout.Space(10);
             OnGui_LeaveRoom();
@@ -175,6 +183,27 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.EndVertical();
     }
 
+    //モード選択用GUI
+    private void OnGui_ChooseMode()
+    {
+        if(RoomManager.IsHost==true)
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(50);
+            GUILayout.Label("SelectMode", TagLabel);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            Ballflag = GUILayout.Toggle(Ballflag, "Ball",Toggle, GUILayout.Width(BaseGUIWidth * 2));
+            Trapflag = GUILayout.Toggle(Trapflag, "Trap", Toggle, GUILayout.Width(BaseGUIWidth * 2));
+            TPSflag = GUILayout.Toggle(TPSflag, "TPS", Toggle, GUILayout.Width(BaseGUIWidth * 2));
+            Itemflag = GUILayout.Toggle(Itemflag, "Item", Toggle, GUILayout.Width(BaseGUIWidth * 2));
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
+        }
+    }
+
     //ステージ選択用GUI
     private void OnGui_ChooseStage()
     {
@@ -190,17 +219,22 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.FlexibleSpace();
             if (GUILayout.Button("Loby", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 0;
+            GUILayout.Space(5);
             if (GUILayout.Button("Plane", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 1;
+            GUILayout.Space(5);
             if (GUILayout.Button("Forest", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 2;
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
 
+            GUILayout.Space(5);
+
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             if (GUILayout.Button("Shrine", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 3;
+            GUILayout.Space(5);
             if (GUILayout.Button("Sky", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 4;
             GUILayout.FlexibleSpace();

@@ -725,6 +725,198 @@ PrefabInstance:
       propertyPath: button.m_Hover.m_TextColor.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Name
+      value: Toggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Normal.m_TextColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Normal.m_TextColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Normal.m_TextColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Normal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 77d3c62c476ec1b4a8057b7591ff68d1, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Active.m_Background
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876,
+        type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Active.m_TextColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Active.m_TextColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Active.m_TextColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Margin.m_Left
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Margin.m_Right
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Margin.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Margin.m_Bottom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Focused.m_Background
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Overflow.m_Left
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Overflow.m_Right
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Overflow.m_Top
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Overflow.m_Bottom
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_OnNormal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 184d8ffefa3b21e4194382772ae8b146, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_OnActive.m_Background
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Toggle.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Name
+      value: Stagebutton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_OnNormal.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 184d8ffefa3b21e4194382772ae8b146, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 8297a2bf97dbbba468bd2518d003a876,
+        type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Overflow.m_Left
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Overflow.m_Right
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Overflow.m_Top
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Overflow.m_Bottom
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Margin.m_Left
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Margin.m_Right
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Margin.m_Top
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Margin.m_Bottom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Active.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 05ef55e5084e1f04fbbefcb2f40b5efd, type: 3}
+    - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
+        type: 3}
+      propertyPath: Stagebutton.m_Hover.m_Background
+      value: 
+      objectReference: {fileID: 2800000, guid: 34c33e33d6e30964a917a19b8c187538, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150fc7f6a3f644d4fa5685030447e3d1, type: 3}
 --- !u!1001 &8298715983205429071
