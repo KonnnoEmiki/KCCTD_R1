@@ -18,7 +18,7 @@ public class SupplyBrain : MonobitEngine.MonoBehaviour
     private void Update()
     {
         var obj = transform.Find("cartridge").gameObject;
-        if (!obj.activeInHierarchy&&flag)
+        if (!obj.activeInHierarchy && flag)
         {
             monobitView.RPC("Onemore", MonobitEngine.MonobitTargets.All, null);
             flag = false;

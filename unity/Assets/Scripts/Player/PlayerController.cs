@@ -5,30 +5,30 @@ using UnityEngine.UI;
 using System;
 using System.Threading.Tasks;
 
-public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent>
+public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAnimationEvent>
 {
-	[SerializeField]
-	private float m_ForwordSpeed = 5;	// 前進速度
-	[SerializeField]
-	private float m_BackSpeed = 1;		// 後進速度
-	[SerializeField,Range(0,10)]
-	private float m_RotationSpeed = 4;	// 回転速度
-	[SerializeField]
-	private float m_JumpPow = 4;		// ジャンプ力
+    [SerializeField]
+    private float m_ForwordSpeed = 5;   // 前進速度
+    [SerializeField]
+    private float m_BackSpeed = 1;      // 後進速度
+    [SerializeField, Range(0, 10)]
+    private float m_RotationSpeed = 4;  // 回転速度
+    [SerializeField]
+    private float m_JumpPow = 4;        // ジャンプ力
 
-	// 各種Animatorのパラメータ設定用
-	[SerializeField]
-	private AnimationParameter m_JumpParam = new AnimationParameter();
-	[SerializeField]
-	private AnimationParameter m_SpeedParam = new AnimationParameter();
-	[SerializeField]
-	private AnimationParameter m_DirectionParam = new AnimationParameter();
+    // 各種Animatorのパラメータ設定用
+    [SerializeField]
+    private AnimationParameter m_JumpParam = new AnimationParameter();
+    [SerializeField]
+    private AnimationParameter m_SpeedParam = new AnimationParameter();
+    [SerializeField]
+    private AnimationParameter m_DirectionParam = new AnimationParameter();
 
-	private Player m_Player = null;
-	private PlayerInput m_Input = null;
-	private PlayerAnimationController m_AnimController = null;
-	private Rigidbody m_RigidBody = null;
-	private Camera m_Camera = null;
+    private Player m_Player = null;
+    private PlayerInput m_Input = null;
+    private PlayerAnimationController m_AnimController = null;
+    private Rigidbody m_RigidBody = null;
+    private Camera m_Camera = null;
     public GameObject bulletPrefab;
     public float shotSpeed;
     public static int shotCount = 6;
@@ -44,27 +44,27 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     private float skyjump1 = 0;
     private float skyjump2 = 1;
 
-    public static bool Flag;
+    public static bool Flag = false;
 
     void Start()
-	{
-		m_AnimController = GetComponent<PlayerAnimationController>();
-		m_RigidBody = GetComponent<Rigidbody>();
-		m_Player = GetComponent<Player>();
-		m_Input = GetComponent<PlayerInput>();
-		m_Camera = Camera.main;
-		m_AnimController.AddObserver(this); // アニメーションイベント通知受け取り用
+    {
+        m_AnimController = GetComponent<PlayerAnimationController>();
+        m_RigidBody = GetComponent<Rigidbody>();
+        m_Player = GetComponent<Player>();
+        m_Input = GetComponent<PlayerInput>();
+        m_Camera = Camera.main;
+        m_AnimController.AddObserver(this); // アニメーションイベント通知受け取り用
         shellLabel.text = "玉：6";
     }
 
-	void Update()
-	{
-		if (GameManager.IsGameSet) return;	// 決着がついていれば
-		if (monobitView.isMine == false) return;	// 所有権が無ければ
-		if (m_Player.IsDown) return;				// 倒れていれば
+    void Update()
+    {
+        if (GameManager.IsGameSet) return;  // 決着がついていれば
+        if (monobitView.isMine == false) return;    // 所有権が無ければ
+        if (m_Player.IsDown) return;				// 倒れていれば
 
         m_AnimController.SetAnimationParameter(m_SpeedParam, m_Input.MoveKeyVal);
-		m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
+        m_AnimController.SetAnimationParameter(m_DirectionParam, m_Input.RotationKeyVal);
 
         if (NetworkGUI.stageselect == 4)
         {
@@ -95,16 +95,13 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
             m_JumpStartTimeMoveKeyValue = m_Input.MoveKeyVal;
         }
 
-        if (shotCount == 6) Flag = false;
-        else Flag = true;
-
         // ジャンプ中以外のその場アニメーション再生中は移動,回転処理は走らせない
         if (m_Player.IsPlayPlaceAnim && m_Player.IsJumping == false) return;
 
         Rotation(); // 回転
         Move();     // 移動
         if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false) { }
-        else if (!NetworkGUI.TPSflag)obj.SetActive(false);
+        else if (!NetworkGUI.TPSflag) obj.SetActive(false);
         else Shooting();
 
 
@@ -164,25 +161,29 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
                     shotCount -= 1;
-                    ScoreCounter.scoreflag = 1;
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
             }
         }
     }
 
-// ジャンプアニメーション再生
-[MunRPC]
-	private void PlayJumpAnim()
-	{
-		// AnimatorのTriggerは同期されないので、
-		// 所有権を持っていれば自分以外のプレイヤーにRPCを飛ばし、
-		// 所有権の有無を問わずAnimatorにパラメータをセットする
-		if (monobitView.isMine)
-			monobitView.RPC("PlayJumpAnim", MonobitEngine.MonobitTargets.Others);
-		m_AnimController.SetAnimationParameter(m_JumpParam);
-	}
-    
+    void OnTriggerStay(Collider hit)
+    {
+        if (monobitView.isMine && shotCount < 6) Flag = true;
+    }
+
+    // ジャンプアニメーション再生
+    [MunRPC]
+    private void PlayJumpAnim()
+    {
+        // AnimatorのTriggerは同期されないので、
+        // 所有権を持っていれば自分以外のプレイヤーにRPCを飛ばし、
+        // 所有権の有無を問わずAnimatorにパラメータをセットする
+        if (monobitView.isMine)
+            monobitView.RPC("PlayJumpAnim", MonobitEngine.MonobitTargets.Others);
+        m_AnimController.SetAnimationParameter(m_JumpParam);
+    }
+
     [MunRPC]
     void enemyshooting()
     {
@@ -204,23 +205,23 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
 
     // アニメーションイベント受け取り用
     public void OnNotify(Observable<PlayerAnimationEvent> observer, PlayerAnimationEvent e)
-	{
-		EventDispatcher dispatcher = new EventDispatcher(e);
-		dispatcher.Dispatch<OnJumpEvent>(OnJump);
-	}
-	
-	// アニメーション中でキャラクターがジャンプしたタイミング
-	public void OnJump()
-	{
-		// プレイヤーのジャンプ処理
+    {
+        EventDispatcher dispatcher = new EventDispatcher(e);
+        dispatcher.Dispatch<OnJumpEvent>(OnJump);
+    }
 
-		m_RigidBody.velocity += (Vector3.up * m_JumpPow * skyjump2 + transform.forward * m_JumpStartTimeMoveKeyValue);
-	}
+    // アニメーション中でキャラクターがジャンプしたタイミング
+    public void OnJump()
+    {
+        // プレイヤーのジャンプ処理
 
-	public void OnDown()
-	{
-		m_AnimController.SetAnimationParameter(m_SpeedParam, 0.0f);
-		m_AnimController.SetAnimationParameter(m_DirectionParam, 0.0f);
-	}
+        m_RigidBody.velocity += (Vector3.up * m_JumpPow * skyjump2 + transform.forward * m_JumpStartTimeMoveKeyValue);
+    }
+
+    public void OnDown()
+    {
+        m_AnimController.SetAnimationParameter(m_SpeedParam, 0.0f);
+        m_AnimController.SetAnimationParameter(m_DirectionParam, 0.0f);
+    }
 
 }
