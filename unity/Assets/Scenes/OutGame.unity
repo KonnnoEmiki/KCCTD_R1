@@ -145,6 +145,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   Menu: {fileID: 1385946093}
   flag: 0
 --- !u!4 &339719583
@@ -485,7 +497,7 @@ PrefabInstance:
         type: 3}
       propertyPath: window.m_Normal.m_Background
       value: 
-      objectReference: {fileID: 2800000, guid: 8480de0448ee588459c5da29fd196fb0, type: 3}
+      objectReference: {fileID: 2800000, guid: 5048c204ee8605c46920ac591af3c87b, type: 3}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: window.m_Normal.m_TextColor.r
@@ -559,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Overflow.m_Left
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
@@ -680,7 +692,7 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Margin.m_Left
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
