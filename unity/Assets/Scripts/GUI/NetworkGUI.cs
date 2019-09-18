@@ -25,10 +25,10 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     public static int gamemode = 0;
 
-    public static int Charaselectc = 0;
-    public static bool chara_u = true;
-    public static bool chara_a = true;
-    public static bool chara = true;
+    public static int Charaselect = 0;
+   /* public static bool chara_u = true;
+    public static bool chara_a = false;
+    public static bool chara_s = false;*/
 
     public static bool Ballflag = true;
     public static bool Trapflag = true;
@@ -113,6 +113,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
     }
+
+
 
 	// サーバーから切断用GUI
 	private void OnGui_Disconnect()
