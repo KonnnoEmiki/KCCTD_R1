@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Itembreak : MonoBehaviour
+public class Itembreak : MonobitEngine.MonoBehaviour
 {
     // トリガーとの接触時に呼ばれるコールバック
     void OnTriggerEnter(Collider hit)
@@ -10,7 +10,8 @@ public class Itembreak : MonoBehaviour
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player") && NetworkGUI.gs == true )
         {
-            ScoreCounter.scoreflag = 6;
+            if (monobitView.isMine == true)
+                ScoreCounter.scoreflag = 6;
             // このコンポーネントを持つGameObjectを破棄する
             Destroy(gameObject);
         }
