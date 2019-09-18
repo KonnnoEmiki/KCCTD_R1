@@ -56,6 +56,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
 
             OnGui_Connect();
+            OnGui_CharacterSelect();
 
             GUILayout.EndVertical();
             return;
@@ -114,10 +115,31 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.EndHorizontal();
     }
 
+    // キャラクター選択用GUI
+    private void OnGui_CharacterSelect()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(50);
+        GUILayout.Label("CharacterSelect", TagLabel);
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button("0", button, GUILayout.Width(BaseGUIWidth * 2)))
+            Charaselect = 0;
+        if (GUILayout.Button("1", button, GUILayout.Width(BaseGUIWidth * 2)))
+            Charaselect = 1;
+        if (GUILayout.Button("2", button, GUILayout.Width(BaseGUIWidth * 2)))
+            Charaselect = 2;
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+        //cs = false;
+    }
 
 
-	// サーバーから切断用GUI
-	private void OnGui_Disconnect()
+
+    // サーバーから切断用GUI
+    private void OnGui_Disconnect()
 	{
         GUILayout.Space(10);
         GUILayout.BeginHorizontal();
