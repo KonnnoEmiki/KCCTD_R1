@@ -64,73 +64,76 @@ public class GM : MonobitEngine.MonoBehaviour
                 {
                     Destroy(obj);
                 }
-                start = false;
             }
+            start = false;
         }
 
         var roomData = MonobitEngine.MonobitNetwork.room;
+        
+        {
 
-        //Stage
-        if (NetworkGUI.stageselect == 0)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange0", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.stageselect == 1)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.stageselect == 2)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.stageselect == 3)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.stageselect == 4)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("stagechange4", MonobitEngine.MonobitTargets.All, null);
+            //Stage
+            if (NetworkGUI.stageselect == 0)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("stagechange0", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.stageselect == 1)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("stagechange1", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.stageselect == 2)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("stagechange2", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.stageselect == 3)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("stagechange3", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.stageselect == 4)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("stagechange4", MonobitEngine.MonobitTargets.All, null);
 
-        //BallLuncher
-        if (NetworkGUI.Ballflag == false)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("Balloff", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.Ballflag == true)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("Ballon", MonobitEngine.MonobitTargets.All, null);
-        //Item
-        if (NetworkGUI.Itemflag == false)
+            //BallLuncher
+            if (NetworkGUI.Ballflag == false)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Balloff", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.Ballflag == true)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Ballon", MonobitEngine.MonobitTargets.All, null);
+            //Item
+            if (NetworkGUI.Itemflag == false)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("Itemoff", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.Itemflag == true)
+            if (NetworkGUI.Itemflag == true)
                 if (monobitView.isMine == true && NetworkGUI.roommaster == true)
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("Itemon", MonobitEngine.MonobitTargets.All, null);
 
-        //Trap
-        if (NetworkGUI.Trapflag == false)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("Trapoff", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.Trapflag == true)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
+            //Trap
+            if (NetworkGUI.Trapflag == false)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Trapoff", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.Trapflag == true)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("Trapon", MonobitEngine.MonobitTargets.All, null);
 
-        //TPS
-        if (NetworkGUI.TPSflag == false)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("TPSoff", MonobitEngine.MonobitTargets.All, null);
-        if (NetworkGUI.TPSflag == true)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
-                    monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
-       
+            //TPS
+            if (NetworkGUI.TPSflag == false)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("TPSoff", MonobitEngine.MonobitTargets.All, null);
+            if (NetworkGUI.TPSflag == true)
+                if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                    if (MonobitEngine.MonobitNetwork.isHost == true)
+                        monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
+
+        }
     }
 
     [MunRPC]
