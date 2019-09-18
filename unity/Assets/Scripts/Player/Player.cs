@@ -121,7 +121,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         // 接触対象はkillerタグですか？
         if (hit.CompareTag("killer"))
         {
-            // Unityちゃん is 死
+            // Unityちゃん is ダメージ
             if (NetworkGUI.gs == true)
                 if (monobitView.isMine == false)
                 {
@@ -261,8 +261,11 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 	// 決着時
 	public void OnGameSet()
 	{
-		if(m_IsDown == false) // 倒れていなければ最後の生き残り
-			PlayWinAnimation();
+        if (m_IsDown == false)
+        { // 倒れていなければ最後の生き残り
+            ScoreCounter.scoreflag = 2;
+            PlayWinAnimation();
+        }
 	}
 
 	// 勝ちアニメーション再生

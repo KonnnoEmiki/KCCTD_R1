@@ -42,7 +42,7 @@ public class ScoreCounter : MonoBehaviour
             if (scoreflag == 2)
             {
                 scoreflag = 0;
-                score = score + 1000;
+                score = score + 5000;
             }
             if (scoreflag == 3)
             {
