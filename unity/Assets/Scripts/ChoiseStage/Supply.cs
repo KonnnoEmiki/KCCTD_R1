@@ -11,8 +11,8 @@ public class Supply : MonobitEngine.MonoBehaviour
     {
         if (hit.CompareTag("Player") && PlayerController.Flag)
         {
+            PlayerController.shotCount = 6;
             if (NetworkGUI.stageselect == 4) PlayerController.shotCount = 10;
-            else PlayerController.shotCount = 6;
             monobitView.RPC("Activefalse", MonobitEngine.MonobitTargets.All, null);
             PlayerController.Flag = false;
         }
