@@ -141,24 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0491758738777c42911bc6d02532970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Menu: {fileID: 1385946093}
-  flag: 0
 --- !u!4 &339719583
 Transform:
   m_ObjectHideFlags: 0
@@ -192,12 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smooth: 3
---- !u!1 &1385946093 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6023384775386099453, guid: 150fc7f6a3f644d4fa5685030447e3d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 6023384775701996130}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2855092453267951649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -357,32 +333,32 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Normal.m_TextColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Normal.m_TextColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Normal.m_TextColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Active.m_TextColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Active.m_TextColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Active.m_TextColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
@@ -409,17 +385,17 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: Label.m_Normal.m_TextColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: Label.m_Normal.m_TextColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: Label.m_Normal.m_TextColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
@@ -430,17 +406,17 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TagLabel.m_Normal.m_TextColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TagLabel.m_Normal.m_TextColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TagLabel.m_Normal.m_TextColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
@@ -455,32 +431,32 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Normal.m_TextColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Normal.m_TextColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Normal.m_TextColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Active.m_TextColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Active.m_TextColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: TextField.m_Active.m_TextColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
@@ -501,17 +477,17 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: window.m_Normal.m_TextColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: window.m_Normal.m_TextColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: window.m_Normal.m_TextColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
@@ -737,17 +713,17 @@ PrefabInstance:
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Hover.m_TextColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Hover.m_TextColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023384775386099394, guid: 150fc7f6a3f644d4fa5685030447e3d1,
         type: 3}
       propertyPath: button.m_Hover.m_TextColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 150fc7f6a3f644d4fa5685030447e3d1, type: 3}
