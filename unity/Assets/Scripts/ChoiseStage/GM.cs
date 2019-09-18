@@ -69,7 +69,7 @@ public class GM : MonobitEngine.MonoBehaviour
 
         var roomData = MonobitEngine.MonobitNetwork.room;
 
-        if (NetworkGUI.gs == false || start == true)
+        //if (NetworkGUI.gs == false || start == true)
         {
 
             //Stage
@@ -133,7 +133,7 @@ public class GM : MonobitEngine.MonoBehaviour
                     if (MonobitEngine.MonobitNetwork.isHost == true)
                         monobitView.RPC("TPSon", MonobitEngine.MonobitTargets.All, null);
 
-            if (NetworkGUI.gs == true)
+            //if (NetworkGUI.gs == true)
                 start = false;
         }
     }
