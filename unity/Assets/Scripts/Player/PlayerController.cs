@@ -44,7 +44,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
     private float skyjump1 = 0;
     private float skyjump2 = 1;
 
-    public static bool Flag = false;
+    public static bool Flag;
 
     void Start()
 	{
@@ -95,13 +95,16 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
             m_JumpStartTimeMoveKeyValue = m_Input.MoveKeyVal;
         }
 
+        if (shotCount == 6) Flag = false;
+        else Flag = true;
+
         // ジャンプ中以外のその場アニメーション再生中は移動,回転処理は走らせない
         if (m_Player.IsPlayPlaceAnim && m_Player.IsJumping == false) return;
 
         Rotation(); // 回転
         Move();     // 移動
         if (ApplicationManager.CursorMgr.IsCursorLocked == false && GameManager.IsGameSet == false) { }
-        else if (!NetworkGUI.TPSflag) obj.SetActive(false);
+        else if (!NetworkGUI.TPSflag)obj.SetActive(false);
         else Shooting();
 
 
@@ -161,19 +164,15 @@ public class PlayerController : MonobitEngine.MonoBehaviour,IObserver<PlayerAnim
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
                     shotCount -= 1;
+                    ScoreCounter.scoreflag = 1;
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
             }
         }
     }
 
-    void OnTriggerStay(Collider hit)
-    {
-        if (monobitView.isMine&&shotCount<6) Flag = true;
-    }
-
-    // ジャンプアニメーション再生
-    [MunRPC]
+// ジャンプアニメーション再生
+[MunRPC]
 	private void PlayJumpAnim()
 	{
 		// AnimatorのTriggerは同期されないので、

@@ -8,8 +8,6 @@ public class GM : MonobitEngine.MonoBehaviour
     [SerializeField]
     private GameObject host = null;
     [SerializeField]
-    private GameObject TPS = null;
-    [SerializeField]
     private GameObject Item = null;
     [SerializeField]
     private GameObject Trap = null;
@@ -245,7 +243,11 @@ public class GM : MonobitEngine.MonoBehaviour
     private void TPSoff()
     {
         NetworkGUI.TPSflag = false;
-        TPS.gameObject.SetActive(false);
+        GameObject[] tagobjs2 = GameObject.FindGameObjectsWithTag("Supply");
+        foreach (GameObject obj in tagobjs2)
+        {
+            obj.gameObject.SetActive(false);
+        }
         flagTp.gameObject.SetActive(false);
     }
 
@@ -253,7 +255,11 @@ public class GM : MonobitEngine.MonoBehaviour
     private void TPSon()
     {
         NetworkGUI.TPSflag = true;
-        TPS.gameObject.SetActive(true);
+        GameObject[] tagobjs2 = GameObject.FindGameObjectsWithTag("Supply");
+        foreach (GameObject obj in tagobjs2)
+        {
+            obj.gameObject.SetActive(true);
+        }
         flagTp.gameObject.SetActive(true);
     }
 }
