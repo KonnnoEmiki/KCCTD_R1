@@ -160,6 +160,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
 
                 if (shotInterval % 5 == 0 && shotCount > 0)
                 {
+                    ScoreCounter.scoreflag = 1;
                     shotCount -= 1;
                     monobitView.RPC("enemyshooting", MonobitEngine.MonobitTargets.All, null);
                 }
