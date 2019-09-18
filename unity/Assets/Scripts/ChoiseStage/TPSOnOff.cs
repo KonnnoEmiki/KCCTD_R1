@@ -5,9 +5,6 @@ using UnityEngine;
 public class TPSOnOff : MonobitEngine.MonoBehaviour
 {
 
-    [SerializeField]
-    private GameObject flag = null;
-
     [MunRPC]
     void OnTriggerEnter(Collider hit)
     {
@@ -26,12 +23,6 @@ public class TPSOnOff : MonobitEngine.MonoBehaviour
     {
         if (NetworkGUI.TPSflag == false)
         {
-            GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("Supply");
-            foreach (GameObject obj in tagobjs)
-            {
-                obj.gameObject.SetActive(true);
-            }
-            flag.gameObject.SetActive(true);
             NetworkGUI.TPSflag = true;
             SupplyBrain.flag = true;
             SupplyBrain.Time = 0;
@@ -39,12 +30,6 @@ public class TPSOnOff : MonobitEngine.MonoBehaviour
         }
         else if (NetworkGUI.TPSflag == true)
         {
-            GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("Supply");
-            foreach (GameObject obj in tagobjs)
-            {
-                obj.gameObject.SetActive(false);
-            }
-            flag.gameObject.SetActive(false);
             NetworkGUI.TPSflag = false;
         }
     }

@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 14520447}
   m_Layer: 0
   m_Name: stageitem
-  m_TagString: Untagged
+  m_TagString: muscle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2278,6 +2278,7 @@ MonoBehaviour:
   host: {fileID: 3293966751762601676, guid: 9cc3098aaa260a346a8cc557f54771a7, type: 3}
   Item: {fileID: 1132209992}
   Trap: {fileID: 1249940554}
+  TPS: {fileID: 1278404907}
   choise: {fileID: 236015849}
   Stage: {fileID: 773580420}
   ForestStage: {fileID: 198798602}
@@ -5628,7 +5629,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e48e74bbbaaed4088d55aad2bdfea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: {fileID: 695695551}
 --- !u!136 &289801705
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7216,7 +7216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 343fd142faed82e45810ea92d83c52ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: {fileID: 1959523098}
 --- !u!136 &403125303
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12237,7 +12236,7 @@ GameObject:
   - component: {fileID: 796658216}
   m_Layer: 0
   m_Name: TPSLabel
-  m_TagString: Untagged
+  m_TagString: Supply
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17221,7 +17220,7 @@ GameObject:
   - component: {fileID: 1132209993}
   m_Layer: 0
   m_Name: Item
-  m_TagString: Untagged
+  m_TagString: muscle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23707,7 +23706,7 @@ GameObject:
   - component: {fileID: 1554332566}
   m_Layer: 0
   m_Name: ItemLabel
-  m_TagString: Untagged
+  m_TagString: muscle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28145,8 +28144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1866602f85309f24ebfb29158db9e07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Trap: {fileID: 1249940554}
-  flag: {fileID: 1711749420}
 --- !u!114 &1814363839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31484,8 +31481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb3875a1a8dc8945b10801163bcccc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 1132209992}
-  flag: {fileID: 388131148}
 --- !u!136 &2019482864
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -32499,7 +32494,7 @@ GameObject:
   - component: {fileID: 2094484975}
   m_Layer: 0
   m_Name: TrapLabel
-  m_TagString: Untagged
+  m_TagString: killer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
