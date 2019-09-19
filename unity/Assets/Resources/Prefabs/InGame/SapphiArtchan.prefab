@@ -4316,7 +4316,7 @@ GameObject:
   - component: {fileID: 4606716999266425133}
   m_Layer: 0
   m_Name: SapphiArtchan
-  m_TagString: Player
+  m_TagString: Phantom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

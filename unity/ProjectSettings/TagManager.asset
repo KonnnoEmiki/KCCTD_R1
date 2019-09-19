@@ -10,6 +10,8 @@ TagManager:
   - killer
   - muscle
   - master
+  - Supply
+  - Phantom
   layers:
   - Default
   - TransparentFX

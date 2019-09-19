@@ -3,7 +3,9 @@ guid: fad5b92c7a3f83b4cb36484d9a02664c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cureeffect: {fileID: 847586035008974323, guid: ebd37591ea2a6cc4a885fcddf03da1ff,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

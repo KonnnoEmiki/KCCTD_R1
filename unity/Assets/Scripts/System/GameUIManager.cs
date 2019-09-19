@@ -63,7 +63,7 @@ public class GameUIManager : MonoBehaviour,IObserver<PlayerEvent>,IObserver<Netw
 
     static async void DelayDamage()
     {
-        await Task.Delay(50);
+        await Task.Delay(30);
         damageflag = false;
     }
 
