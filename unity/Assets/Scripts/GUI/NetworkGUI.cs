@@ -26,9 +26,11 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
     public static int gamemode = 0;
 
     public static int Charaselect = 0;
-   /* public static bool chara_u = true;
-    public static bool chara_a = false;
-    public static bool chara_s = false;*/
+    private string[] Characters = new string[] {
+        "UnityChan",
+        "AcquireChan",
+        "SapphiartChan",
+    };
 
     public static bool Ballflag = true;
     public static bool Trapflag = true;
@@ -56,7 +58,6 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.BeginVertical(window, GUILayout.Width(BaseGUIWidth * 8));
 
             OnGui_Connect();
-            OnGui_CharacterSelect();
 
             GUILayout.EndVertical();
             return;
@@ -102,6 +103,20 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
 
+
+        // キャラクター選択GUI
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(50);
+        GUILayout.Label("CharacterSelect", TagLabel);
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        GUILayout.FlexibleSpace();
+        Charaselect = GUILayout.SelectionGrid(Charaselect, Characters, 3, Toggle);
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+
+
         GUILayout.Space(10);
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();
@@ -116,7 +131,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
     }
 
     // キャラクター選択用GUI
-    private void OnGui_CharacterSelect()
+   /* private void OnGui_CharacterSelect()
     {
         GUILayout.BeginHorizontal();
         GUILayout.Space(50);
@@ -125,16 +140,16 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();
-        if (GUILayout.Button("0", button, GUILayout.Width(BaseGUIWidth * 2)))
+        if (GUILayout.Button("UnityChan", button, GUILayout.Width(BaseGUIWidth * 2)))
             Charaselect = 0;
-        if (GUILayout.Button("1", button, GUILayout.Width(BaseGUIWidth * 2)))
+        if (GUILayout.Button("AcquireChan", button, GUILayout.Width(BaseGUIWidth * 2)))
             Charaselect = 1;
-        if (GUILayout.Button("2", button, GUILayout.Width(BaseGUIWidth * 2)))
+        if (GUILayout.Button("SapphiartChan", button, GUILayout.Width(BaseGUIWidth * 2)))
             Charaselect = 2;
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
         //cs = false;
-    }
+    }*/
 
 
 
@@ -207,14 +222,14 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.EndVertical();
     }
 
-    //モード選択用GUI
+    //設定選択用GUI
     private void OnGui_ChooseMode()
     {
         if(RoomManager.IsHost==true)
         {
             GUILayout.BeginHorizontal();
             GUILayout.Space(50);
-            GUILayout.Label("SelectMode", TagLabel);
+            GUILayout.Label("Setting", TagLabel);
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
