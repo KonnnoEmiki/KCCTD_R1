@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Threading.Tasks;
 
 public class GM : MonobitEngine.MonoBehaviour
 {
@@ -49,6 +51,11 @@ public class GM : MonobitEngine.MonoBehaviour
         hostC.gameObject.tag = "Player";
     }
 
+    static async void Delay()
+    {
+        await Task.Delay(30);
+    }
+
     [MunRPC]
     private void Update()
     {
@@ -72,16 +79,26 @@ public class GM : MonobitEngine.MonoBehaviour
             {
                 Destroy(obj);
             }
-            {
+        
                 GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Ball");
                 foreach (GameObject obj in tagobjs1)
                 {
-                    Destroy(obj);
+
+                    obj.gameObject.tag = "Player";
                 }
-            }
+            
             start = false;
         }
+        if (NetworkGUI.gs == true)
+        {
+            GameObject[] tagobjs2 = GameObject.FindGameObjectsWithTag("Ball");
+            foreach (GameObject obj in tagobjs2)
+            {
 
+                Destroy(obj);
+            }
+        }
+ 
         var roomData = MonobitEngine.MonobitNetwork.room;
         
         {
