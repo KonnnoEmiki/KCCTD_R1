@@ -229,10 +229,10 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            Ballflag = GUILayout.Toggle(Ballflag, "Ball",Toggle, GUILayout.Width(BaseGUIWidth * 2));
-            Trapflag = GUILayout.Toggle(Trapflag, "Trap", Toggle, GUILayout.Width(BaseGUIWidth * 2));
             TPSflag = GUILayout.Toggle(TPSflag, "TPS", Toggle, GUILayout.Width(BaseGUIWidth * 2));
             Itemflag = GUILayout.Toggle(Itemflag, "Item", Toggle, GUILayout.Width(BaseGUIWidth * 2));
+            Ballflag = GUILayout.Toggle(Ballflag, "Ball",Toggle, GUILayout.Width(BaseGUIWidth * 2));
+            Trapflag = GUILayout.Toggle(Trapflag, "Trap", Toggle, GUILayout.Width(BaseGUIWidth * 2));
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
         }
