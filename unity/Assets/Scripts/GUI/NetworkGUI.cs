@@ -131,6 +131,15 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
+        GUILayout.Space(10);
+        
+        //ゲーム終了ボタン
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(50);
+        if (GUILayout.Button("Close", button, GUILayout.Width(BaseGUIWidth * 2)))
+            UnityEditor.EditorApplication.isPlaying = false;
+            //Application.Quit();
+        GUILayout.EndHorizontal();
     }
 
 
@@ -237,7 +246,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Loby", button, GUILayout.Width(BaseGUIWidth * 2)))
+            if (GUILayout.Button("Canan", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 0;
             GUILayout.Space(5);
             if (GUILayout.Button("Plane", button, GUILayout.Width(BaseGUIWidth * 2)))
@@ -342,10 +351,13 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 				continue;
 			}
 
+            GUILayout.BeginHorizontal();
+            GUILayout.Space(50);
 			GUILayout.Label(player.playerName + " is in" + player.roomName, Label, GUILayout.Width(BaseGUIWidth * 3));
 
 			if (GUILayout.Button("Join", button))
 				NetworkManager.Instance.JoinRoom(player.roomName);
+            GUILayout.EndHorizontal();
 		}
 	}
 
@@ -367,7 +379,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 				continue;
 
 			GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
+            GUILayout.Space(50);
             // ルーム情報表示
             string roomName = roomData.name;
 			string playerInfo = "(" + roomData.playerCount + "/" + ((roomData.maxPlayers == 0) ? "-" : roomData.maxPlayers.ToString()) + ")";
@@ -375,7 +387,6 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
 			if (GUILayout.Button("Join", button, GUILayout.Width(BaseGUIWidth * 3)))
 				NetworkManager.Instance.JoinRoom(roomData.name); // 入室
-            GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
 		}
     }
