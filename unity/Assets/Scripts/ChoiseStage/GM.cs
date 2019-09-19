@@ -142,7 +142,7 @@ public class GM : MonobitEngine.MonoBehaviour
         GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Phantom");
         foreach (GameObject obj in tagobjs1)
         {
-            obj.gameObject.tag = "Player";
+          //  obj.gameObject.tag = "Player";
         }
         GameObject[] tagobjs2 = GameObject.FindGameObjectsWithTag("Phantom");
         foreach (GameObject obj in tagobjs2)

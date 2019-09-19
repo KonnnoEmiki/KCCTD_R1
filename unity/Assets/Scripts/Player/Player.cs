@@ -165,6 +165,28 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
                 ScoreCounter.scoreflag = 6;
             }
         }
+        if (hit.CompareTag("ScoreGold"))
+        {
+            //1000PT
+            if (NetworkGUI.gs == true)
+                if (monobitView.isMine == false)
+                    return;   // 所有権が無ければ
+            if (monobitView.isMine == true)
+            {
+                ScoreCounter.scoreflag = 4;
+            }
+        }
+        if (hit.CompareTag("ScoreSilver"))
+        {
+            //300PT
+            if (NetworkGUI.gs == true)
+                if (monobitView.isMine == false)
+                    return;   // 所有権が無ければ
+            if (monobitView.isMine == true)
+            {
+                ScoreCounter.scoreflag = 5;
+            }
+        }
     }
 
     static async void Delay()
