@@ -10,8 +10,7 @@ public class Itembreak : MonobitEngine.MonoBehaviour
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player") && NetworkGUI.gs == true )
         {
-            if (monobitView.isMine == true)
-                ScoreCounter.scoreflag = 6;
+            ScoreCounter.scoreflag = 6;
             // このコンポーネントを持つGameObjectを破棄する
             Destroy(gameObject);
         }

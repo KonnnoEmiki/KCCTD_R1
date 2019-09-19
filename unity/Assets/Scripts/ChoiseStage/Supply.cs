@@ -9,7 +9,7 @@ public class Supply : MonobitEngine.MonoBehaviour
 
     void OnTriggerStay(Collider hit)
     {
-        if (hit.CompareTag("Player") && PlayerController.Flag)
+        if (hit.CompareTag("Player") || hit.CompareTag("master") || hit.CompareTag("Phantom") && PlayerController.Flag)
         {
             PlayerController.shotCount = 6;
             if (NetworkGUI.stageselect == 4) PlayerController.shotCount = 10;

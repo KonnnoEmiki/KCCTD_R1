@@ -54,7 +54,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
         m_Input = GetComponent<PlayerInput>();
         m_Camera = Camera.main;
         m_AnimController.AddObserver(this); // アニメーションイベント通知受け取り用
-        shellLabel.text = "玉：6";
+        shellLabel.text = "Bullet：6";
         if (NetworkGUI.stageselect == 4) shotCount = 10;
         else shotCount = 6;
     }
@@ -154,7 +154,7 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
             lookAheadPosition.y += 1;
             Transform myTransform = this.transform;
             Vector3 pos = myTransform.position;
-            shellLabel.text = "玉：" + shotCount;
+            shellLabel.text = "Bullet：" + shotCount;
 
             if (Input.GetKey(KeyCode.Mouse0))
             {
