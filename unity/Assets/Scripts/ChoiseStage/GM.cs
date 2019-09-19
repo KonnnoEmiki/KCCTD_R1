@@ -6,7 +6,11 @@ public class GM : MonobitEngine.MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject host = null;
+    private GameObject hostA = null;
+    [SerializeField]
+    private GameObject hostB = null;
+    [SerializeField]
+    private GameObject hostC = null;
     [SerializeField]
     private GameObject Item = null;
     [SerializeField]
@@ -40,16 +44,26 @@ public class GM : MonobitEngine.MonoBehaviour
 
     private void Start()
     {
-            host.gameObject.tag = "Player";
+        hostA.gameObject.tag = "Player";
+        hostB.gameObject.tag = "Player";
+        hostC.gameObject.tag = "Player";
     }
 
     [MunRPC]
     private void Update()
     {
         if (NetworkGUI.roommaster == true && first == true)
-            host.gameObject.tag = "master";
+        {
+            hostA.gameObject.tag = "master";
+            hostB.gameObject.tag = "master";
+            hostC.gameObject.tag = "master";
+        }
         if (first == false && NetworkGUI.gs == false)
-            host.gameObject.tag = "Ball";
+        {
+            hostA.gameObject.tag = "Ball";
+            hostB.gameObject.tag = "Ball";
+            hostC.gameObject.tag = "Ball";
+        }
         if (NetworkGUI.gs == true && start == true)
         {
             choise.gameObject.SetActive(false);
