@@ -130,28 +130,6 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.EndHorizontal();
     }
 
-    // キャラクター選択用GUI
-   /* private void OnGui_CharacterSelect()
-    {
-        GUILayout.BeginHorizontal();
-        GUILayout.Space(50);
-        GUILayout.Label("CharacterSelect", TagLabel);
-        GUILayout.EndHorizontal();
-
-        GUILayout.BeginHorizontal();
-        GUILayout.FlexibleSpace();
-        if (GUILayout.Button("UnityChan", button, GUILayout.Width(BaseGUIWidth * 2)))
-            Charaselect = 0;
-        if (GUILayout.Button("AcquireChan", button, GUILayout.Width(BaseGUIWidth * 2)))
-            Charaselect = 1;
-        if (GUILayout.Button("SapphiartChan", button, GUILayout.Width(BaseGUIWidth * 2)))
-            Charaselect = 2;
-        GUILayout.FlexibleSpace();
-        GUILayout.EndHorizontal();
-        //cs = false;
-    }*/
-
-
 
     // サーバーから切断用GUI
     private void OnGui_Disconnect()
