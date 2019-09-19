@@ -143,6 +143,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
             // Unityちゃん is 不死
             if (NetworkGUI.gs == true)
             {
+                NetworkGUI.fast = true;
                 NetworkGUI.gs = false;
                 Delay();
             }
@@ -153,6 +154,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
     {
         await Task.Delay(3000);
         NetworkGUI.gs = true;
+        NetworkGUI.fast = false;
     }
 
     void Update()

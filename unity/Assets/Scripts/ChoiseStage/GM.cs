@@ -65,33 +65,10 @@ public class GM : MonobitEngine.MonoBehaviour
             hostC.gameObject.tag = "Phantom";
         }
 
-
         if (NetworkGUI.gs == true && start == true)
-        {
-            choise.gameObject.SetActive(false);
-            GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("master");
-            foreach (GameObject obj in tagobjs)
-            {
-                Destroy(obj);
-            }
-            {
-                GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Phantom");
-                foreach (GameObject obj in tagobjs1)
-                {
-                   obj.gameObject.tag="Player";
-                }
-            }
-            start = false;
-        }
-
-        if (NetworkGUI.gs == true)
-        {
-            GameObject[] tagobjs2 = GameObject.FindGameObjectsWithTag("Phantom");
-            foreach (GameObject obj in tagobjs2)
-            {
-                Destroy(obj);
-            }
-        }
+            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
+                if (MonobitEngine.MonobitNetwork.isHost == true)
+                    monobitView.RPC("kill", MonobitEngine.MonobitTargets.All, null);
 
         var roomData = MonobitEngine.MonobitNetwork.room;
         
@@ -160,6 +137,29 @@ public class GM : MonobitEngine.MonoBehaviour
 
         }
     }
+
+    [MunRPC]
+    private void kill()
+    {
+        GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Phantom");
+        foreach (GameObject obj in tagobjs1)
+        {
+            obj.gameObject.tag = "Player";
+        }
+        GameObject[] tagobjs2 = GameObject.FindGameObjectsWithTag("Phantom");
+        foreach (GameObject obj in tagobjs2)
+        {
+            Destroy(obj);
+        }
+        GameObject[] tagobjs = GameObject.FindGameObjectsWithTag("master");
+        foreach (GameObject obj in tagobjs)
+        {
+            Destroy(obj);
+        }
+        choise.gameObject.SetActive(false);
+        start = false;
+    }
+    
 
     [MunRPC]
     private void stagechange0()

@@ -37,6 +37,8 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
     public static bool TPSflag = true;
     public static bool Itemflag = true;
 
+    public static bool fast = false;
+
     private bool gsf = true;
 
     public GUIStyle button;
@@ -48,6 +50,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
     private void Start()
 	{
+        fast = false;
 		NetworkManager.Instance.AddNetworkEventObserver(this);
 	}
 

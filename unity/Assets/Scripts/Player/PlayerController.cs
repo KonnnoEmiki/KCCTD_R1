@@ -43,11 +43,17 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
 
     private float skyjump1 = 0;
     private float skyjump2 = 1;
+    private float fast1 = 1;
+    private float fast2 = 1;
 
     public static bool Flag = false;
 
     void Start()
     {
+        skyjump1 = 0;
+        skyjump2 = 1;
+        fast1 = 1;
+        fast2 = 1;
         m_AnimController = GetComponent<PlayerAnimationController>();
         m_RigidBody = GetComponent<Rigidbody>();
         m_Player = GetComponent<Player>();
@@ -77,6 +83,16 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
         {
             skyjump1 = 0;
             skyjump2 = 1;
+        }
+        if (NetworkGUI.fast == true)
+        {
+            fast1 = 2;
+            fast2 = 2;
+        }
+        if (NetworkGUI.fast == false)
+        {
+            fast1 = 1;
+            fast2 = 1;
         }
     }
 
@@ -135,9 +151,9 @@ public class PlayerController : MonobitEngine.MonoBehaviour, IObserver<PlayerAni
 
             // 前進,後進で移動速度を変更
             if (m_Input.MoveKeyVal < 0)
-                moveVal *= m_BackSpeed;     // 後進なら
+                moveVal *= m_BackSpeed * fast1;     // 後進なら
             else
-                moveVal *= m_ForwordSpeed;  // 前進なら
+                moveVal *= m_ForwordSpeed * fast2 ;  // 前進なら
                                             // ジャンプ中なら
             if (m_Player.IsJumping)
                 moveVal *= 0.5f + skyjump1;
