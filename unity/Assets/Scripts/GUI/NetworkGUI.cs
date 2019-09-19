@@ -128,6 +128,15 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
+        GUILayout.Space(10);
+        
+        //ゲーム終了ボタン
+        GUILayout.BeginHorizontal();
+        GUILayout.Space(50);
+        if (GUILayout.Button("Close", button, GUILayout.Width(BaseGUIWidth * 2)))
+            UnityEditor.EditorApplication.isPlaying = false;
+            //Application.Quit();
+        GUILayout.EndHorizontal();
     }
 
 
@@ -234,7 +243,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Loby", button, GUILayout.Width(BaseGUIWidth * 2)))
+            if (GUILayout.Button("Canan", button, GUILayout.Width(BaseGUIWidth * 2)))
                 stageselect = 0;
             GUILayout.Space(5);
             if (GUILayout.Button("Plane", button, GUILayout.Width(BaseGUIWidth * 2)))
