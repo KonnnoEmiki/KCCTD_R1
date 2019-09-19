@@ -66,8 +66,6 @@ public class GM : MonobitEngine.MonoBehaviour
         }
 
         if (NetworkGUI.gs == true && start == true)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("kill", MonobitEngine.MonobitTargets.All, null);
 
         var roomData = MonobitEngine.MonobitNetwork.room;
@@ -144,7 +142,7 @@ public class GM : MonobitEngine.MonoBehaviour
         GameObject[] tagobjs1 = GameObject.FindGameObjectsWithTag("Phantom");
         foreach (GameObject obj in tagobjs1)
         {
-            obj.gameObject.tag = "Player";
+          //  obj.gameObject.tag = "Player";
         }
         GameObject[] tagobjs2 = GameObject.FindGameObjectsWithTag("Phantom");
         foreach (GameObject obj in tagobjs2)

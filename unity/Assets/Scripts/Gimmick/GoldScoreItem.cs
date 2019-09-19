@@ -10,7 +10,6 @@ public class GoldScoreItem : MonobitEngine.MonoBehaviour
         // 接触対象はPlayerタグですか？
         if (hit.CompareTag("Player") && NetworkGUI.gs == true)
         {
-                ScoreCounter.scoreflag = 4;
             // このコンポーネントを持つGameObjectを破棄する
             Destroy(gameObject);
         }

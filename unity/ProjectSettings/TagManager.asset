@@ -12,6 +12,9 @@ TagManager:
   - master
   - Supply
   - Phantom
+  - cure
+  - GoldScore
+  - SilverScore
   layers:
   - Default
   - TransparentFX

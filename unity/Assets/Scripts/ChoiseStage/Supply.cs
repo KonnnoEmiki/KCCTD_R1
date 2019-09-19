@@ -9,13 +9,14 @@ public class Supply : MonobitEngine.MonoBehaviour
 
     void OnTriggerStay(Collider hit)
     {
-        if (hit.CompareTag("Player") || hit.CompareTag("master") || hit.CompareTag("Phantom") && PlayerController.Flag)
-        {
-            PlayerController.shotCount = 6;
-            if (NetworkGUI.stageselect == 4) PlayerController.shotCount = 10;
-            monobitView.RPC("Activefalse", MonobitEngine.MonobitTargets.All, null);
-            PlayerController.Flag = false;
-        }
+        if (hit.CompareTag("Player") || hit.CompareTag("master") || hit.CompareTag("Phantom"))
+            if (PlayerController.Flag)
+            {
+                PlayerController.shotCount = 6;
+                if (NetworkGUI.stageselect == 4) PlayerController.shotCount = 10;
+                monobitView.RPC("Activefalse", MonobitEngine.MonobitTargets.All, null);
+                PlayerController.Flag = false;
+            }
     }
 
     [MunRPC]
