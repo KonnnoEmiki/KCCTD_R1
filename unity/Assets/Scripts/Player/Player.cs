@@ -83,7 +83,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
 	[SerializeField]
 	private float m_CastDistance;
 
-	[SerializeField]
+    [SerializeField]
 	private float m_DurableValue = 1; // 耐久値(どれくらいのスビードのボールまで当たっても耐えるか)
 
 	private Rigidbody m_RigidBody = null;
@@ -132,7 +132,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
             if (LifeCount == 0)
             {
                 if (monobitView.isMine == false)
-                sibouflag = true;
+                    sibouflag = true;
                 OnDown();
             }
         }
@@ -140,12 +140,29 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
         // 接触対象はmuscleタグですか？
         if (hit.CompareTag("muscle"))
         {
-            // Unityちゃん is 不死
             if (NetworkGUI.gs == true)
             {
-                NetworkGUI.fast = true;
-                NetworkGUI.gs = false;
-                Delay();
+                if (monobitView.isMine == false)
+                    return;    // 所有権が無ければ
+                if (monobitView.isMine == true)// Unityちゃん is 不死
+                {
+                    ScoreCounter.scoreflag = 6;
+                    NetworkGUI.fast = true;
+                    NetworkGUI.gs = false;
+                    Delay();
+                }
+            }
+        }
+        if (hit.CompareTag("cure"))
+        {
+            // Unityちゃん is 回復
+            if (NetworkGUI.gs == true)
+                if (monobitView.isMine == false)
+                    return;   // 所有権が無ければ
+            if (monobitView.isMine == true)
+            {
+                LifeCount = LifeCount + 3;
+                ScoreCounter.scoreflag = 6;
             }
         }
     }

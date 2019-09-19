@@ -66,8 +66,6 @@ public class GM : MonobitEngine.MonoBehaviour
         }
 
         if (NetworkGUI.gs == true && start == true)
-            if (monobitView.isMine == true && NetworkGUI.roommaster == true)
-                if (MonobitEngine.MonobitNetwork.isHost == true)
                     monobitView.RPC("kill", MonobitEngine.MonobitTargets.All, null);
 
         var roomData = MonobitEngine.MonobitNetwork.room;
