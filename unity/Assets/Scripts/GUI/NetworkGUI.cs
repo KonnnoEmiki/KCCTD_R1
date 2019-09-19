@@ -134,8 +134,13 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.BeginHorizontal();
         GUILayout.Space(50);
         if (GUILayout.Button("Close", button, GUILayout.Width(BaseGUIWidth * 2)))
-            UnityEditor.EditorApplication.isPlaying = false;
-            //Application.Quit();
+        {
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+            #else
+                Application.Quit();
+            #endif
+        }
         GUILayout.EndHorizontal();
     }
 
@@ -183,7 +188,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 		}
 
         // ルーム内に自分しか居なければ他のプレイヤーを待つ
-        /*if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
+        if(MonobitEngine.MonobitNetwork.room.playerCount <= 1)
 		{
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
@@ -193,7 +198,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
             return;
-		}*/
+		}
 
         GUILayout.BeginHorizontal();
         GUILayout.FlexibleSpace();
