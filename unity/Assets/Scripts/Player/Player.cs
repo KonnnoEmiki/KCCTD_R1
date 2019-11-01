@@ -165,7 +165,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
                 ScoreCounter.scoreflag = 6;
             }
         }
-        if (hit.CompareTag("ScoreSilvaer"))
+        if (hit.CompareTag("GoldScore"))
         {
             //1000PT
             if (NetworkGUI.gs == true)
@@ -176,7 +176,7 @@ public class Player : MonobitEngine.MonoBehaviour,IObserver<PlayerAnimationEvent
                 ScoreCounter.scoreflag = 4;
             }
         }
-        if (hit.CompareTag("ScoreGold"))
+        if (hit.CompareTag("SilverScore"))
         {
             //300PT
             if (NetworkGUI.gs == true)

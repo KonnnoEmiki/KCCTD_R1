@@ -9,7 +9,9 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
 	private string m_RoomName = "Room 1";
 	private string m_SearchPlayerName = "";
 
-	private static readonly string OutGameSceneName = "OutGame";
+    public static string PlayerName;
+
+    private static readonly string OutGameSceneName = "OutGame";
 	private static readonly string InGameSceneName = "InGame";
 
 	private bool m_IsInGameScene = false;
@@ -103,6 +105,7 @@ public class NetworkGUI : MonobitEngine.SingletonMonoBehaviour<NetworkGUI>,IObse
         GUILayout.FlexibleSpace();
         GUILayout.Label("Player Name",Label, GUILayout.Width(BaseGUIWidth * 2));
 		m_PlayerName = GUILayout.TextField(m_PlayerName, TextField, GUILayout.Width(BaseGUIWidth*4));
+        PlayerName = m_PlayerName;
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
 
